@@ -131,7 +131,7 @@
         _selectedFilename = [Utilities lastFileName];
     }
     
-    [self presentModalViewController:_strategyView animated:NO];
+    [self presentViewController:_strategyView animated:YES completion:nil];
     
     self.strategyView = nil;
 }
@@ -178,7 +178,7 @@
     
 //    self.selectFileView.selectedFilename = &(_selectedFilename);
     
-    [self presentModalViewController:_tableView animated:YES];
+    [self presentViewController:_tableView animated:YES completion:nil];
     
     self.tableView = nil;
 }
@@ -221,7 +221,7 @@
     
 //    self.selectFileView.selectedFilename = &(_selectedFilename);
     
-    [self presentModalViewController:_selectFileView animated:NO];
+    [self presentViewController:_selectFileView animated:YES completion:nil];
     
     //    self.selectFileView = nil;
 }
@@ -865,43 +865,41 @@
 #pragma mark -
 #pragma mark -Orientation
 
--(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
-    
-    CGRect screenBound = [[UIScreen mainScreen] bounds];
-    
-    if (toInterfaceOrientation == UIInterfaceOrientationPortrait) {
-        self.view = _portretView;
-        self.portret = true;
-        
-        self.view.transform = CGAffineTransformMakeRotation(0);
-        self.view.bounds = CGRectMake(0.0, 0.0, 460.0, 320.0);
-        [self makeRangeVisible];
-    }
-    else if (toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft) {
-        self.view = _landscapeView;
-        self.portret = false;
-        
-        self.view.transform = CGAffineTransformMakeRotation(deg2rad * (-90));
-        self.view.bounds = CGRectMake(0.0, 0.0, 300.0, 480.0);
-        [self makeRangeVisible];
-    }
-    else if (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight) {
-        self.view = _landscapeView;
-        self.portret = false;
-        
-        self.view.transform = CGAffineTransformMakeRotation(deg2rad * 90);
-        self.view.bounds = CGRectMake(0.0, 0.0, 300.0, 480.0);
-        [self makeRangeVisible];
-    }
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait ||
-            interfaceOrientation == UIInterfaceOrientationLandscapeLeft ||
-            interfaceOrientation == UIInterfaceOrientationLandscapeRight);
-}
+//-(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+//{
+//    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
+//    
+//    if (toInterfaceOrientation == UIInterfaceOrientationPortrait) {
+//        self.view = _portretView;
+//        self.portret = true;
+//        
+//        self.view.transform = CGAffineTransformMakeRotation(0);
+//        self.view.bounds = CGRectMake(0.0, 0.0, 460.0, 320.0);
+//        [self makeRangeVisible];
+//    }
+//    else if (toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft) {
+//        self.view = _landscapeView;
+//        self.portret = false;
+//        
+//        self.view.transform = CGAffineTransformMakeRotation(deg2rad * (-90));
+//        self.view.bounds = CGRectMake(0.0, 0.0, 300.0, 480.0);
+//        [self makeRangeVisible];
+//    }
+//    else if (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight) {
+//        self.view = _landscapeView;
+//        self.portret = false;
+//        
+//        self.view.transform = CGAffineTransformMakeRotation(deg2rad * 90);
+//        self.view.bounds = CGRectMake(0.0, 0.0, 300.0, 480.0);
+//        [self makeRangeVisible];
+//    }
+//}
+//
+//- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+//{
+//    return (interfaceOrientation == UIInterfaceOrientationPortrait ||
+//            interfaceOrientation == UIInterfaceOrientationLandscapeLeft ||
+//            interfaceOrientation == UIInterfaceOrientationLandscapeRight);
+//}
 
 @end

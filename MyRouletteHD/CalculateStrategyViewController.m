@@ -109,7 +109,7 @@
         [Utilities archiveBets:_myBets];
     }
     
-	[self dismissModalViewControllerAnimated:NO];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField 

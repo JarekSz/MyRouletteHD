@@ -240,8 +240,7 @@
 
 - (IBAction)goBack
 {
-    
-	[self dismissModalViewControllerAnimated:NO];    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(IBAction)enterEditMode

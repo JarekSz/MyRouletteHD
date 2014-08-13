@@ -32,7 +32,7 @@
     
     *_selectedFilename = [_FileNameText text];
     
-	[self dismissModalViewControllerAnimated:NO];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(IBAction)nextFile:(id)sender
