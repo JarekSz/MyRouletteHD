@@ -14,26 +14,30 @@
 
 @implementation FileViewController
 
-@synthesize FileDirectory;
-@synthesize NumbersDrawn;
-@synthesize FileNameText;
-@synthesize selectedFilename;
-//@synthesize fileNumber;
-@synthesize allNumbersDrawn;
+//@synthesize FileDirectory;
+//@synthesize NumbersDrawn;
+//@synthesize FileNameText;
+//@synthesize selectedFilename;
+////@synthesize fileNumber;
+//@synthesize allNumbersDrawn;
 
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
 
 -(IBAction)goBack 
 {    
 //    int number = [[FileNameText text] intValue];
     
-    *selectedFilename = [FileNameText text];
+    *_selectedFilename = [_FileNameText text];
     
 	[self dismissModalViewControllerAnimated:NO];
 }
 
 -(IBAction)nextFile:(id)sender
 {
-    int index = [Utilities indexOfSelectedFile:*selectedFilename];
+    int index = [Utilities indexOfSelectedFile:*_selectedFilename];
     
     NSMutableArray  *allFiles = [Utilities arrayOfRouletteFiles];
     
@@ -45,13 +49,13 @@
             index++;
         }
         
-        *selectedFilename = [allFiles objectAtIndex:index];
+        *_selectedFilename = [allFiles objectAtIndex:index];
         
-        FileNameText.text = *selectedFilename;
+        _FileNameText.text = *_selectedFilename;
         
         NSString *docPath = [Utilities archivePath];
         
-        NSString *filePath = [docPath stringByAppendingPathComponent:*selectedFilename];
+        NSString *filePath = [docPath stringByAppendingPathComponent:*_selectedFilename];
         
         [self showNumbersFromFile:filePath];
     }
@@ -61,7 +65,7 @@
 
 -(IBAction)prevFile:(id)sender
 {
-    int index = [Utilities indexOfSelectedFile:*selectedFilename];
+    int index = [Utilities indexOfSelectedFile:*_selectedFilename];
     
     if (index > 0) {
         index--;
@@ -73,13 +77,13 @@
     
     if (max > 0)
     {
-        *selectedFilename = [allFiles objectAtIndex:index];
+        *_selectedFilename = [allFiles objectAtIndex:index];
         
-        FileNameText.text = *selectedFilename;
+        _FileNameText.text = *_selectedFilename;
         
         NSString *docPath = [Utilities archivePath];
         
-        NSString *filePath = [docPath stringByAppendingPathComponent:*selectedFilename];
+        NSString *filePath = [docPath stringByAppendingPathComponent:*_selectedFilename];
         
         [self showNumbersFromFile:filePath];
     }
@@ -91,11 +95,11 @@
 {
     NSMutableArray  *allFiles = [Utilities arrayOfRouletteFiles];
     
-    int index = [Utilities indexOfSelectedFile:*selectedFilename];
+    int index = [Utilities indexOfSelectedFile:*_selectedFilename];
     
     NSString *docPath = [Utilities archivePath];
     
-    NSString *filePath = [docPath stringByAppendingPathComponent:*selectedFilename];
+    NSString *filePath = [docPath stringByAppendingPathComponent:*_selectedFilename];
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
     
@@ -114,7 +118,7 @@
         success = [fileManager removeItemAtPath:filePath
                                           error:&error];
         
-        [allFiles removeObject:*selectedFilename];
+        [allFiles removeObject:*_selectedFilename];
     }
     
     [self showAllFiles];
@@ -122,20 +126,20 @@
     if (index > 0) {
         index--;
         
-        *selectedFilename = [allFiles objectAtIndex:index];
+        *_selectedFilename = [allFiles objectAtIndex:index];
     }
     else if (index < [allFiles count]) {
         index++;
         
-        *selectedFilename = [allFiles objectAtIndex:index];
+        *_selectedFilename = [allFiles objectAtIndex:index];
     }
     else {
-        *selectedFilename = @"";
+        *_selectedFilename = @"";
     }
     
     allFiles = nil;
     
-    FileNameText.text = *selectedFilename;
+    _FileNameText.text = *_selectedFilename;
 }
 
 - (NSString *)archiveFilePath:(int)number
@@ -170,7 +174,7 @@
 
 -(void)showAllFiles
 {
-    FileDirectory.text = @"";
+    _FileDirectory.text = @"";
     
     NSString *directory = [[NSString alloc] init];
 
@@ -184,7 +188,7 @@
     
     allFiles = nil;
     
-    FileDirectory.text = directory;
+    _FileDirectory.text = directory;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -198,7 +202,7 @@
 
 -(void)showNumbersFromFile:(NSString *)filePath
 {
-    NumbersDrawn.text = @"";
+    _NumbersDrawn.text = @"";
     
 	NSFileManager *fileManager = [NSFileManager defaultManager];
 	
@@ -209,11 +213,11 @@
     
     NSString *text = [[NSString alloc] init];
     
-    for (NSString *number in allNumbersDrawn) {
+    for (NSString *number in _allNumbersDrawn) {
         [self addNextNumber:number toText:&text];
     }
     
-    NumbersDrawn.text = text;
+    _NumbersDrawn.text = text;
     
 }
 
@@ -223,13 +227,13 @@
     // Do any additional setup after loading the view from its nib.
     [self showAllFiles];
     
-    FileNameText.text = *selectedFilename;
+    _FileNameText.text = *_selectedFilename;
     
-    NumbersDrawn.text = @"";
+    _NumbersDrawn.text = @"";
     
     NSString *docPath = [Utilities archivePath];
     
-    NSString *filePath = [docPath stringByAppendingPathComponent:*selectedFilename];
+    NSString *filePath = [docPath stringByAppendingPathComponent:*_selectedFilename];
     
     [self showNumbersFromFile:filePath];
 }

@@ -28,37 +28,41 @@
 
 //@synthesize value1, value2, value3, value4, value5;
 
-@synthesize myBets;
-@synthesize first;
-@synthesize second;
-@synthesize third;
-@synthesize fourth;
-@synthesize fifth;
-@synthesize needSaving;
+//@synthesize myBets;
+//@synthesize first;
+//@synthesize second;
+//@synthesize third;
+//@synthesize fourth;
+//@synthesize fifth;
+//@synthesize needSaving;
 
-@synthesize colorsLbl;
-@synthesize oddsLbl;
-@synthesize halfLbl;
-@synthesize cashColors, cashOdds, cashHalves;
-@synthesize allNumbersDrawn;
+//@synthesize colorsLbl;
+//@synthesize oddsLbl;
+//@synthesize halfLbl;
+//@synthesize cashColors, cashOdds, cashHalves;
+//@synthesize allNumbersDrawn;
 
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
 
 -(void)readBetNumbers
 {
-    first = [_value1.text intValue];
-    second = [_value2.text intValue];
-    third = [_value3.text intValue];
-    fourth = [_value4.text intValue];
-    fifth = [_value5.text intValue];
+    self.first = [_value1.text intValue];
+    self.second = [_value2.text intValue];
+    self.third = [_value3.text intValue];
+    self.fourth = [_value4.text intValue];
+    self.fifth = [_value5.text intValue];
 }
 
 -(void)setBets
 {
-    myBets.bet1 = [NSNumber numberWithInt:first];
-    myBets.bet2 = [NSNumber numberWithInt:second];
-    myBets.bet3 = [NSNumber numberWithInt:third];
-    myBets.bet4 = [NSNumber numberWithInt:fourth];
-    myBets.bet5 = [NSNumber numberWithInt:fifth];
+    self.myBets.bet1 = [NSNumber numberWithInt:_first];
+    self.myBets.bet2 = [NSNumber numberWithInt:_second];
+    self.myBets.bet3 = [NSNumber numberWithInt:_third];
+    self.myBets.bet4 = [NSNumber numberWithInt:_fourth];
+    self.myBets.bet5 = [NSNumber numberWithInt:_fifth];
 }
 
 -(IBAction)numberChanged:(id)sender
@@ -69,7 +73,7 @@
 
     [self setBets];
 
-    [Utilities archiveBets:myBets];
+    [Utilities archiveBets:_myBets];
 }
 
 -(void)setFrequenciesColors:(NSMutableArray *)colors 
@@ -81,8 +85,8 @@
     self.oddsFrequency = odds;
     self.halvesFrequency = halves;
     
-    allNumbersDrawn = [[NSMutableArray alloc] init];
-    [allNumbersDrawn addObjectsFromArray:allNumbers];
+    _allNumbersDrawn = [[NSMutableArray alloc] init];
+    [_allNumbersDrawn addObjectsFromArray:allNumbers];
 }
 
 -(void)setCashForColors:(double)colors
@@ -96,13 +100,13 @@
 
 -(IBAction)goBack 
 {    
-    if (needSaving) 
+    if (_needSaving)
     {
         [self update];
         
         [self setBets];
         
-        [Utilities archiveBets:myBets];
+        [Utilities archiveBets:_myBets];
     }
     
 	[self dismissModalViewControllerAnimated:NO];
@@ -117,32 +121,32 @@
 
 -(void)showCash
 {
-    NSString *col = [NSString stringWithFormat:@"%.2f", cashColors];
-    _colorText.text = col;
+    NSString *col = [NSString stringWithFormat:@"%.2f", _cashColors];
+    self.colorText.text = col;
     
-    NSString *odd = [NSString stringWithFormat:@"%.2f", cashOdds];
-    _oddsText.text = odd;
+    NSString *odd = [NSString stringWithFormat:@"%.2f", _cashOdds];
+    self.oddsText.text = odd;
     
-    NSString *halves = [NSString stringWithFormat:@"%.2f", cashHalves];
-    _halvesText.text = halves;
+    NSString *halves = [NSString stringWithFormat:@"%.2f", _cashHalves];
+    self.halvesText.text = halves;
 }
 
 -(void)calculate
 {
-    cashColors = [Utilities updateColorFrequencies:_colorsFrequency allNumbers:allNumbersDrawn];
+    self.cashColors = [Utilities updateColorFrequencies:_colorsFrequency allNumbers:_allNumbersDrawn];
     
-    NSString *col = [NSString stringWithFormat:@"%.2f", cashColors];
-    _colorText.text = col;
+    NSString *col = [NSString stringWithFormat:@"%.2f", _cashColors];
+    self.colorText.text = col;
     
-    cashOdds = [Utilities updateOddFrequencies:_oddsFrequency allNumbers:allNumbersDrawn];
+    self.cashOdds = [Utilities updateOddFrequencies:_oddsFrequency allNumbers:_allNumbersDrawn];
     
-    NSString *odd = [NSString stringWithFormat:@"%.2f", cashOdds];
-    _oddsText.text = odd;
+    NSString *odd = [NSString stringWithFormat:@"%.2f", _cashOdds];
+    self.oddsText.text = odd;
 
-    cashHalves = [Utilities updateHalvesFrequencies:_halvesFrequency allNumbers:allNumbersDrawn];
+    self.cashHalves = [Utilities updateHalvesFrequencies:_halvesFrequency allNumbers:_allNumbersDrawn];
     
-    NSString *halves = [NSString stringWithFormat:@"%.2f", cashHalves];
-    _halvesText.text = halves;
+    NSString *halves = [NSString stringWithFormat:@"%.2f", _cashHalves];
+    self.halvesText.text = halves;
 }
 
 -(IBAction)update
@@ -215,23 +219,23 @@
     
     self.myBets = [Utilities myBets];
     
-    if (myBets == nil) {
-        myBets = [[MyBets alloc] init];
+    if (_myBets == nil) {
+        _myBets = [[MyBets alloc] init];
         
         self.needSaving = YES;
     }
     
-    first = [[myBets bet1] intValue];
-    second = [[myBets bet2] intValue];
-    third = [[myBets bet3] intValue];
-    fourth = [[myBets bet4] intValue];
-    fifth = [[myBets bet5] intValue];
+    self.first = [[_myBets bet1] intValue];
+    self.second = [[_myBets bet2] intValue];
+    self.third = [[_myBets bet3] intValue];
+    self.fourth = [[_myBets bet4] intValue];
+    self.fifth = [[_myBets bet5] intValue];
     
-    _value1.text = [NSString stringWithFormat:@"%d", first];
-    _value2.text = [NSString stringWithFormat:@"%d", second];
-    _value3.text = [NSString stringWithFormat:@"%d", third];
-    _value4.text = [NSString stringWithFormat:@"%d", fourth];
-    _value5.text = [NSString stringWithFormat:@"%d", fifth];
+    self.value1.text = [NSString stringWithFormat:@"%d", _first];
+    self.value2.text = [NSString stringWithFormat:@"%d", _second];
+    self.value3.text = [NSString stringWithFormat:@"%d", _third];
+    self.value4.text = [NSString stringWithFormat:@"%d", _fourth];
+    self.value5.text = [NSString stringWithFormat:@"%d", _fifth];
     
     NSString *colors = [[NSString alloc] initWithFormat:@"%d-%d-%d-%d-%d-%d", 
                      [[_colorsFrequency objectAtIndex:0] intValue],
@@ -240,7 +244,7 @@
                      [[_colorsFrequency objectAtIndex:3] intValue],
                      [[_colorsFrequency objectAtIndex:4] intValue],
                      [[_colorsFrequency objectAtIndex:5] intValue]];
-    colorsLbl.text = colors;
+    self.colorsLbl.text = colors;
 
     NSString *odds = [[NSString alloc] initWithFormat:@"%d-%d-%d-%d-%d-%d", 
                         [[_oddsFrequency objectAtIndex:0] intValue],
@@ -249,7 +253,7 @@
                         [[_oddsFrequency objectAtIndex:3] intValue],
                         [[_oddsFrequency objectAtIndex:4] intValue],
                         [[_oddsFrequency objectAtIndex:5] intValue]];
-    oddsLbl.text = odds;
+    self.oddsLbl.text = odds;
 
     NSString *half = [[NSString alloc] initWithFormat:@"%d-%d-%d-%d-%d-%d", 
                       [[_halvesFrequency objectAtIndex:0] intValue],
@@ -258,7 +262,7 @@
                       [[_halvesFrequency objectAtIndex:3] intValue],
                       [[_halvesFrequency objectAtIndex:4] intValue],
                       [[_halvesFrequency objectAtIndex:5] intValue]];
-    halfLbl.text = half;
+    self.halfLbl.text = half;
 
     [self showCash];
 }

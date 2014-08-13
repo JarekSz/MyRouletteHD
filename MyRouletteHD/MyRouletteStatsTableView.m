@@ -14,6 +14,9 @@
 
 @implementation MyRouletteStatsTableView
 
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
 
 -(void)setScores:(NSMutableArray *)scores
 {

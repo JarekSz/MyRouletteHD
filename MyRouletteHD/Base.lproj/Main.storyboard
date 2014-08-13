@@ -31,6 +31,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="879-Fp-QvX"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fS0-Qm-5UV">
                                         <rect key="frame" x="80" y="7" width="38" height="38"/>
@@ -43,6 +46,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="G3e-Ex-SjV"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MtB-Uc-iNC">
                                         <rect key="frame" x="29" y="7" width="38" height="38"/>
@@ -55,6 +61,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="WRZ-P0-IZm"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sBQ-U0-NqU">
                                         <rect key="frame" x="57" y="50" width="38" height="38"/>
@@ -67,6 +76,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="mjd-F9-Fcj"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8W-dz-rkJ">
                                         <rect key="frame" x="96" y="50" width="38" height="38"/>
@@ -79,6 +91,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="dsr-1z-fTQ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wif-sO-Pd5">
                                         <rect key="frame" x="18" y="89" width="38" height="38"/>
@@ -91,6 +106,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="q7q-LW-pus"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t3f-b8-xhJ">
                                         <rect key="frame" x="57" y="89" width="38" height="38"/>
@@ -103,6 +121,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="wSj-WG-Xcz"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cZ3-sU-nlC">
                                         <rect key="frame" x="96" y="89" width="38" height="38"/>
@@ -115,6 +136,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="NKd-nv-r88"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="toh-Ni-yzU">
                                         <rect key="frame" x="18" y="128" width="38" height="38"/>
@@ -127,6 +151,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="pof-gc-NTf"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5mi-KY-MzW">
                                         <rect key="frame" x="57" y="128" width="38" height="38"/>
@@ -139,6 +166,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="hf6-ew-B8J"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y56-DP-4Ah">
                                         <rect key="frame" x="96" y="128" width="38" height="38"/>
@@ -151,6 +181,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="VmP-My-7uA"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N33-SN-irQ">
                                         <rect key="frame" x="18" y="167" width="38" height="38"/>
@@ -163,6 +196,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="kw6-ea-6cb"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zsp-id-WW3">
                                         <rect key="frame" x="57" y="167" width="38" height="38"/>
@@ -175,6 +211,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Fex-ZG-BZn"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PEo-lt-0aL">
                                         <rect key="frame" x="96" y="167" width="38" height="38"/>
@@ -187,6 +226,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="gQf-4H-2Yc"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IYc-Wk-gyc">
                                         <rect key="frame" x="18" y="206" width="38" height="38"/>
@@ -199,6 +241,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="LFK-lk-ke7"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y2K-Qp-8af">
                                         <rect key="frame" x="57" y="206" width="38" height="38"/>
@@ -211,6 +256,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="LDw-CB-UNm"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FQY-g0-9Xl">
                                         <rect key="frame" x="96" y="206" width="38" height="38"/>
@@ -223,6 +271,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="wuN-pm-L3d"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ADa-6y-3aU">
                                         <rect key="frame" x="18" y="245" width="38" height="38"/>
@@ -235,6 +286,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="GA5-FM-vRc"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3RV-ti-Yzd">
                                         <rect key="frame" x="57" y="245" width="38" height="38"/>
@@ -247,6 +301,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="rom-Or-q7v"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddW-KH-MwA">
                                         <rect key="frame" x="96" y="245" width="38" height="38"/>
@@ -259,6 +316,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="N4b-yR-ncO"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bw9-U4-3ly">
                                         <rect key="frame" x="18" y="284" width="38" height="38"/>
@@ -271,6 +331,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ATt-CP-n1T"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DB0-h7-vP0">
                                         <rect key="frame" x="57" y="284" width="38" height="38"/>
@@ -283,6 +346,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="O3L-8k-6Ca"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGh-10-KcK">
                                         <rect key="frame" x="96" y="284" width="38" height="38"/>
@@ -295,6 +361,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="9eZ-3D-2Zl"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qCl-Ay-jSU">
                                         <rect key="frame" x="18" y="323" width="38" height="38"/>
@@ -307,6 +376,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="gau-hS-Lhb"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OZw-s4-PvY">
                                         <rect key="frame" x="57" y="323" width="38" height="38"/>
@@ -319,6 +391,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="NgI-7I-qAT"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cpx-CI-Oef">
                                         <rect key="frame" x="96" y="323" width="38" height="38"/>
@@ -331,6 +406,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="nnC-ZI-vkO"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="14a-ae-8ER">
                                         <rect key="frame" x="18" y="362" width="38" height="38"/>
@@ -343,6 +421,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="YTd-Cn-ZuI"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="45Y-qD-jqq">
                                         <rect key="frame" x="57" y="362" width="38" height="38"/>
@@ -355,6 +436,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="kWm-EM-gVs"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Bf-vj-eSE">
                                         <rect key="frame" x="96" y="362" width="38" height="38"/>
@@ -367,6 +451,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ver-50-xGA"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9dZ-A8-sdG">
                                         <rect key="frame" x="18" y="401" width="38" height="38"/>
@@ -379,6 +466,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="sfa-C1-kT6"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jpe-0J-XkH">
                                         <rect key="frame" x="57" y="401" width="38" height="38"/>
@@ -391,6 +481,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="fsO-KY-7RV"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fa0-QG-2Kp">
                                         <rect key="frame" x="96" y="401" width="38" height="38"/>
@@ -403,6 +496,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="owP-Ck-1BZ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6W-aW-hCZ">
                                         <rect key="frame" x="18" y="440" width="38" height="38"/>
@@ -415,6 +511,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="hrq-4Z-csf"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M7G-bR-KxR">
                                         <rect key="frame" x="57" y="440" width="38" height="38"/>
@@ -427,6 +526,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="1mp-KU-eb5"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dg-XH-ZCO">
                                         <rect key="frame" x="96" y="440" width="38" height="38"/>
@@ -439,6 +541,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="EKj-oI-ok8"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XGu-Gs-1cK">
                                         <rect key="frame" x="18" y="479" width="38" height="38"/>
@@ -451,6 +556,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="bWQ-P4-PCP"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wf1-Bt-jNh">
                                         <rect key="frame" x="57" y="479" width="38" height="38"/>
@@ -463,6 +571,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Fh2-cr-GPi"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vPa-Dq-t9A">
                                         <rect key="frame" x="96" y="479" width="38" height="38"/>
@@ -475,16 +586,39 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addNumber:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="4M9-l5-GPk"/>
+                                        </connections>
                                     </button>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KWL-L7-cF3">
                                         <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                         <items>
-                                            <barButtonItem title="Del" width="52" id="crj-40-RbL"/>
-                                            <barButtonItem title="Stats" width="54" id="5Ft-DI-hwH"/>
-                                            <barButtonItem systemItem="save" id="zRb-zJ-pwf"/>
-                                            <barButtonItem title="Load" id="HsH-Mr-NL4"/>
-                                            <barButtonItem title="Winner" id="798-1o-bdQ"/>
+                                            <barButtonItem title="Del" width="52" id="crj-40-RbL">
+                                                <connections>
+                                                    <action selector="removeLast" destination="vXZ-lx-hvc" id="OGb-nZ-Q2s"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Stats" width="54" id="5Ft-DI-hwH">
+                                                <connections>
+                                                    <action selector="viewStats" destination="vXZ-lx-hvc" id="OdH-2f-4JM"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem systemItem="save" id="zRb-zJ-pwf">
+                                                <connections>
+                                                    <action selector="save:" destination="vXZ-lx-hvc" id="czy-Ek-8Dv"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Load" id="HsH-Mr-NL4">
+                                                <connections>
+                                                    <action selector="loadFile" destination="vXZ-lx-hvc" id="oQp-7A-0x2"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Winner" id="798-1o-bdQ">
+                                                <connections>
+                                                    <action selector="winner" destination="vXZ-lx-hvc" id="M4J-8j-SDx"/>
+                                                </connections>
+                                            </barButtonItem>
                                         </items>
                                     </toolbar>
                                     <textView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkM-dx-Abf">
@@ -507,6 +641,9 @@
                                         <state key="normal" title="CA">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="clearAll:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="qSd-jD-grN"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1532686821" green="0.61213485050000005" blue="0.12882712090000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -516,6 +653,48 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="btn0" destination="MtB-Uc-iNC" id="u97-fD-YIf"/>
+                        <outlet property="btn00" destination="fS0-Qm-5UV" id="PIm-qD-g4j"/>
+                        <outlet property="btn01" destination="5Ef-4K-I8m" id="RSo-i9-Iba"/>
+                        <outlet property="btn02" destination="sBQ-U0-NqU" id="UGK-yd-RDf"/>
+                        <outlet property="btn03" destination="x8W-dz-rkJ" id="B0J-Rd-BFV"/>
+                        <outlet property="btn04" destination="wif-sO-Pd5" id="ear-DT-pzc"/>
+                        <outlet property="btn05" destination="t3f-b8-xhJ" id="AbT-0f-bbn"/>
+                        <outlet property="btn06" destination="cZ3-sU-nlC" id="4BB-Ui-xtv"/>
+                        <outlet property="btn07" destination="toh-Ni-yzU" id="qYR-TP-WZo"/>
+                        <outlet property="btn08" destination="5mi-KY-MzW" id="wM2-lI-StX"/>
+                        <outlet property="btn09" destination="Y56-DP-4Ah" id="AKe-Mh-BmM"/>
+                        <outlet property="btn10" destination="N33-SN-irQ" id="hOR-Iu-Jrn"/>
+                        <outlet property="btn11" destination="zsp-id-WW3" id="eND-fa-OlH"/>
+                        <outlet property="btn12" destination="PEo-lt-0aL" id="Cwq-vf-LZE"/>
+                        <outlet property="btn13" destination="IYc-Wk-gyc" id="quE-iA-s15"/>
+                        <outlet property="btn14" destination="Y2K-Qp-8af" id="x4V-vj-LoT"/>
+                        <outlet property="btn15" destination="FQY-g0-9Xl" id="idW-wR-Iac"/>
+                        <outlet property="btn16" destination="ADa-6y-3aU" id="g8g-P0-Ebm"/>
+                        <outlet property="btn17" destination="3RV-ti-Yzd" id="sbx-hZ-PBs"/>
+                        <outlet property="btn18" destination="ddW-KH-MwA" id="S3Z-7A-KDw"/>
+                        <outlet property="btn19" destination="bw9-U4-3ly" id="QbK-hi-f9G"/>
+                        <outlet property="btn20" destination="DB0-h7-vP0" id="mEl-dZ-wlU"/>
+                        <outlet property="btn21" destination="gGh-10-KcK" id="gth-8w-8lP"/>
+                        <outlet property="btn22" destination="qCl-Ay-jSU" id="Sbm-JZ-xH2"/>
+                        <outlet property="btn23" destination="OZw-s4-PvY" id="LOf-0F-5Mm"/>
+                        <outlet property="btn24" destination="cpx-CI-Oef" id="jg3-8e-GB6"/>
+                        <outlet property="btn25" destination="14a-ae-8ER" id="CC9-mY-DY0"/>
+                        <outlet property="btn26" destination="45Y-qD-jqq" id="w0v-4t-orE"/>
+                        <outlet property="btn27" destination="9Bf-vj-eSE" id="gj8-dn-EJz"/>
+                        <outlet property="btn28" destination="9dZ-A8-sdG" id="CTD-k1-ibf"/>
+                        <outlet property="btn29" destination="Jpe-0J-XkH" id="4Kv-NL-xYz"/>
+                        <outlet property="btn30" destination="Fa0-QG-2Kp" id="UmC-WY-o3k"/>
+                        <outlet property="btn31" destination="b6W-aW-hCZ" id="yfy-M0-CWQ"/>
+                        <outlet property="btn32" destination="M7G-bR-KxR" id="nxz-kU-Mjj"/>
+                        <outlet property="btn33" destination="8dg-XH-ZCO" id="btt-fN-IEb"/>
+                        <outlet property="btn34" destination="XGu-Gs-1cK" id="bPy-6K-a17"/>
+                        <outlet property="btn35" destination="wf1-Bt-jNh" id="jpX-5g-v8X"/>
+                        <outlet property="btn36" destination="vPa-Dq-t9A" id="BNY-hc-9g5"/>
+                        <outlet property="history" destination="bkM-dx-Abf" id="pQY-48-zWg"/>
+                        <outlet property="view" destination="kh9-bI-dsS" id="iJn-yA-7oO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>

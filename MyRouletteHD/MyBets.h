@@ -8,14 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MyBets : NSObject <NSCoding> {
-    NSNumber *bet1;
-    NSNumber *bet2;
-    NSNumber *bet3;
-    NSNumber *bet4;
-    NSNumber *bet5;
-    int currBet;
-}
+@interface MyBets : NSObject <NSCoding>
+
 
 @property (nonatomic, retain) NSNumber *bet1;
 @property (nonatomic, retain) NSNumber *bet2;

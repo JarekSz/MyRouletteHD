@@ -13,44 +13,8 @@
 
 #define deg2rad (3.1415926/180.0)
 
-@interface CalculateStrategyViewController : UIViewController {
-    
-//    IBOutlet UIView *portretView;
-//    IBOutlet UIView *landscapeView;
-    
-//    NSMutableArray *colorsFrequency;
-//    NSMutableArray *oddsFrequency;
-//    NSMutableArray *halvesFrequency;
-    
-//    IBOutlet UITextField *strategyText;
-//    IBOutlet UITextField *colorText;
-//    IBOutlet UITextField *oddsText;
-//    IBOutlet UITextField *halvesText;
-//    
-//    IBOutlet UITextField *value1;
-//    IBOutlet UITextField *value2;
-//    IBOutlet UITextField *value3;
-//    IBOutlet UITextField *value4;
-//    IBOutlet UITextField *value5;
-    
-    MyBets *myBets;
-    int first;
-    int second;
-    int third;
-    int fourth;
-    int fifth;
-    bool needSaving;
-    
-    IBOutlet UILabel *colorsLbl;
-    IBOutlet UILabel *oddsLbl;
-    IBOutlet UILabel *halfLbl;
-    
-    double cashColors;
-    double cashOdds;
-    double cashHalves;
-    
-    NSMutableArray *allNumbersDrawn;
-}
+@interface CalculateStrategyViewController : UIViewController
+
 
 @property (nonatomic, retain) IBOutlet UIView *portretView;
 //@property (nonatomic, retain) UIView *landscapeView;
@@ -78,9 +42,9 @@
 @property int fifth;
 @property bool needSaving;
 
-@property (nonatomic, retain) UILabel *colorsLbl;
-@property (nonatomic, retain) UILabel *oddsLbl;
-@property (nonatomic, retain) UILabel *halfLbl;
+@property (nonatomic, retain) IBOutlet UILabel *colorsLbl;
+@property (nonatomic, retain) IBOutlet UILabel *oddsLbl;
+@property (nonatomic, retain) IBOutlet UILabel *halfLbl;
 
 @property double cashColors;
 @property double cashOdds;
