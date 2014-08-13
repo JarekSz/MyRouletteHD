@@ -1,0 +1,471 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CD6C9EF7199AF23B00A170FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD6C9EF6199AF23B00A170FB /* Foundation.framework */; };
+		CD6C9EF9199AF23B00A170FB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD6C9EF8199AF23B00A170FB /* CoreGraphics.framework */; };
+		CD6C9EFB199AF23B00A170FB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD6C9EFA199AF23B00A170FB /* UIKit.framework */; };
+		CD6C9F01199AF23B00A170FB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CD6C9EFF199AF23B00A170FB /* InfoPlist.strings */; };
+		CD6C9F03199AF23B00A170FB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6C9F02199AF23B00A170FB /* main.m */; };
+		CD6C9F07199AF23B00A170FB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6C9F06199AF23B00A170FB /* AppDelegate.m */; };
+		CD6C9F0A199AF23B00A170FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD6C9F08199AF23B00A170FB /* Main.storyboard */; };
+		CD6C9F0D199AF23B00A170FB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6C9F0C199AF23B00A170FB /* ViewController.m */; };
+		CD6C9F0F199AF23C00A170FB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD6C9F0E199AF23C00A170FB /* Images.xcassets */; };
+		CD6C9F16199AF23C00A170FB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD6C9F15199AF23C00A170FB /* XCTest.framework */; };
+		CD6C9F17199AF23C00A170FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD6C9EF6199AF23B00A170FB /* Foundation.framework */; };
+		CD6C9F18199AF23C00A170FB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD6C9EFA199AF23B00A170FB /* UIKit.framework */; };
+		CD6C9F20199AF23C00A170FB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CD6C9F1E199AF23C00A170FB /* InfoPlist.strings */; };
+		CD6C9F22199AF23C00A170FB /* MyRouletteHDTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6C9F21199AF23C00A170FB /* MyRouletteHDTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CD6C9F19199AF23C00A170FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CD6C9EEB199AF23B00A170FB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CD6C9EF2199AF23B00A170FB;
+			remoteInfo = MyRouletteHD;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CD6C9EF3199AF23B00A170FB /* MyRouletteHD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyRouletteHD.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD6C9EF6199AF23B00A170FB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CD6C9EF8199AF23B00A170FB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CD6C9EFA199AF23B00A170FB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CD6C9EFE199AF23B00A170FB /* MyRouletteHD-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MyRouletteHD-Info.plist"; sourceTree = "<group>"; };
+		CD6C9F00199AF23B00A170FB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CD6C9F02199AF23B00A170FB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CD6C9F04199AF23B00A170FB /* MyRouletteHD-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyRouletteHD-Prefix.pch"; sourceTree = "<group>"; };
+		CD6C9F05199AF23B00A170FB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CD6C9F06199AF23B00A170FB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CD6C9F09199AF23B00A170FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CD6C9F0B199AF23B00A170FB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		CD6C9F0C199AF23B00A170FB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		CD6C9F0E199AF23C00A170FB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CD6C9F14199AF23C00A170FB /* MyRouletteHDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyRouletteHDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD6C9F15199AF23C00A170FB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		CD6C9F1D199AF23C00A170FB /* MyRouletteHDTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MyRouletteHDTests-Info.plist"; sourceTree = "<group>"; };
+		CD6C9F1F199AF23C00A170FB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CD6C9F21199AF23C00A170FB /* MyRouletteHDTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyRouletteHDTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CD6C9EF0199AF23B00A170FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD6C9EF9199AF23B00A170FB /* CoreGraphics.framework in Frameworks */,
+				CD6C9EFB199AF23B00A170FB /* UIKit.framework in Frameworks */,
+				CD6C9EF7199AF23B00A170FB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD6C9F11199AF23C00A170FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD6C9F16199AF23C00A170FB /* XCTest.framework in Frameworks */,
+				CD6C9F18199AF23C00A170FB /* UIKit.framework in Frameworks */,
+				CD6C9F17199AF23C00A170FB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CD6C9EEA199AF23B00A170FB = {
+			isa = PBXGroup;
+			children = (
+				CD6C9EFC199AF23B00A170FB /* MyRouletteHD */,
+				CD6C9F1B199AF23C00A170FB /* MyRouletteHDTests */,
+				CD6C9EF5199AF23B00A170FB /* Frameworks */,
+				CD6C9EF4199AF23B00A170FB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CD6C9EF4199AF23B00A170FB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CD6C9EF3199AF23B00A170FB /* MyRouletteHD.app */,
+				CD6C9F14199AF23C00A170FB /* MyRouletteHDTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CD6C9EF5199AF23B00A170FB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CD6C9EF6199AF23B00A170FB /* Foundation.framework */,
+				CD6C9EF8199AF23B00A170FB /* CoreGraphics.framework */,
+				CD6C9EFA199AF23B00A170FB /* UIKit.framework */,
+				CD6C9F15199AF23C00A170FB /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CD6C9EFC199AF23B00A170FB /* MyRouletteHD */ = {
+			isa = PBXGroup;
+			children = (
+				CD6C9F05199AF23B00A170FB /* AppDelegate.h */,
+				CD6C9F06199AF23B00A170FB /* AppDelegate.m */,
+				CD6C9F08199AF23B00A170FB /* Main.storyboard */,
+				CD6C9F0B199AF23B00A170FB /* ViewController.h */,
+				CD6C9F0C199AF23B00A170FB /* ViewController.m */,
+				CD6C9F0E199AF23C00A170FB /* Images.xcassets */,
+				CD6C9EFD199AF23B00A170FB /* Supporting Files */,
+			);
+			path = MyRouletteHD;
+			sourceTree = "<group>";
+		};
+		CD6C9EFD199AF23B00A170FB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CD6C9EFE199AF23B00A170FB /* MyRouletteHD-Info.plist */,
+				CD6C9EFF199AF23B00A170FB /* InfoPlist.strings */,
+				CD6C9F02199AF23B00A170FB /* main.m */,
+				CD6C9F04199AF23B00A170FB /* MyRouletteHD-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CD6C9F1B199AF23C00A170FB /* MyRouletteHDTests */ = {
+			isa = PBXGroup;
+			children = (
+				CD6C9F21199AF23C00A170FB /* MyRouletteHDTests.m */,
+				CD6C9F1C199AF23C00A170FB /* Supporting Files */,
+			);
+			path = MyRouletteHDTests;
+			sourceTree = "<group>";
+		};
+		CD6C9F1C199AF23C00A170FB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CD6C9F1D199AF23C00A170FB /* MyRouletteHDTests-Info.plist */,
+				CD6C9F1E199AF23C00A170FB /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CD6C9EF2199AF23B00A170FB /* MyRouletteHD */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD6C9F25199AF23C00A170FB /* Build configuration list for PBXNativeTarget "MyRouletteHD" */;
+			buildPhases = (
+				CD6C9EEF199AF23B00A170FB /* Sources */,
+				CD6C9EF0199AF23B00A170FB /* Frameworks */,
+				CD6C9EF1199AF23B00A170FB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MyRouletteHD;
+			productName = MyRouletteHD;
+			productReference = CD6C9EF3199AF23B00A170FB /* MyRouletteHD.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CD6C9F13199AF23C00A170FB /* MyRouletteHDTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD6C9F28199AF23C00A170FB /* Build configuration list for PBXNativeTarget "MyRouletteHDTests" */;
+			buildPhases = (
+				CD6C9F10199AF23C00A170FB /* Sources */,
+				CD6C9F11199AF23C00A170FB /* Frameworks */,
+				CD6C9F12199AF23C00A170FB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CD6C9F1A199AF23C00A170FB /* PBXTargetDependency */,
+			);
+			name = MyRouletteHDTests;
+			productName = MyRouletteHDTests;
+			productReference = CD6C9F14199AF23C00A170FB /* MyRouletteHDTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CD6C9EEB199AF23B00A170FB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Jaroslaw Szymczyk";
+				TargetAttributes = {
+					CD6C9F13199AF23C00A170FB = {
+						TestTargetID = CD6C9EF2199AF23B00A170FB;
+					};
+				};
+			};
+			buildConfigurationList = CD6C9EEE199AF23B00A170FB /* Build configuration list for PBXProject "MyRouletteHD" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CD6C9EEA199AF23B00A170FB;
+			productRefGroup = CD6C9EF4199AF23B00A170FB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CD6C9EF2199AF23B00A170FB /* MyRouletteHD */,
+				CD6C9F13199AF23C00A170FB /* MyRouletteHDTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CD6C9EF1199AF23B00A170FB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD6C9F0F199AF23C00A170FB /* Images.xcassets in Resources */,
+				CD6C9F01199AF23B00A170FB /* InfoPlist.strings in Resources */,
+				CD6C9F0A199AF23B00A170FB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD6C9F12199AF23C00A170FB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD6C9F20199AF23C00A170FB /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CD6C9EEF199AF23B00A170FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD6C9F0D199AF23B00A170FB /* ViewController.m in Sources */,
+				CD6C9F07199AF23B00A170FB /* AppDelegate.m in Sources */,
+				CD6C9F03199AF23B00A170FB /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD6C9F10199AF23C00A170FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD6C9F22199AF23C00A170FB /* MyRouletteHDTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CD6C9F1A199AF23C00A170FB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CD6C9EF2199AF23B00A170FB /* MyRouletteHD */;
+			targetProxy = CD6C9F19199AF23C00A170FB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CD6C9EFF199AF23B00A170FB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CD6C9F00199AF23B00A170FB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		CD6C9F08199AF23B00A170FB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CD6C9F09199AF23B00A170FB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CD6C9F1E199AF23C00A170FB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CD6C9F1F199AF23C00A170FB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CD6C9F23199AF23C00A170FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CD6C9F24199AF23C00A170FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CD6C9F26199AF23C00A170FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MyRouletteHD/MyRouletteHD-Prefix.pch";
+				INFOPLIST_FILE = "MyRouletteHD/MyRouletteHD-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CD6C9F27199AF23C00A170FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MyRouletteHD/MyRouletteHD-Prefix.pch";
+				INFOPLIST_FILE = "MyRouletteHD/MyRouletteHD-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		CD6C9F29199AF23C00A170FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MyRouletteHD.app/MyRouletteHD";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MyRouletteHD/MyRouletteHD-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "MyRouletteHDTests/MyRouletteHDTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		CD6C9F2A199AF23C00A170FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MyRouletteHD.app/MyRouletteHD";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MyRouletteHD/MyRouletteHD-Prefix.pch";
+				INFOPLIST_FILE = "MyRouletteHDTests/MyRouletteHDTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CD6C9EEE199AF23B00A170FB /* Build configuration list for PBXProject "MyRouletteHD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD6C9F23199AF23C00A170FB /* Debug */,
+				CD6C9F24199AF23C00A170FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD6C9F25199AF23C00A170FB /* Build configuration list for PBXNativeTarget "MyRouletteHD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD6C9F26199AF23C00A170FB /* Debug */,
+				CD6C9F27199AF23C00A170FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CD6C9F28199AF23C00A170FB /* Build configuration list for PBXNativeTarget "MyRouletteHDTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD6C9F29199AF23C00A170FB /* Debug */,
+				CD6C9F2A199AF23C00A170FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CD6C9EEB199AF23B00A170FB /* Project object */;
+}
