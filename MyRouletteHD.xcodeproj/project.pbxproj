@@ -21,6 +21,22 @@
 		CD6C9F18199AF23C00A170FB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD6C9EFA199AF23B00A170FB /* UIKit.framework */; };
 		CD6C9F20199AF23C00A170FB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CD6C9F1E199AF23C00A170FB /* InfoPlist.strings */; };
 		CD6C9F22199AF23C00A170FB /* MyRouletteHDTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6C9F21199AF23C00A170FB /* MyRouletteHDTests.m */; };
+		CD6C9F2C199AF47C00A170FB /* Red.png in Resources */ = {isa = PBXBuildFile; fileRef = CD6C9F2B199AF47C00A170FB /* Red.png */; };
+		CD6C9F2E199AF48900A170FB /* Black.png in Resources */ = {isa = PBXBuildFile; fileRef = CD6C9F2D199AF48900A170FB /* Black.png */; };
+		CD6C9F30199AF49400A170FB /* Green.png in Resources */ = {isa = PBXBuildFile; fileRef = CD6C9F2F199AF49400A170FB /* Green.png */; };
+		CD6C9F33199AF5B200A170FB /* MyRouletteMath.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6C9F32199AF5B200A170FB /* MyRouletteMath.m */; };
+		CD6C9F37199AF5C400A170FB /* MyRouletteStatsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6C9F35199AF5C400A170FB /* MyRouletteStatsTableView.m */; };
+		CD6C9F38199AF5C400A170FB /* MyRouletteStatsTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD6C9F36199AF5C400A170FB /* MyRouletteStatsTableView.xib */; };
+		CD6C9F3C199AF5D100A170FB /* CalculateStrategyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6C9F3A199AF5D100A170FB /* CalculateStrategyViewController.m */; };
+		CD6C9F3D199AF5D100A170FB /* CalculateStrategyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD6C9F3B199AF5D100A170FB /* CalculateStrategyViewController.xib */; };
+		CD6C9F41199AF5DE00A170FB /* FileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6C9F3F199AF5DE00A170FB /* FileViewController.m */; };
+		CD6C9F42199AF5DE00A170FB /* FileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD6C9F40199AF5DE00A170FB /* FileViewController.xib */; };
+		CD6C9F45199AF5E900A170FB /* MyBets.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6C9F44199AF5E900A170FB /* MyBets.m */; };
+		CD6C9F48199AF60500A170FB /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6C9F47199AF60500A170FB /* Utilities.m */; };
+		CD6C9F4A199AF68A00A170FB /* Header.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD6C9F49199AF68A00A170FB /* Header.xib */; };
+		CD6C9F4C199AF69200A170FB /* Footer.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD6C9F4B199AF69200A170FB /* Footer.xib */; };
+		CD6C9F4E199AF69800A170FB /* Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD6C9F4D199AF69800A170FB /* Cell.xib */; };
+		CD6C9F50199AF6AE00A170FB /* Header2.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD6C9F4F199AF6AE00A170FB /* Header2.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +69,28 @@
 		CD6C9F1D199AF23C00A170FB /* MyRouletteHDTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MyRouletteHDTests-Info.plist"; sourceTree = "<group>"; };
 		CD6C9F1F199AF23C00A170FB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CD6C9F21199AF23C00A170FB /* MyRouletteHDTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyRouletteHDTests.m; sourceTree = "<group>"; };
+		CD6C9F2B199AF47C00A170FB /* Red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Red.png; sourceTree = "<group>"; };
+		CD6C9F2D199AF48900A170FB /* Black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Black.png; sourceTree = "<group>"; };
+		CD6C9F2F199AF49400A170FB /* Green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Green.png; sourceTree = "<group>"; };
+		CD6C9F31199AF5B200A170FB /* MyRouletteMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRouletteMath.h; sourceTree = "<group>"; };
+		CD6C9F32199AF5B200A170FB /* MyRouletteMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRouletteMath.m; sourceTree = "<group>"; };
+		CD6C9F34199AF5C400A170FB /* MyRouletteStatsTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRouletteStatsTableView.h; sourceTree = "<group>"; };
+		CD6C9F35199AF5C400A170FB /* MyRouletteStatsTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRouletteStatsTableView.m; sourceTree = "<group>"; };
+		CD6C9F36199AF5C400A170FB /* MyRouletteStatsTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyRouletteStatsTableView.xib; sourceTree = "<group>"; };
+		CD6C9F39199AF5D100A170FB /* CalculateStrategyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculateStrategyViewController.h; sourceTree = "<group>"; };
+		CD6C9F3A199AF5D100A170FB /* CalculateStrategyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculateStrategyViewController.m; sourceTree = "<group>"; };
+		CD6C9F3B199AF5D100A170FB /* CalculateStrategyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalculateStrategyViewController.xib; sourceTree = "<group>"; };
+		CD6C9F3E199AF5DE00A170FB /* FileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileViewController.h; sourceTree = "<group>"; };
+		CD6C9F3F199AF5DE00A170FB /* FileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileViewController.m; sourceTree = "<group>"; };
+		CD6C9F40199AF5DE00A170FB /* FileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FileViewController.xib; sourceTree = "<group>"; };
+		CD6C9F43199AF5E900A170FB /* MyBets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBets.h; sourceTree = "<group>"; };
+		CD6C9F44199AF5E900A170FB /* MyBets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBets.m; sourceTree = "<group>"; };
+		CD6C9F46199AF60500A170FB /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
+		CD6C9F47199AF60500A170FB /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
+		CD6C9F49199AF68A00A170FB /* Header.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Header.xib; sourceTree = "<group>"; };
+		CD6C9F4B199AF69200A170FB /* Footer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Footer.xib; sourceTree = "<group>"; };
+		CD6C9F4D199AF69800A170FB /* Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Cell.xib; sourceTree = "<group>"; };
+		CD6C9F4F199AF6AE00A170FB /* Header2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Header2.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +155,25 @@
 				CD6C9F08199AF23B00A170FB /* Main.storyboard */,
 				CD6C9F0B199AF23B00A170FB /* ViewController.h */,
 				CD6C9F0C199AF23B00A170FB /* ViewController.m */,
+				CD6C9F31199AF5B200A170FB /* MyRouletteMath.h */,
+				CD6C9F32199AF5B200A170FB /* MyRouletteMath.m */,
+				CD6C9F34199AF5C400A170FB /* MyRouletteStatsTableView.h */,
+				CD6C9F35199AF5C400A170FB /* MyRouletteStatsTableView.m */,
+				CD6C9F36199AF5C400A170FB /* MyRouletteStatsTableView.xib */,
+				CD6C9F49199AF68A00A170FB /* Header.xib */,
+				CD6C9F4B199AF69200A170FB /* Footer.xib */,
+				CD6C9F4D199AF69800A170FB /* Cell.xib */,
+				CD6C9F39199AF5D100A170FB /* CalculateStrategyViewController.h */,
+				CD6C9F3A199AF5D100A170FB /* CalculateStrategyViewController.m */,
+				CD6C9F3B199AF5D100A170FB /* CalculateStrategyViewController.xib */,
+				CD6C9F4F199AF6AE00A170FB /* Header2.xib */,
+				CD6C9F3E199AF5DE00A170FB /* FileViewController.h */,
+				CD6C9F3F199AF5DE00A170FB /* FileViewController.m */,
+				CD6C9F40199AF5DE00A170FB /* FileViewController.xib */,
+				CD6C9F43199AF5E900A170FB /* MyBets.h */,
+				CD6C9F44199AF5E900A170FB /* MyBets.m */,
+				CD6C9F46199AF60500A170FB /* Utilities.h */,
+				CD6C9F47199AF60500A170FB /* Utilities.m */,
 				CD6C9F0E199AF23C00A170FB /* Images.xcassets */,
 				CD6C9EFD199AF23B00A170FB /* Supporting Files */,
 			);
@@ -126,6 +183,9 @@
 		CD6C9EFD199AF23B00A170FB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CD6C9F2F199AF49400A170FB /* Green.png */,
+				CD6C9F2D199AF48900A170FB /* Black.png */,
+				CD6C9F2B199AF47C00A170FB /* Red.png */,
 				CD6C9EFE199AF23B00A170FB /* MyRouletteHD-Info.plist */,
 				CD6C9EFF199AF23B00A170FB /* InfoPlist.strings */,
 				CD6C9F02199AF23B00A170FB /* main.m */,
@@ -228,9 +288,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD6C9F4C199AF69200A170FB /* Footer.xib in Resources */,
+				CD6C9F4E199AF69800A170FB /* Cell.xib in Resources */,
 				CD6C9F0F199AF23C00A170FB /* Images.xcassets in Resources */,
+				CD6C9F30199AF49400A170FB /* Green.png in Resources */,
+				CD6C9F2E199AF48900A170FB /* Black.png in Resources */,
+				CD6C9F2C199AF47C00A170FB /* Red.png in Resources */,
+				CD6C9F3D199AF5D100A170FB /* CalculateStrategyViewController.xib in Resources */,
 				CD6C9F01199AF23B00A170FB /* InfoPlist.strings in Resources */,
+				CD6C9F4A199AF68A00A170FB /* Header.xib in Resources */,
 				CD6C9F0A199AF23B00A170FB /* Main.storyboard in Resources */,
+				CD6C9F50199AF6AE00A170FB /* Header2.xib in Resources */,
+				CD6C9F38199AF5C400A170FB /* MyRouletteStatsTableView.xib in Resources */,
+				CD6C9F42199AF5DE00A170FB /* FileViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,9 +319,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD6C9F3C199AF5D100A170FB /* CalculateStrategyViewController.m in Sources */,
 				CD6C9F0D199AF23B00A170FB /* ViewController.m in Sources */,
 				CD6C9F07199AF23B00A170FB /* AppDelegate.m in Sources */,
+				CD6C9F48199AF60500A170FB /* Utilities.m in Sources */,
 				CD6C9F03199AF23B00A170FB /* main.m in Sources */,
+				CD6C9F33199AF5B200A170FB /* MyRouletteMath.m in Sources */,
+				CD6C9F37199AF5C400A170FB /* MyRouletteStatsTableView.m in Sources */,
+				CD6C9F41199AF5DE00A170FB /* FileViewController.m in Sources */,
+				CD6C9F45199AF5E900A170FB /* MyBets.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
