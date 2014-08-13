@@ -251,36 +251,42 @@
 
 + (double)updateColorFrequencies:(NSMutableArray *)colorsFrequency
                       allNumbers:(NSMutableArray *)allNumbersDrawn
+                            bets:(MyBets *)myBets
 {
     double cash = 0;
     cash = [Utilities updateFrequencies:colorsFrequency
                       allNumbers:allNumbersDrawn
                        function1:@selector(isRed:)
-                       function2:@selector(isBlack:)];
+                       function2:@selector(isBlack:)
+                            bets:myBets];
     
     return cash;
 }
 
 + (double)updateOddFrequencies:(NSMutableArray *)oddFrequency
                     allNumbers:(NSMutableArray *)allNumbersDrawn
+                          bets:(MyBets *)myBets
 {
     double cash = 0;
     cash = [Utilities updateFrequencies:oddFrequency
                       allNumbers:allNumbersDrawn
                        function1:@selector(isOdd:)
-                       function2:@selector(isEven:)];
+                       function2:@selector(isEven:)
+                            bets:myBets];
     
     return cash;
 }
 
 + (double)updateHalvesFrequencies:(NSMutableArray *)halvesFrequency
                        allNumbers:(NSMutableArray *)allNumbersDrawn
+                             bets:(MyBets *)myBets
 {
     double cash = 0;
     cash = [Utilities updateFrequencies:halvesFrequency
                       allNumbers:allNumbersDrawn
                        function1:@selector(isHigh:)
-                       function2:@selector(isLow:)];
+                       function2:@selector(isLow:)
+                            bets:myBets];
     
     return cash;
 }
@@ -289,11 +295,12 @@
                  allNumbers:(NSMutableArray *)allNumbersDrawn
                   function1:(SEL)func1
                   function2:(SEL)func2
+                       bets:(MyBets *)myBets
 {
     bool prevOne = false;
     bool prevTwo = false;
     
-    MyBets *myBets = [Utilities myBets];
+//    MyBets *myBets = [Utilities myBets];
     
     [frequency removeAllObjects];
     

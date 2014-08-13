@@ -357,9 +357,19 @@
     assert(_oddsFrequency);
     assert(_halvesFrequency);
     
-    self.cashColors = [Utilities updateColorFrequencies:_colorsFrequency allNumbers:_allNumbersDrawn];
-    self.cashOdds = [Utilities updateOddFrequencies:_oddsFrequency allNumbers:_allNumbersDrawn];
-    self.cashHalves = [Utilities updateHalvesFrequencies:_halvesFrequency allNumbers:_allNumbersDrawn];
+    self.myBets = [Utilities myBets];
+    
+    self.cashColors = [Utilities updateColorFrequencies:_colorsFrequency
+                                             allNumbers:_allNumbersDrawn
+                                                   bets:_myBets];
+    
+    self.cashOdds = [Utilities updateOddFrequencies:_oddsFrequency
+                                         allNumbers:_allNumbersDrawn
+                                               bets:_myBets];
+    
+    self.cashHalves = [Utilities updateHalvesFrequencies:_halvesFrequency
+                                              allNumbers:_allNumbersDrawn
+                                                    bets:_myBets];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

@@ -14,13 +14,6 @@
 
 @implementation FileViewController
 
-//@synthesize FileDirectory;
-//@synthesize NumbersDrawn;
-//@synthesize FileNameText;
-//@synthesize selectedFilename;
-////@synthesize fileNumber;
-//@synthesize allNumbersDrawn;
-
 
 - (BOOL)prefersStatusBarHidden {
     return YES;

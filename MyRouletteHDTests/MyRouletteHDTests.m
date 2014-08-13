@@ -38,87 +38,106 @@
     //
     // bets: 5, 10, 20, 40, 80
     //
+    NSNumber *n0 = [NSNumber numberWithInt:0];
     NSNumber *n1 = [NSNumber numberWithInt:5];
     NSNumber *n2 = [NSNumber numberWithInt:10];
     NSNumber *n3 = [NSNumber numberWithInt:20];
     NSNumber *n4 = [NSNumber numberWithInt:40];
     NSNumber *n5 = [NSNumber numberWithInt:80];
     
-    NSArray *bets = @[n1,n2,n3,n4,n5];
+    NSArray *bets = @[n0,n1,n2,n3,n4];
     
     MyBets *myBets = [[MyBets alloc] initWithArray:bets];
-    [Utilities archiveBets:myBets];
+//    [Utilities archiveBets:myBets];
     
     double cash = 0;
-    cash = [Utilities updateColorFrequencies:frequency allNumbers:allNumbersDrawn];
+    cash = [Utilities updateColorFrequencies:frequency
+                                  allNumbers:allNumbersDrawn
+                                        bets:myBets];
     
-    if (cash != 35.0) {
-        XCTFail(@"Should be 35 and was %f.", cash);
+    if (cash != 10.0) {
+        XCTFail(@"Should be 10 and was %f.", cash);
     }
     
-    cash = [Utilities updateOddFrequencies:frequency allNumbers:allNumbersDrawn];
+    cash = [Utilities updateOddFrequencies:frequency
+                                allNumbers:allNumbersDrawn
+                                      bets:myBets];
     
-    if (cash != 25.0) {
-        XCTFail(@"Should be 25 and was %f.", cash);
+    if (cash != 10.0) {
+        XCTFail(@"Should be 10 and was %f.", cash);
     }
     
-    cash = [Utilities updateHalvesFrequencies:frequency allNumbers:allNumbersDrawn];
+    cash = [Utilities updateHalvesFrequencies:frequency
+                                   allNumbers:allNumbersDrawn
+                                         bets:myBets];
     
-    if (cash != 35.0) {
-        XCTFail(@"Should be 35 and was %f.", cash);
+    if (cash != 10.0) {
+        XCTFail(@"Should be 10 and was %f.", cash);
     }
     
     allNumbersDrawn = [[NSMutableArray alloc] initWithObjects: @"1",@"32",@"14",@"27",@"32",@"9",@"19",@"36",@"3",@"22",@"2",@"33",@"14",@"27",@"31",@"6",@"19",@"28",@"11",@"22",@"1",@"32",@"14",@"27",@"32",@"9",@"19",@"36",@"3",@"22",@"5",@"31",@"15",@"18",@"7",@"6",@"34",@"24",@"21",@"7",nil];
     
-    cash = [Utilities updateColorFrequencies:frequency allNumbers:allNumbersDrawn];
+    cash = [Utilities updateColorFrequencies:frequency
+                                  allNumbers:allNumbersDrawn
+                                        bets:myBets];
     
     if (cash != -255.0) {
         XCTFail(@"Should be -255 and was %f.", cash);
     }
 
-    cash = [Utilities updateOddFrequencies:frequency allNumbers:allNumbersDrawn];
+    cash = [Utilities updateOddFrequencies:frequency
+                                allNumbers:allNumbersDrawn
+                                      bets:myBets];
     
     if (cash != 135.0) {
         XCTFail(@"Should be 135 and was %f.", cash);
     }
 
-    cash = [Utilities updateHalvesFrequencies:frequency allNumbers:allNumbersDrawn];
+    cash = [Utilities updateHalvesFrequencies:frequency
+                                   allNumbers:allNumbersDrawn
+                                         bets:myBets];
     
     if (cash != 140.0) {
-        XCTFail(@"Should be 150 and was %f.", cash);
+        XCTFail(@"Should be 140 and was %f.", cash);
     }
 
-//    //
-//    // bets: 2, 4, 8, 16, 32
-//    //
-//    n1 = [NSNumber numberWithInt:2];
-//    n2 = [NSNumber numberWithInt:4];
-//    n3 = [NSNumber numberWithInt:8];
-//    n4 = [NSNumber numberWithInt:16];
-//    n5 = [NSNumber numberWithInt:32];
-//    
-//    bets = @[n1,n2,n3,n4,n5];
-//
-//    myBets = [[MyBets alloc] initWithArray:bets];
+    //
+    // bets: 2, 4, 8, 16, 32
+    //
+    n1 = [NSNumber numberWithInt:2];
+    n2 = [NSNumber numberWithInt:4];
+    n3 = [NSNumber numberWithInt:8];
+    n4 = [NSNumber numberWithInt:16];
+    n5 = [NSNumber numberWithInt:32];
+    
+    bets = @[n1,n2,n3,n4,n5];
+
+    myBets = [[MyBets alloc] initWithArray:bets];
 //    [Utilities archiveBets:myBets];
-//
-//    cash = [Utilities updateColorFrequencies:frequency allNumbers:allNumbersDrawn];
-//    
-//    if (cash != 35.0) {
-//        XCTFail(@"Should be 35 and was %f.", cash);
-//    }
-//    
-//    cash = [Utilities updateOddFrequencies:frequency allNumbers:allNumbersDrawn];
-//    
-//    if (cash != 25.0) {
-//        XCTFail(@"Should be 25 and was %f.", cash);
-//    }
-//    
-//    cash = [Utilities updateHalvesFrequencies:frequency allNumbers:allNumbersDrawn];
-//    
-//    if (cash != 35.0) {
-//        XCTFail(@"Should be 35 and was %f.", cash);
-//    }
+
+    cash = [Utilities updateColorFrequencies:frequency
+                                  allNumbers:allNumbersDrawn
+                                        bets:myBets];
+    
+    if (cash != -102.0) {
+        XCTFail(@"Should be 102 and was %f.", cash);
+    }
+    
+    cash = [Utilities updateOddFrequencies:frequency
+                                allNumbers:allNumbersDrawn
+                                      bets:myBets];
+    
+    if (cash != 54.0) {
+        XCTFail(@"Should be 54 and was %f.", cash);
+    }
+    
+    cash = [Utilities updateHalvesFrequencies:frequency
+                                   allNumbers:allNumbersDrawn
+                                         bets:myBets];
+    
+    if (cash != 56.0) {
+        XCTFail(@"Should be 56 and was %f.", cash);
+    }
 }
 
 @end
