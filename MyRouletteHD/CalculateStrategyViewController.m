@@ -14,34 +14,6 @@
 
 @implementation CalculateStrategyViewController
 
-//@synthesize portretView;
-//@synthesize landscapeView;
-
-//@synthesize colorsFrequency;
-//@synthesize oddsFrequency;
-//@synthesize halvesFrequency;
-
-//@synthesize strategyText;
-//@synthesize colorText;
-//@synthesize oddsText;
-//@synthesize halvesText;
-
-//@synthesize value1, value2, value3, value4, value5;
-
-//@synthesize myBets;
-//@synthesize first;
-//@synthesize second;
-//@synthesize third;
-//@synthesize fourth;
-//@synthesize fifth;
-//@synthesize needSaving;
-
-//@synthesize colorsLbl;
-//@synthesize oddsLbl;
-//@synthesize halfLbl;
-//@synthesize cashColors, cashOdds, cashHalves;
-//@synthesize allNumbersDrawn;
-
 
 - (BOOL)prefersStatusBarHidden {
     return YES;
