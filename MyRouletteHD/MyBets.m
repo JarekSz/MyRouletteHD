@@ -23,6 +23,18 @@
 	return self;
 }
 
+- (id)initWithArray:(NSArray *)array {
+	if (self == [super init])
+	{
+		_bet1 = [array objectAtIndex:0];
+		_bet2 = [array objectAtIndex:1];
+		_bet3 = [array objectAtIndex:2];
+		_bet4 = [array objectAtIndex:3];
+		_bet5 = [array objectAtIndex:4];
+	}
+	return self;
+}
+
 - (void)encodeWithCoder: (NSCoder *)encoder
 {
     [encoder encodeObject:_bet1 forKey:@"first"];

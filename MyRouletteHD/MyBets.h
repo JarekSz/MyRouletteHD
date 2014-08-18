@@ -20,6 +20,8 @@
 
 - (id)init;
 
+- (id)initWithArray:(NSArray *)array;
+
 - (void)encodeWithCoder: (NSCoder *)encoder;
 
 - (id)initWithCoder: (NSCoder *)decoder;

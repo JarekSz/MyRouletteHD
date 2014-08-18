@@ -34,18 +34,23 @@
 + (BOOL)isOdd:(NSString *)number;
 
 + (double)updateColorFrequencies:(NSMutableArray *)colorsFrequency
-                      allNumbers:(NSMutableArray *)allNumbersDrawn;
+                      allNumbers:(NSMutableArray *)allNumbersDrawn
+                            bets:(MyBets *)myBets;
 
 + (double)updateOddFrequencies:(NSMutableArray *)oddFrequency
-                  allNumbers:(NSMutableArray *)allNumbersDrawn;
+                  allNumbers:(NSMutableArray *)allNumbersDrawn
+                        bets:(MyBets *)myBets;
+
 
 + (double)updateHalvesFrequencies:(NSMutableArray *)halvesFrequency
-                     allNumbers:(NSMutableArray *)allNumbersDrawn;
+                     allNumbers:(NSMutableArray *)allNumbersDrawn
+                            bets:(MyBets *)myBets;
 
 + (double)updateFrequencies:(NSMutableArray *)frequency
                  allNumbers:(NSMutableArray *)allNumbersDrawn
                   function1:(SEL)func1
-                  function2:(SEL)func2;
+                  function2:(SEL)func2
+                       bets:(MyBets *)myBets;
 
 + (void)combineArray:(NSMutableArray *)array;
 

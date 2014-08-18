@@ -14,34 +14,6 @@
 
 @implementation CalculateStrategyViewController
 
-//@synthesize portretView;
-//@synthesize landscapeView;
-
-//@synthesize colorsFrequency;
-//@synthesize oddsFrequency;
-//@synthesize halvesFrequency;
-
-//@synthesize strategyText;
-//@synthesize colorText;
-//@synthesize oddsText;
-//@synthesize halvesText;
-
-//@synthesize value1, value2, value3, value4, value5;
-
-//@synthesize myBets;
-//@synthesize first;
-//@synthesize second;
-//@synthesize third;
-//@synthesize fourth;
-//@synthesize fifth;
-//@synthesize needSaving;
-
-//@synthesize colorsLbl;
-//@synthesize oddsLbl;
-//@synthesize halfLbl;
-//@synthesize cashColors, cashOdds, cashHalves;
-//@synthesize allNumbersDrawn;
-
 
 - (BOOL)prefersStatusBarHidden {
     return YES;
@@ -133,17 +105,25 @@
 
 -(void)calculate
 {
-    self.cashColors = [Utilities updateColorFrequencies:_colorsFrequency allNumbers:_allNumbersDrawn];
+    self.myBets = [Utilities myBets];
+    
+    self.cashColors = [Utilities updateColorFrequencies:_colorsFrequency
+                                             allNumbers:_allNumbersDrawn
+                                                   bets:_myBets];
     
     NSString *col = [NSString stringWithFormat:@"%.2f", _cashColors];
     self.colorText.text = col;
     
-    self.cashOdds = [Utilities updateOddFrequencies:_oddsFrequency allNumbers:_allNumbersDrawn];
+    self.cashOdds = [Utilities updateOddFrequencies:_oddsFrequency
+                                         allNumbers:_allNumbersDrawn
+                                               bets:_myBets];
     
     NSString *odd = [NSString stringWithFormat:@"%.2f", _cashOdds];
     self.oddsText.text = odd;
 
-    self.cashHalves = [Utilities updateHalvesFrequencies:_halvesFrequency allNumbers:_allNumbersDrawn];
+    self.cashHalves = [Utilities updateHalvesFrequencies:_halvesFrequency
+                                              allNumbers:_allNumbersDrawn
+                                                    bets:_myBets];
     
     NSString *halves = [NSString stringWithFormat:@"%.2f", _cashHalves];
     self.halvesText.text = halves;
@@ -283,53 +263,6 @@
     self.colorsLbl = nil;
     self.oddsLbl = nil;
     self.halfLbl = nil;
-}
-
-//- (void)dealloc
-//{
-//    [colorText release];
-//    [oddsText release];
-//    [halvesText release];
-//    [value1 release];
-//    [value2 release];
-//    [value3 release];
-//    [value4 release];
-//    [value5 release];
-//    [colorsLbl release];
-//    [oddsLbl release];
-//    [halfLbl release];
-//    
-//    [super dealloc];
-//}
-
-/*
--(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
-    
-    if (toInterfaceOrientation == UIInterfaceOrientationPortrait) {
-        self.view = portretView;
-        self.view.transform = CGAffineTransformMakeRotation(0);
-        self.view.bounds = CGRectMake(0.0, 0.0, 460.0, 320.0);
-    }
-    else if (toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft) {
-        self.view = landscapeView;
-        self.view.transform = CGAffineTransformMakeRotation(deg2rad * (-90));
-        self.view.bounds = CGRectMake(0.0, 0.0, 300.0, 480.0);
-    }
-    else if (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight) {
-        self.view = landscapeView;
-        self.view.transform = CGAffineTransformMakeRotation(deg2rad * 90);
-        self.view.bounds = CGRectMake(0.0, 0.0, 300.0, 480.0);
-    }
-}
-*/ 
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-//            interfaceOrientation == UIInterfaceOrientationLandscapeLeft ||
-//            interfaceOrientation == UIInterfaceOrientationLandscapeRight);
 }
 
 @end
