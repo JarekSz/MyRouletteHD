@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+#import "MyBets.h"
+
+
 //#import "MyRouletteViewController.h"
 //@class MyRouletteViewController;
 
@@ -41,6 +44,9 @@ typedef enum {
 @property bool bEditing;
 
 @property int totalDraws;
+
+@property (nonatomic, retain) MyBets *myBets;
+//@property (nonatomic, assign) NSMutableArray *notDrawnFor;
 
 
 - (void)setScores:(NSMutableArray *)scores;

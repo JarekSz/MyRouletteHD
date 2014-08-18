@@ -452,10 +452,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyRouletteHD/MyRouletteHD-Prefix.pch";
 				INFOPLIST_FILE = "MyRouletteHD/MyRouletteHD-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "b2efd918-c9f4-4084-97c9-84ae910d5052";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -465,10 +467,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Jaroslaw Szymczyk (UT9NXMR82Q)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyRouletteHD/MyRouletteHD-Prefix.pch";
 				INFOPLIST_FILE = "MyRouletteHD/MyRouletteHD-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "b2efd918-c9f4-4084-97c9-84ae910d5052";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -532,6 +536,7 @@
 				CD6C9F27199AF23C00A170FB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CD6C9F28199AF23C00A170FB /* Build configuration list for PBXNativeTarget "MyRouletteHDTests" */ = {
 			isa = XCConfigurationList;
@@ -540,6 +545,7 @@
 				CD6C9F2A199AF23C00A170FB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

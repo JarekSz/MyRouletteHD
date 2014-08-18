@@ -8,6 +8,9 @@
 
 #import "MyRouletteStatsTableView.h"
 
+#import "Utilities.h"
+
+
 @interface MyRouletteStatsTableView ()
 
 @end
@@ -48,10 +51,89 @@
 {
     [super viewDidAppear:animated];
     
+    self.myBets = [Utilities myBets];
+
 	// Do any additional setup after loading the view, typically from a nib.
 //    if (timesDrawn) {
 //        self.totalDraws = [[timesDrawn objectAtIndex:BLACKS] intValue] + [[timesDrawn objectAtIndex:REDS] intValue] + [[timesDrawn objectAtIndex:ZEROS] intValue];
 //    }
+    double blacks = [[_probabArray objectAtIndex:BLACKS] doubleValue];
+    double reds = [[_probabArray objectAtIndex:REDS] doubleValue];
+    NSString *betColors = nil;
+    if (blacks > reds) {
+        betColors = [NSString stringWithFormat:@"Bet %d on BLACKS",[self betNow:blacks]];
+    }
+    else {
+        betColors = [NSString stringWithFormat:@"Bet %d on REDS",[self betNow:reds]];
+    }
+    
+    NSString *betOdd = nil;
+    double odds = [[_probabArray objectAtIndex:ODDS] doubleValue];
+    double evens = [[_probabArray objectAtIndex:EVENS] doubleValue];
+    if (odds > evens) {
+        betOdd = [NSString stringWithFormat:@"Bet %d on ODD",[self betNow:odds]];
+    }
+    else {
+        betOdd = [NSString stringWithFormat:@"Bet %d on EVEN",[self betNow:evens]];
+    }
+    
+    NSString *betHigh = nil;
+    double highs = [[_probabArray objectAtIndex:HIGHS] doubleValue];
+    double lows = [[_probabArray objectAtIndex:LOWS] doubleValue];
+    if (highs > lows) {
+        betHigh = [NSString stringWithFormat:@"Bet %d on HIGH",[self betNow:highs]];
+    }
+    else {
+        betHigh = [NSString stringWithFormat:@"Bet %d on LOW",[self betNow:lows]];
+    }
+    
+    NSString *betDozen = nil;
+    double first = [[_probabArray objectAtIndex:FIRST12] doubleValue];
+    double second = [[_probabArray objectAtIndex:SECOND12] doubleValue];
+    double third = [[_probabArray objectAtIndex:THIRD12] doubleValue];
+    if (first >= second && first >= third) {
+        betDozen = [NSString stringWithFormat:@"Bet %d on DOZ: 1-12",[self betNow:first]];
+    }
+    if (second >= first && second >= third) {
+        betDozen = [NSString stringWithFormat:@"Bet %d on DOZ: 13-24",[self betNow:second]];
+    }
+    if (third >= first && third >= second) {
+        betDozen = [NSString stringWithFormat:@"Bet %d on DOZ: 25-36",[self betNow:third]];
+    }
+    
+    NSString *betColumn = nil;
+    double column0 = [[_probabArray objectAtIndex:COLUMN0] doubleValue];
+    double column1 = [[_probabArray objectAtIndex:COLUMN1] doubleValue];
+    double column2 = [[_probabArray objectAtIndex:COLUMN2] doubleValue];
+    if (column0 >= column1 && column0 >= column2) {
+        betColumn = [NSString stringWithFormat:@"Bet %d on COL: 1-34",[self betNow:column0]];
+    }
+    if (column1 >= column0 && column1 >= column2) {
+        betColumn = [NSString stringWithFormat:@"Bet %d on COL: 2-35",[self betNow:column1]];
+    }
+    if (column2 >= column0 && column2 >= column1) {
+        betColumn = [NSString stringWithFormat:@"Bet %d on COL: 3-36",[self betNow:column2]];
+    }
+    
+    NSMutableString *message = [[NSMutableString alloc] init];
+    [message appendString:betColors];
+    [message appendString:@"\n"];
+    [message appendString:betOdd];
+    [message appendString:@"\n"];
+    [message appendString:betHigh];
+    [message appendString:@"\n"];
+    [message appendString:betDozen];
+    [message appendString:@"\n"];
+    [message appendString:betColumn];
+    
+    UIAlertView *alertView =
+    [[UIAlertView alloc] initWithTitle:@"PLAY NOW:"
+                               message:message
+                              delegate:self
+                     cancelButtonTitle:@"OK"
+                     otherButtonTitles:nil];
+    
+    [alertView show];
 }
 
 - (void)viewDidUnload
@@ -59,6 +141,51 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+- (int)betNow:(double)prob
+{
+    int min = [_myBets.bet1 intValue];
+    
+    int bet = 0;
+    if (prob > 0.9998) {
+        bet = min*12;
+    }
+    else if (prob > 0.9997) {
+        bet = min*11;
+    }
+    else if (prob > 0.9994) {
+        bet = min*10;
+    }
+    else if (prob > 0.998) {
+        bet = min*9;
+    }
+    else if (prob > 0.997) {
+        bet = min*8;
+    }
+    else if (prob > 0.994) {
+        bet = min*7;
+    }
+    else if (prob > 0.98) {
+        bet = min*6;
+    }
+    else if (prob > 0.97) {
+        bet = min*5;
+    }
+    else if (prob > 0.94) {
+        bet = min*4;
+    }
+    else if (prob > 0.89) {
+        bet = min*3;
+    }
+    else if (prob > 0.77) {
+        bet = min*2;
+    }
+    else if (prob > 0.52) {
+        bet = min*1;
+    }
+
+    return bet;
 }
 
 #pragma mark - Table view data source

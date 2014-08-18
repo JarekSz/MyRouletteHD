@@ -169,8 +169,11 @@
     self.tableView.scoresCount = self.scoresCount;
     self.tableView.probabArray = self.probabArray;
     self.tableView.timesDrawn = self.timesDrawn;
+//    self.tableView.myBets = self.myBets;
+//    self.tableView.notDrawnFor = self.notDrawnFor;
+    self.tableView.probabArray = self.probabArray;
     
-    self.tableView.totalDraws = _counter;
+    self.tableView.totalDraws = [_allNumbersDrawn count];
     
     if (nil == _selectedFilename) {
         _selectedFilename = [Utilities lastFileName];
@@ -510,6 +513,8 @@
     }
     
     [self makeRangeVisible];
+    
+    [self viewStats];
 }
 
 -(void)addNextNumber:(NSString *)number toText:(NSString **)text
@@ -547,6 +552,8 @@
 
 -(void)recalculateAllNumbers
 {
+    [self resetScores];
+    
     for (NSString *number in _allNumbersDrawn)
     {
         BOOL black = [Utilities isBlack:number];
@@ -696,8 +703,8 @@
         [_timesDrawn replaceObjectAtIndex:i withObject:[[NSNumber alloc] initWithInt:0]];
     }
     
-    self.history.text = @"";
-    self.history2.text = @"";
+//    self.history.text = @"";
+//    self.history2.text = @"";
 }
 
 #pragma mark -
