@@ -30,11 +30,20 @@
 
 -(void)setBets
 {
-    self.myBets.bet1 = [NSNumber numberWithInt:_first];
-    self.myBets.bet2 = [NSNumber numberWithInt:_second];
-    self.myBets.bet3 = [NSNumber numberWithInt:_third];
-    self.myBets.bet4 = [NSNumber numberWithInt:_fourth];
-    self.myBets.bet5 = [NSNumber numberWithInt:_fifth];
+    self.myBets.bet01 = [NSNumber numberWithInt:_first];
+    self.myBets.bet02 = [NSNumber numberWithInt:_second];
+    self.myBets.bet03 = [NSNumber numberWithInt:_third];
+    self.myBets.bet04 = [NSNumber numberWithInt:_fourth];
+    self.myBets.bet05 = [NSNumber numberWithInt:_fifth];
+    
+    int number = [self.myBets.bet05 intValue];
+    self.myBets.bet06 = [NSNumber numberWithInt:number * 2];
+    self.myBets.bet07 = [NSNumber numberWithInt:number * 4];
+    self.myBets.bet08 = [NSNumber numberWithInt:number * 8];
+    self.myBets.bet09 = [NSNumber numberWithInt:number * 16];
+    self.myBets.bet10 = [NSNumber numberWithInt:number * 32];
+    self.myBets.bet11 = [NSNumber numberWithInt:number * 64];
+    self.myBets.bet12 = [NSNumber numberWithInt:number * 128];
 }
 
 -(IBAction)numberChanged:(id)sender
@@ -205,11 +214,11 @@
         self.needSaving = YES;
     }
     
-    self.first = [[_myBets bet1] intValue];
-    self.second = [[_myBets bet2] intValue];
-    self.third = [[_myBets bet3] intValue];
-    self.fourth = [[_myBets bet4] intValue];
-    self.fifth = [[_myBets bet5] intValue];
+    self.first = [[_myBets bet01] intValue];
+    self.second = [[_myBets bet02] intValue];
+    self.third = [[_myBets bet03] intValue];
+    self.fourth = [[_myBets bet04] intValue];
+    self.fifth = [[_myBets bet05] intValue];
     
     self.value1.text = [NSString stringWithFormat:@"%d", _first];
     self.value2.text = [NSString stringWithFormat:@"%d", _second];

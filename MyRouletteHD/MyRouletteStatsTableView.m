@@ -145,38 +145,38 @@
 
 - (int)betNow:(double)prob
 {
-    int min = [_myBets.bet1 intValue];
+    int min = [_myBets.bet01 intValue];
     
     int bet = 0;
     if (prob > 0.9998) {
-        bet = min*12;
+        bet = min*2048;
     }
     else if (prob > 0.9997) {
-        bet = min*11;
+        bet = min*1024;
     }
     else if (prob > 0.9994) {
-        bet = min*10;
+        bet = min*512;
     }
     else if (prob > 0.998) {
-        bet = min*9;
+        bet = min*256;
     }
     else if (prob > 0.997) {
-        bet = min*8;
+        bet = min*128;
     }
     else if (prob > 0.994) {
-        bet = min*7;
+        bet = min*64;
     }
     else if (prob > 0.98) {
-        bet = min*6;
+        bet = min*32;
     }
     else if (prob > 0.97) {
-        bet = min*5;
+        bet = min*16;
     }
     else if (prob > 0.94) {
-        bet = min*4;
+        bet = min*8;
     }
     else if (prob > 0.89) {
-        bet = min*3;
+        bet = min*4;
     }
     else if (prob > 0.77) {
         bet = min*2;

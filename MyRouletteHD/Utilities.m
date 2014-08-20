@@ -306,7 +306,7 @@
     
     double cash = 0;
     
-    double bet = (double)[[myBets bet1] intValue];
+    double bet = (double)[[myBets bet01] intValue];
     
     int count = 0;
     bool firstDraw = true;

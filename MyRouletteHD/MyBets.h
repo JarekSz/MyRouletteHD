@@ -11,11 +11,18 @@
 @interface MyBets : NSObject <NSCoding>
 
 
-@property (nonatomic, retain) NSNumber *bet1;
-@property (nonatomic, retain) NSNumber *bet2;
-@property (nonatomic, retain) NSNumber *bet3;
-@property (nonatomic, retain) NSNumber *bet4;
-@property (nonatomic, retain) NSNumber *bet5;
+@property (nonatomic, retain) NSNumber *bet01;
+@property (nonatomic, retain) NSNumber *bet02;
+@property (nonatomic, retain) NSNumber *bet03;
+@property (nonatomic, retain) NSNumber *bet04;
+@property (nonatomic, retain) NSNumber *bet05;
+@property (nonatomic, retain) NSNumber *bet06;
+@property (nonatomic, retain) NSNumber *bet07;
+@property (nonatomic, retain) NSNumber *bet08;
+@property (nonatomic, retain) NSNumber *bet09;
+@property (nonatomic, retain) NSNumber *bet10;
+@property (nonatomic, retain) NSNumber *bet11;
+@property (nonatomic, retain) NSNumber *bet12;
 @property int currBet;
 
 - (id)init;
