@@ -46,6 +46,14 @@
     self.myBets.bet12 = [NSNumber numberWithInt:number * 128];
 }
 
+- (IBAction)modeChanged:(id)sender
+{
+    int mode = _modeSelect.selectedSegmentIndex;
+    [_myBets setMode:mode];
+    
+    [Utilities archiveBets:_myBets];
+}
+
 -(IBAction)numberChanged:(id)sender
 {
     self.needSaving = YES;
@@ -60,11 +68,15 @@
 -(void)setFrequenciesColors:(NSMutableArray *)colors 
                        Odds:(NSMutableArray *)odds 
                      Halves:(NSMutableArray *)halves
+                     Dozens:(NSMutableArray *)dozens
+                    Columns:(NSMutableArray *)columns
                  allNumbers:(NSMutableArray *)allNumbers
 {
     self.colorsFrequency = colors;
     self.oddsFrequency = odds;
     self.halvesFrequency = halves;
+    self.dozenFrequency = dozens;
+    self.columnFrequency = columns;
     
     _allNumbersDrawn = [[NSMutableArray alloc] init];
     [_allNumbersDrawn addObjectsFromArray:allNumbers];
@@ -73,10 +85,14 @@
 -(void)setCashForColors:(double)colors
                    Odds:(double)odds
                  Halves:(double)halves
+                 Dozens:(double)dozens
+                Columns:(double)columns
 {
     self.cashColors = colors;
     self.cashOdds = odds;
     self.cashHalves = halves;
+    self.cashDozens = dozens;
+    self.cashColumns = columns;
 }
 
 -(IBAction)goBack 
@@ -110,6 +126,12 @@
     
     NSString *halves = [NSString stringWithFormat:@"%.2f", _cashHalves];
     self.halvesText.text = halves;
+    
+    NSString *dozens = [NSString stringWithFormat:@"%.2f", _cashDozens];
+    self.dozenText.text = dozens;
+    
+    NSString *columns = [NSString stringWithFormat:@"%.2f", _cashColumns];
+    self.columnsText.text = columns;
 }
 
 -(void)calculate
@@ -136,6 +158,21 @@
     
     NSString *halves = [NSString stringWithFormat:@"%.2f", _cashHalves];
     self.halvesText.text = halves;
+    
+    self.cashDozens = [Utilities updateDozenFrequencies:_dozenFrequency
+                                             allNumbers:_allNumbersDrawn
+                                                   bets:_myBets];
+    
+    NSString *dozens = [NSString stringWithFormat:@"%.2f", _cashDozens];
+    self.dozenText.text = dozens;
+    
+    self.cashColumns = [Utilities updateColumnFrequencies:_columnFrequency
+                                              allNumbers:_allNumbersDrawn
+                                                    bets:_myBets];
+    
+    NSString *columns = [NSString stringWithFormat:@"%.2f", _cashColumns];
+    self.columnsText.text = columns;
+    
 }
 
 -(IBAction)update
@@ -214,6 +251,9 @@
         self.needSaving = YES;
     }
     
+    int mode = [_myBets currentMode];
+    _modeSelect.selectedSegmentIndex = mode;
+    
     self.first = [[_myBets bet01] intValue];
     self.second = [[_myBets bet02] intValue];
     self.third = [[_myBets bet03] intValue];
@@ -252,6 +292,24 @@
                       [[_halvesFrequency objectAtIndex:4] intValue],
                       [[_halvesFrequency objectAtIndex:5] intValue]];
     self.halfLbl.text = half;
+
+    NSString *dozen = [[NSString alloc] initWithFormat:@"%d-%d-%d-%d-%d-%d",
+                      [[_dozenFrequency objectAtIndex:0] intValue],
+                      [[_dozenFrequency objectAtIndex:1] intValue],
+                      [[_dozenFrequency objectAtIndex:2] intValue],
+                      [[_dozenFrequency objectAtIndex:3] intValue],
+                      [[_dozenFrequency objectAtIndex:4] intValue],
+                      [[_dozenFrequency objectAtIndex:5] intValue]];
+    self.dozensLbl.text = dozen;
+
+    NSString *column = [[NSString alloc] initWithFormat:@"%d-%d-%d-%d-%d-%d",
+                       [[_columnFrequency objectAtIndex:0] intValue],
+                       [[_columnFrequency objectAtIndex:1] intValue],
+                       [[_columnFrequency objectAtIndex:2] intValue],
+                       [[_columnFrequency objectAtIndex:3] intValue],
+                       [[_columnFrequency objectAtIndex:4] intValue],
+                       [[_columnFrequency objectAtIndex:5] intValue]];
+    self.columnsLbl.text = column;
 
     [self showCash];
 }

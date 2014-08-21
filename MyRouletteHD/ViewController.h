@@ -61,6 +61,8 @@ enum TURNS {
 @property (nonatomic, retain) NSMutableArray *colorsFrequency;
 @property (nonatomic, retain) NSMutableArray *oddsFrequency;
 @property (nonatomic, retain) NSMutableArray *halvesFrequency;
+@property (nonatomic, retain) NSMutableArray *dozenFrequency;
+@property (nonatomic, retain) NSMutableArray *columnFrequency;
 
 @property int counter;
 
@@ -74,6 +76,8 @@ enum TURNS {
 @property double cashColors;
 @property double cashOdds;
 @property double cashHalves;
+@property double cashDozens;
+@property double cashColumns;
 
 -(IBAction)save:(id)sender;
 -(IBAction)loadFile;

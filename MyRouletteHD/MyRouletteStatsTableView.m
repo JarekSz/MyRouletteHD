@@ -61,30 +61,30 @@
     double reds = [[_probabArray objectAtIndex:REDS] doubleValue];
     NSString *betColors = nil;
     if (blacks > reds) {
-        betColors = [NSString stringWithFormat:@"Bet %d on BLACKS",[self betNow:blacks]];
+        betColors = [NSString stringWithFormat:@"$%d on BLACKS",[self betNow:blacks]];
     }
     else {
-        betColors = [NSString stringWithFormat:@"Bet %d on REDS",[self betNow:reds]];
+        betColors = [NSString stringWithFormat:@"$%d on REDS",[self betNow:reds]];
     }
     
     NSString *betOdd = nil;
     double odds = [[_probabArray objectAtIndex:ODDS] doubleValue];
     double evens = [[_probabArray objectAtIndex:EVENS] doubleValue];
     if (odds > evens) {
-        betOdd = [NSString stringWithFormat:@"Bet %d on ODD",[self betNow:odds]];
+        betOdd = [NSString stringWithFormat:@"$%d on ODD",[self betNow:odds]];
     }
     else {
-        betOdd = [NSString stringWithFormat:@"Bet %d on EVEN",[self betNow:evens]];
+        betOdd = [NSString stringWithFormat:@"$%d on EVEN",[self betNow:evens]];
     }
     
     NSString *betHigh = nil;
     double highs = [[_probabArray objectAtIndex:HIGHS] doubleValue];
     double lows = [[_probabArray objectAtIndex:LOWS] doubleValue];
     if (highs > lows) {
-        betHigh = [NSString stringWithFormat:@"Bet %d on HIGH",[self betNow:highs]];
+        betHigh = [NSString stringWithFormat:@"$%d on HIGH",[self betNow:highs]];
     }
     else {
-        betHigh = [NSString stringWithFormat:@"Bet %d on LOW",[self betNow:lows]];
+        betHigh = [NSString stringWithFormat:@"$%d on LOW",[self betNow:lows]];
     }
     
     NSString *betDozen = nil;
@@ -92,13 +92,13 @@
     double second = [[_probabArray objectAtIndex:SECOND12] doubleValue];
     double third = [[_probabArray objectAtIndex:THIRD12] doubleValue];
     if (first >= second && first >= third) {
-        betDozen = [NSString stringWithFormat:@"Bet %d on DOZ: 1-12",[self betNow:first]];
+        betDozen = [NSString stringWithFormat:@"$%d on DOZ: 1-12",[self betNow:first]];
     }
     if (second >= first && second >= third) {
-        betDozen = [NSString stringWithFormat:@"Bet %d on DOZ: 13-24",[self betNow:second]];
+        betDozen = [NSString stringWithFormat:@"$%d on DOZ: 13-24",[self betNow:second]];
     }
     if (third >= first && third >= second) {
-        betDozen = [NSString stringWithFormat:@"Bet %d on DOZ: 25-36",[self betNow:third]];
+        betDozen = [NSString stringWithFormat:@"$%d on DOZ: 25-36",[self betNow:third]];
     }
     
     NSString *betColumn = nil;
@@ -106,13 +106,13 @@
     double column1 = [[_probabArray objectAtIndex:COLUMN1] doubleValue];
     double column2 = [[_probabArray objectAtIndex:COLUMN2] doubleValue];
     if (column0 >= column1 && column0 >= column2) {
-        betColumn = [NSString stringWithFormat:@"Bet %d on COL: 1-34",[self betNow:column0]];
+        betColumn = [NSString stringWithFormat:@"$%d on COL: 1-34",[self betNow:column0]];
     }
     if (column1 >= column0 && column1 >= column2) {
-        betColumn = [NSString stringWithFormat:@"Bet %d on COL: 2-35",[self betNow:column1]];
+        betColumn = [NSString stringWithFormat:@"$%d on COL: 2-35",[self betNow:column1]];
     }
     if (column2 >= column0 && column2 >= column1) {
-        betColumn = [NSString stringWithFormat:@"Bet %d on COL: 3-36",[self betNow:column2]];
+        betColumn = [NSString stringWithFormat:@"$%d on COL: 3-36",[self betNow:column2]];
     }
     
     NSMutableString *message = [[NSMutableString alloc] init];

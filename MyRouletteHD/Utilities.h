@@ -32,6 +32,12 @@
 + (BOOL)isRed:(NSString *)number;
 + (BOOL)isHigh:(NSString *)number;
 + (BOOL)isOdd:(NSString *)number;
++ (BOOL)isFirstDozen:(NSString *)number;
++ (BOOL)isSecondDozen:(NSString *)number;
++ (BOOL)isThirdDozen:(NSString *)number;
++ (BOOL)isFirstColumn:(NSString *)number;
++ (BOOL)isSecondColumn:(NSString *)number;
++ (BOOL)isThirdColumn:(NSString *)number;
 
 + (double)updateColorFrequencies:(NSMutableArray *)colorsFrequency
                       allNumbers:(NSMutableArray *)allNumbersDrawn
@@ -46,11 +52,26 @@
                      allNumbers:(NSMutableArray *)allNumbersDrawn
                             bets:(MyBets *)myBets;
 
++ (double)updateDozenFrequencies:(NSMutableArray *)dozenFrequency
+                      allNumbers:(NSMutableArray *)allNumbersDrawn
+                            bets:(MyBets *)myBets;
+
++ (double)updateColumnFrequencies:(NSMutableArray *)columnFrequency
+                       allNumbers:(NSMutableArray *)allNumbersDrawn
+                             bets:(MyBets *)myBets;
+
 + (double)updateFrequencies:(NSMutableArray *)frequency
                  allNumbers:(NSMutableArray *)allNumbersDrawn
                   function1:(SEL)func1
                   function2:(SEL)func2
                        bets:(MyBets *)myBets;
+
++ (double)updateTrippleFrequencies:(NSMutableArray *)frequency
+                        allNumbers:(NSMutableArray *)allNumbersDrawn
+                         function1:(SEL)func1
+                         function2:(SEL)func2
+                         function3:(SEL)func3
+                              bets:(MyBets *)myBets;
 
 + (void)combineArray:(NSMutableArray *)array;
 

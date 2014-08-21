@@ -30,6 +30,13 @@ typedef enum {
     LAST
 } INDEX;
 
+typedef enum {
+    BET_COLORS=0,
+    BET_DOZENS,
+    BET_COLUMNS,
+    BET_ALL
+} BET_MODE;
+
 
 @interface MyRouletteStatsTableView : UITableViewController
 
@@ -48,6 +55,7 @@ typedef enum {
 @property (nonatomic, retain) MyBets *myBets;
 //@property (nonatomic, assign) NSMutableArray *notDrawnFor;
 
+@property BET_MODE mode;
 
 - (void)setScores:(NSMutableArray *)scores;
 - (int)percentage:(int)index;

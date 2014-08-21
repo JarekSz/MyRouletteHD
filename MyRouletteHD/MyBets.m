@@ -8,12 +8,21 @@
 
 #import "MyBets.h"
 
+
+@interface MyBets ()
+
+@property (nonatomic, retain) NSNumber *mode;
+
+@end
+
 @implementation MyBets
 
 
 - (id)init {
 	if (self == [super init]) 
 	{
+        _mode = [[NSNumber alloc] initWithInt:0];
+        
 		_bet01 = [[NSNumber alloc] initWithInt:5];
 		_bet02 = [[NSNumber alloc] initWithInt:10];
 		_bet03 = [[NSNumber alloc] initWithInt:20];
@@ -26,6 +35,7 @@
 		_bet10 = [[NSNumber alloc] initWithInt:2560];
 		_bet11 = [[NSNumber alloc] initWithInt:5120];
 		_bet12 = [[NSNumber alloc] initWithInt:10240];
+        
 	}
 	return self;
 }
@@ -33,24 +43,28 @@
 - (id)initWithArray:(NSArray *)array {
 	if (self == [super init])
 	{
-		_bet01 = [array objectAtIndex:0];
-		_bet02 = [array objectAtIndex:1];
-		_bet03 = [array objectAtIndex:2];
-		_bet04 = [array objectAtIndex:3];
-		_bet05 = [array objectAtIndex:4];
-		_bet06 = [array objectAtIndex:5];
-		_bet07 = [array objectAtIndex:6];
-		_bet08 = [array objectAtIndex:7];
-		_bet09 = [array objectAtIndex:8];
-		_bet10 = [array objectAtIndex:9];
-		_bet11 = [array objectAtIndex:10];
-		_bet12 = [array objectAtIndex:11];
+        _mode = [array objectAtIndex:0];
+        
+		_bet01 = [array objectAtIndex:1];
+		_bet02 = [array objectAtIndex:2];
+		_bet03 = [array objectAtIndex:3];
+		_bet04 = [array objectAtIndex:4];
+		_bet05 = [array objectAtIndex:5];
+		_bet06 = [array objectAtIndex:6];
+		_bet07 = [array objectAtIndex:7];
+		_bet08 = [array objectAtIndex:8];
+		_bet09 = [array objectAtIndex:9];
+		_bet10 = [array objectAtIndex:10];
+		_bet11 = [array objectAtIndex:11];
+		_bet12 = [array objectAtIndex:12];
 	}
 	return self;
 }
 
 - (void)encodeWithCoder: (NSCoder *)encoder
 {
+    [encoder encodeObject:_mode  forKey:@"mode"];
+    
     [encoder encodeObject:_bet01 forKey:@"first"];
     [encoder encodeObject:_bet02 forKey:@"second"];
     [encoder encodeObject:_bet03 forKey:@"third"];
@@ -69,6 +83,8 @@
 {
 	if (self == [super init]) 
     {
+        self.mode = [decoder decodeObjectForKey:@"mode"];
+        
 		self.bet01 = [decoder decodeObjectForKey:@"first"];
 		self.bet02 = [decoder decodeObjectForKey:@"second"];
 		self.bet03 = [decoder decodeObjectForKey:@"third"];
@@ -100,41 +116,41 @@
     _currBet++;
     
     switch (_currBet) {
-        case 0:
-        value = [_bet01 doubleValue];
-        break;
         case 1:
-        value = [_bet02 doubleValue];
+        value = [_bet01 doubleValue];
         break;
         case 2:
-        value = [_bet03 doubleValue];
-        break;
-        case 3:
-        value = [_bet04 doubleValue];
-        break;
-        case 4:
-        value = [_bet05 doubleValue];
-        break;
-        case 5:
-        value = [_bet01 doubleValue];
-        break;
-        case 6:
         value = [_bet02 doubleValue];
         break;
-        case 7:
+        case 3:
         value = [_bet03 doubleValue];
         break;
-        case 8:
+        case 4:
         value = [_bet04 doubleValue];
         break;
-        case 9:
+        case 5:
         value = [_bet05 doubleValue];
+        break;
+        case 6:
+        value = [_bet06 doubleValue];
+        break;
+        case 7:
+        value = [_bet07 doubleValue];
+        break;
+        case 8:
+        value = [_bet08 doubleValue];
+        break;
+        case 9:
+        value = [_bet09 doubleValue];
         break;
         case 10:
-        value = [_bet05 doubleValue];
+        value = [_bet10 doubleValue];
         break;
         case 11:
-        value = [_bet05 doubleValue];
+        value = [_bet11 doubleValue];
+        break;
+        case 12:
+        value = [_bet12 doubleValue];
         break;
         
         default:
@@ -143,6 +159,16 @@
     }
     
     return value;
+}
+
+- (int)currentMode
+{
+    return [_mode intValue];
+}
+
+- (void)setMode:(int)mode
+{
+    _mode = [[NSNumber alloc] initWithInt:mode];
 }
 
 @end

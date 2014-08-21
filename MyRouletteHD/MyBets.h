@@ -10,7 +10,6 @@
 
 @interface MyBets : NSObject <NSCoding>
 
-
 @property (nonatomic, retain) NSNumber *bet01;
 @property (nonatomic, retain) NSNumber *bet02;
 @property (nonatomic, retain) NSNumber *bet03;
@@ -35,5 +34,7 @@
 
 - (double)nextBet;
 - (double)startBet;
+- (int)currentMode;
+- (void)setMode:(int)mode;
 
 @end

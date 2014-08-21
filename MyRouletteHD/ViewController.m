@@ -118,13 +118,17 @@
     [self updateFrequencies];
     
     [_strategyView setFrequenciesColors:_colorsFrequency
-                                  Odds:_oddsFrequency
-                                Halves:_halvesFrequency
-                            allNumbers:_allNumbersDrawn];
+                                   Odds:_oddsFrequency
+                                 Halves:_halvesFrequency
+                                 Dozens:_dozenFrequency
+                                Columns:_columnFrequency
+                             allNumbers:_allNumbersDrawn];
     
     [_strategyView setCashForColors:_cashColors
                               Odds:_cashOdds
-                            Halves:_cashHalves];
+                            Halves:_cashHalves
+                             Dozens:_cashDozens
+                            Columns:_cashColumns];
     
     
     if (nil == _selectedFilename) {
@@ -359,6 +363,8 @@
     assert(_colorsFrequency);
     assert(_oddsFrequency);
     assert(_halvesFrequency);
+    assert(_dozenFrequency);
+    assert(_colorsFrequency);
     
     self.myBets = [Utilities myBets];
     
@@ -373,6 +379,14 @@
     self.cashHalves = [Utilities updateHalvesFrequencies:_halvesFrequency
                                               allNumbers:_allNumbersDrawn
                                                     bets:_myBets];
+    
+    self.cashDozens = [Utilities updateDozenFrequencies:_dozenFrequency
+                                              allNumbers:_allNumbersDrawn
+                                                    bets:_myBets];
+
+    self.cashColumns = [Utilities updateColumnFrequencies:_columnFrequency
+                                             allNumbers:_allNumbersDrawn
+                                                   bets:_myBets];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -782,6 +796,20 @@
         _halvesFrequency = [[NSMutableArray alloc] init];
         for (int i=0; i<ALL_THE_REST; i++) {
             [_halvesFrequency addObject:[[NSNumber alloc] initWithInt:0]];
+        }
+    }
+    
+    if (_dozenFrequency == nil) {
+        _dozenFrequency = [[NSMutableArray alloc] init];
+        for (int i=0; i<ALL_THE_REST; i++) {
+            [_dozenFrequency addObject:[[NSNumber alloc] initWithInt:0]];
+        }
+    }
+    
+    if (_columnFrequency == nil) {
+        _columnFrequency = [[NSMutableArray alloc] init];
+        for (int i=0; i<ALL_THE_REST; i++) {
+            [_columnFrequency addObject:[[NSNumber alloc] initWithInt:0]];
         }
     }
     

@@ -249,6 +249,72 @@
     return even;
 }
 
++ (BOOL)isFirstDozen:(NSString *)number
+{
+    BOOL first = FALSE;
+    
+    if (([number intValue] > 0) && ([number intValue] < 13)) {
+        first = TRUE;
+    }
+    
+    return first;
+}
+
++ (BOOL)isSecondDozen:(NSString *)number
+{
+    BOOL second = FALSE;
+    
+    if (([number intValue] > 12) && ([number intValue] < 25)) {
+        second = TRUE;
+    }
+    
+    return second;
+}
+
++ (BOOL)isThirdDozen:(NSString *)number
+{
+    BOOL third = FALSE;
+    
+    if (([number intValue] > 24) && ([number intValue] < 37)) {
+        third = TRUE;
+    }
+    
+    return third;
+}
+
++ (BOOL)isFirstColumn:(NSString *)number
+{
+    BOOL first = FALSE;
+    
+    if (([number intValue] % 3) == 0) {
+        first = TRUE;
+    }
+    
+    return first;
+}
+
++ (BOOL)isSecondColumn:(NSString *)number
+{
+    BOOL second = FALSE;
+    
+    if (([number intValue] % 3) == 1) {
+        second = TRUE;
+    }
+    
+    return second;
+}
+
++ (BOOL)isThirdColumn:(NSString *)number
+{
+    BOOL third = FALSE;
+    
+    if (([number intValue] % 3) == 2) {
+        third = TRUE;
+    }
+    
+    return third;
+}
+
 + (double)updateColorFrequencies:(NSMutableArray *)colorsFrequency
                       allNumbers:(NSMutableArray *)allNumbersDrawn
                             bets:(MyBets *)myBets
@@ -287,6 +353,36 @@
                        function1:@selector(isHigh:)
                        function2:@selector(isLow:)
                             bets:myBets];
+    
+    return cash;
+}
+
++ (double)updateDozenFrequencies:(NSMutableArray *)dozenFrequency
+                       allNumbers:(NSMutableArray *)allNumbersDrawn
+                             bets:(MyBets *)myBets
+{
+    double cash = 0;
+    cash = [Utilities updateTrippleFrequencies:dozenFrequency
+                                    allNumbers:allNumbersDrawn
+                                     function1:@selector(isFirstDozen:)
+                                     function2:@selector(isSecondDozen:)
+                                     function3:@selector(isThirdDozen:)
+                                          bets:myBets];
+    
+    return cash;
+}
+
++ (double)updateColumnFrequencies:(NSMutableArray *)columnFrequency
+                      allNumbers:(NSMutableArray *)allNumbersDrawn
+                            bets:(MyBets *)myBets
+{
+    double cash = 0;
+    cash = [Utilities updateTrippleFrequencies:columnFrequency
+                                    allNumbers:allNumbersDrawn
+                                     function1:@selector(isFirstColumn:)
+                                     function2:@selector(isSecondColumn:)
+                                     function3:@selector(isThirdColumn:)
+                                          bets:myBets];
     
     return cash;
 }
@@ -354,6 +450,99 @@
             else {
                 prevTwo = false;
                 prevOne = false;
+                count = 0;
+            }
+        }
+    } // allNumbersDrawn
+    
+    // add last count
+    if (count > 0) {
+        [frequency addObject:[NSNumber numberWithInt:count]];
+    }
+    
+    [self combineArray:frequency];
+    
+    return cash;
+}
+
++ (double)updateTrippleFrequencies:(NSMutableArray *)frequency
+                        allNumbers:(NSMutableArray *)allNumbersDrawn
+                         function1:(SEL)func1
+                         function2:(SEL)func2
+                         function3:(SEL)func3
+                              bets:(MyBets *)myBets
+{
+    bool prevOne = false;
+    bool prevTwo = false;
+    bool prevThree = false;
+    
+    //    MyBets *myBets = [Utilities myBets];
+    
+    [frequency removeAllObjects];
+    
+    double cash = 0;
+    
+    double bet = (double)[[myBets bet01] intValue];
+    
+    int count = 0;
+    bool firstDraw = true;
+    for (NSString *number in allNumbersDrawn)
+    {
+        //
+        // same one drawn = loosing
+        //
+        if ([Utilities performSelector:func1 withObject:number] && prevOne) {
+            count++;
+            cash -= bet;
+            bet = [myBets nextBet];
+        }
+        else if ([Utilities performSelector:func2 withObject:number] && prevTwo) {
+            count++;
+            cash -= bet;
+            bet = [myBets nextBet];
+        }
+        else if ([Utilities performSelector:func3 withObject:number] && prevThree) {
+            count++;
+            cash -= bet;
+            bet = [myBets nextBet];
+        }
+        //
+        // opposite drawn = winning
+        //
+        else {
+            if (count > 0) {
+                [frequency addObject:[NSNumber numberWithInt:count]];
+            }
+            
+            count = 1;
+            
+            if (firstDraw) {
+                firstDraw = false;
+            }
+            else {
+                cash += bet;
+                bet = [myBets startBet];
+            }
+            
+            if ([Utilities performSelector:func1 withObject:number]) {
+                prevOne = true;
+                prevTwo = false;
+                prevThree = false;
+            }
+            else if ([Utilities performSelector:func2 withObject:number]) {
+                prevTwo = true;
+                prevOne = false;
+                prevThree = false;
+            }
+            else if ([Utilities performSelector:func3 withObject:number]) {
+                prevTwo = false;
+                prevOne = false;
+                prevThree = true;
+            }
+            else {
+                prevTwo = false;
+                prevOne = false;
+                prevThree = false;
                 count = 0;
             }
         }
