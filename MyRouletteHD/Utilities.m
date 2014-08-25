@@ -135,6 +135,9 @@
     static MyBets *mybets = nil;
     if (nil == mybets) {
         mybets = [Utilities unarchiveBets];
+        if (nil == mybets) {
+            mybets = [[MyBets alloc] init];
+        }
     }
     
     mybets.currBet = 0;
@@ -286,7 +289,7 @@
 {
     BOOL first = FALSE;
     
-    if (([number intValue] % 3) == 0) {
+    if (([number intValue] % 3) == 1) {
         first = TRUE;
     }
     
@@ -297,7 +300,7 @@
 {
     BOOL second = FALSE;
     
-    if (([number intValue] % 3) == 1) {
+    if (([number intValue] % 3) == 2) {
         second = TRUE;
     }
     
@@ -308,7 +311,7 @@
 {
     BOOL third = FALSE;
     
-    if (([number intValue] % 3) == 2) {
+    if (([number intValue] % 3) == 0) {
         third = TRUE;
     }
     
@@ -472,11 +475,8 @@
                          function3:(SEL)func3
                               bets:(MyBets *)myBets
 {
-    bool prevOne = false;
-    bool prevTwo = false;
-    bool prevThree = false;
-    
-    //    MyBets *myBets = [Utilities myBets];
+    int col1 = 0, col2 = 0, col3 = 0;
+    int bet1 = 0, bet2 = 0, bet3 = 0;
     
     [frequency removeAllObjects];
     
@@ -484,68 +484,53 @@
     
     double bet = (double)[[myBets bet01] intValue];
     
+    NSArray *numbers = @[@"1",@"5",@"8",@"7",@"10",@"9",@"11",@"14",@"17",@"20",@"0",@"15",@"18",@"1",@"2",@"1",@"2",@"5",@"8",@"3",@"3",@"2"];
+    
     int count = 0;
-    bool firstDraw = true;
-    for (NSString *number in allNumbersDrawn)
+    for (NSString *number in numbers)
     {
+        col1++; col2++; col3++;
+        
         //
         // same one drawn = loosing
         //
-        if ([Utilities performSelector:func1 withObject:number] && prevOne) {
-            count++;
-            cash -= bet;
-            bet = [myBets nextBet];
-        }
-        else if ([Utilities performSelector:func2 withObject:number] && prevTwo) {
-            count++;
-            cash -= bet;
-            bet = [myBets nextBet];
-        }
-        else if ([Utilities performSelector:func3 withObject:number] && prevThree) {
-            count++;
-            cash -= bet;
-            bet = [myBets nextBet];
-        }
-        //
-        // opposite drawn = winning
-        //
-        else {
-            if (count > 0) {
-                [frequency addObject:[NSNumber numberWithInt:count]];
+        if ([Utilities performSelector:func1 withObject:number]) {
+            col1 = 0;
+            cash += (2.0 * bet1);
+            bet1 = 0;
+            if (col2 > 1) {
+                bet2 = bet * pow(2, col2 - 2);
             }
-            
-            count = 1;
-            
-            if (firstDraw) {
-                firstDraw = false;
-            }
-            else {
-                cash += bet;
-                bet = [myBets startBet];
-            }
-            
-            if ([Utilities performSelector:func1 withObject:number]) {
-                prevOne = true;
-                prevTwo = false;
-                prevThree = false;
-            }
-            else if ([Utilities performSelector:func2 withObject:number]) {
-                prevTwo = true;
-                prevOne = false;
-                prevThree = false;
-            }
-            else if ([Utilities performSelector:func3 withObject:number]) {
-                prevTwo = false;
-                prevOne = false;
-                prevThree = true;
-            }
-            else {
-                prevTwo = false;
-                prevOne = false;
-                prevThree = false;
-                count = 0;
+            if (col3 > 1) {
+                bet3 = bet * pow(2, col3 - 2);
             }
         }
+        else if ([Utilities performSelector:func2 withObject:number]) {
+            col2 = 0;
+            cash += (2.0 * bet2);
+            bet2 = 0;
+            if (col1 > 1) {
+                bet1 = bet * pow(2, col1 - 2);
+            }
+            if (col3 > 1) {
+                bet3 = bet * pow(2, col3 - 2);
+            }
+        }
+        else if ([Utilities performSelector:func3 withObject:number]) {
+            col3 = 0;
+            cash += (2.0 * bet3);
+            bet3 = 0;
+            if (col1 > 1) {
+                bet1 = bet * pow(2, col1 - 2);
+            }
+            if (col2 > 1) {
+                bet2 = bet * pow(2, col2 - 2);
+            }
+        }
+        
+        NSLog(@"col1 = %d, col2 = %d, col3 = %d", col1, col2, col3);
+        NSLog(@"bet1 = %d, bet2 = %d, bet3 = %d", bet1, bet2, bet3);
+        
     } // allNumbersDrawn
     
     // add last count
