@@ -194,11 +194,11 @@
 {
     NSMutableArray *allFiles = [Utilities arrayOfRouletteFiles];
     
-    int last = [allFiles count];
+    NSUInteger last = [allFiles count];
     
     allFiles = nil;
     
-    NSString *filename = [NSString stringWithFormat:@"Roulette%02d.dat", ++last];
+    NSString *filename = [NSString stringWithFormat:@"Roulette%02d.dat", (int)++last];
     
     self.selectedFilename = filename;
     

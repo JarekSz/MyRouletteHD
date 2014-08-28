@@ -112,11 +112,11 @@
     return allRouletteFiles;
 }
 
-+ (int)indexOfSelectedFile:(NSString *)fileName
++ (NSUInteger)indexOfSelectedFile:(NSString *)fileName
 {
     NSMutableArray  *allFiles = [Utilities arrayOfRouletteFiles];
     
-    int index = [allFiles indexOfObject:fileName];
+    NSUInteger index = [allFiles indexOfObject:fileName];
     
     return index;
 }
@@ -484,10 +484,10 @@
     
     double bet = (double)[[myBets bet01] intValue];
     
-    NSArray *numbers = @[@"1",@"5",@"8",@"7",@"10",@"9",@"11",@"14",@"17",@"20",@"0",@"15",@"18",@"1",@"2",@"1",@"2",@"5",@"8",@"3",@"3",@"2"];
+//    NSArray *numbers = @[@"1",@"5",@"8",@"7",@"10",@"9",@"11",@"14",@"17",@"20",@"0",@"15",@"18",@"1",@"2",@"1",@"2",@"5",@"8",@"3",@"3",@"2"];
     
     int count = 0;
-    for (NSString *number in numbers)
+    for (NSString *number in allNumbersDrawn)
     {
         col1++; col2++; col3++;
         
@@ -530,6 +530,8 @@
         
         NSLog(@"col1 = %d, col2 = %d, col3 = %d", col1, col2, col3);
         NSLog(@"bet1 = %d, bet2 = %d, bet3 = %d", bet1, bet2, bet3);
+        
+        cash -= (bet1 + bet2 + bet3);
         
     } // allNumbersDrawn
     
