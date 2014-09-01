@@ -484,10 +484,11 @@
     
     double bet = (double)[[myBets bet01] intValue];
     
-    NSArray *numbers = @[@"1",@"5",@"8",@"7",@"10",@"9",@"11",@"14",@"17",@"20",@"0",@"15",@"18",@"1",@"2",@"1",@"2",@"5",@"8",@"3",@"3",@"2"];
+//    NSArray *numbers = @[@"1",@"5",@"8",@"7",@"10",@"9",@"11",@"14",@"17",@"20",@"0",@"15",@"18",@"1",@"2",@"1",@"2",@"5",@"8",@"3",@"3",@"2"];
+//    NSArray *numbers = @[@"1",@"13",@"25",@"2",@"14",@"26",@"3",@"15",@"27",@"4",@"16",@"28",@"5",@"17",@"29",@"6",@"18",@"30",@"7",@"19",@"31",@"1"];
     
-    int count = 0;
-    for (NSString *number in numbers)
+//    int count = 0;
+    for (NSString *number in allNumbersDrawn )
     {
         col1++; col2++; col3++;
         
@@ -500,9 +501,11 @@
             bet1 = 0;
             if (col2 > 1) {
                 bet2 = bet * pow(2, col2 - 2);
+                cash -= bet2;
             }
             if (col3 > 1) {
                 bet3 = bet * pow(2, col3 - 2);
+                cash -= bet3;
             }
         }
         else if ([Utilities performSelector:func2 withObject:number]) {
@@ -511,9 +514,11 @@
             bet2 = 0;
             if (col1 > 1) {
                 bet1 = bet * pow(2, col1 - 2);
+                cash -= bet1;
             }
             if (col3 > 1) {
                 bet3 = bet * pow(2, col3 - 2);
+                cash -= bet3;
             }
         }
         else if ([Utilities performSelector:func3 withObject:number]) {
@@ -522,9 +527,11 @@
             bet3 = 0;
             if (col1 > 1) {
                 bet1 = bet * pow(2, col1 - 2);
+                cash -= bet1;
             }
             if (col2 > 1) {
                 bet2 = bet * pow(2, col2 - 2);
+                cash -= bet2;
             }
         }
         
@@ -533,10 +540,10 @@
         
     } // allNumbersDrawn
     
-    // add last count
-    if (count > 0) {
-        [frequency addObject:[NSNumber numberWithInt:count]];
-    }
+//    // add last count
+//    if (count > 0) {
+//        [frequency addObject:[NSNumber numberWithInt:count]];
+//    }
     
     [self combineArray:frequency];
     
