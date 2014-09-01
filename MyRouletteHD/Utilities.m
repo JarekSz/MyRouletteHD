@@ -487,7 +487,10 @@
 //    NSArray *numbers = @[@"1",@"5",@"8",@"7",@"10",@"9",@"11",@"14",@"17",@"20",@"0",@"15",@"18",@"1",@"2",@"1",@"2",@"5",@"8",@"3",@"3",@"2"];
 //    NSArray *numbers = @[@"1",@"13",@"25",@"2",@"14",@"26",@"3",@"15",@"27",@"4",@"16",@"28",@"5",@"17",@"29",@"6",@"18",@"30",@"7",@"19",@"31",@"1"];
     
-//    int count = 0;
+    int count1 = 0;
+    int count2 = 0;
+    int count3 = 0;
+    
     for (NSString *number in allNumbersDrawn )
     {
         col1++; col2++; col3++;
@@ -498,40 +501,55 @@
         if ([Utilities performSelector:func1 withObject:number]) {
             col1 = 0;
             cash += (2.0 * bet1);
+            
+            if (count1 > 0) { // we have a winner
+                [frequency addObject:[NSNumber numberWithInt:count1]];
+            }
+            count2++;
+            count3++;
+            
             bet1 = 0;
             if (col2 > 1) {
                 bet2 = bet * pow(2, col2 - 2);
-                cash -= bet2;
             }
             if (col3 > 1) {
                 bet3 = bet * pow(2, col3 - 2);
-                cash -= bet3;
             }
         }
         else if ([Utilities performSelector:func2 withObject:number]) {
             col2 = 0;
             cash += (2.0 * bet2);
+            
+            if (count2 > 0) { // we have a winner
+                [frequency addObject:[NSNumber numberWithInt:count2]];
+            }
+            count1++;
+            count3++;
+            
             bet2 = 0;
             if (col1 > 1) {
                 bet1 = bet * pow(2, col1 - 2);
-                cash -= bet1;
             }
             if (col3 > 1) {
                 bet3 = bet * pow(2, col3 - 2);
-                cash -= bet3;
             }
         }
         else if ([Utilities performSelector:func3 withObject:number]) {
             col3 = 0;
             cash += (2.0 * bet3);
+            
+            if (count3 > 0) { // we have a winner
+                [frequency addObject:[NSNumber numberWithInt:count3]];
+            }
+            count1++;
+            count2++;
+            
             bet3 = 0;
             if (col1 > 1) {
                 bet1 = bet * pow(2, col1 - 2);
-                cash -= bet1;
             }
             if (col2 > 1) {
                 bet2 = bet * pow(2, col2 - 2);
-                cash -= bet2;
             }
         }
         
@@ -542,10 +560,15 @@
         
     } // allNumbersDrawn
     
-//    // add last count
-//    if (count > 0) {
-//        [frequency addObject:[NSNumber numberWithInt:count]];
-//    }
+    if (count1 > 0) { // record the looser
+        [frequency addObject:[NSNumber numberWithInt:count1]];
+    }
+    if (count2 > 0) { // record the looser
+        [frequency addObject:[NSNumber numberWithInt:count2]];
+    }
+    if (count3 > 0) { // record the looser
+        [frequency addObject:[NSNumber numberWithInt:count3]];
+    }
     
     [self combineArray:frequency];
     

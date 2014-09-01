@@ -888,7 +888,7 @@
     
     [self makeRangeVisible];
     
-    //    [self updateFrequencies];
+//    [self updateFrequencies];
 }
 
 - (void)viewDidUnload

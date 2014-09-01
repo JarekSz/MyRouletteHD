@@ -47,7 +47,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void) viewDidAppear:(BOOL)animated 
+- (void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     
@@ -57,6 +57,19 @@
 //    if (timesDrawn) {
 //        self.totalDraws = [[timesDrawn objectAtIndex:BLACKS] intValue] + [[timesDrawn objectAtIndex:REDS] intValue] + [[timesDrawn objectAtIndex:ZEROS] intValue];
 //    }
+    
+    [self showYourBets];
+}
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+}
+
+- (IBAction)showYourBets
+{
     double blacks = [[_probabArray objectAtIndex:BLACKS] doubleValue];
     double reds = [[_probabArray objectAtIndex:REDS] doubleValue];
     NSString *betColors = nil;
@@ -170,13 +183,6 @@
                      otherButtonTitles:nil];
     
     [alertView show];
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (int)betNow:(double)prob
