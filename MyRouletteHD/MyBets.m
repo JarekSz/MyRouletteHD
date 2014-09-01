@@ -166,9 +166,9 @@
     return [_mode intValue];
 }
 
-- (void)setMode:(int)mode
+- (void)setGameMode:(NSInteger)mode
 {
-    _mode = [[NSNumber alloc] initWithInt:mode];
+    _mode = [[NSNumber alloc] initWithInt:(int)mode];
 }
 
 @end

@@ -30,14 +30,14 @@
 
 -(IBAction)nextFile:(id)sender
 {
-    int index = [Utilities indexOfSelectedFile:*_selectedFilename];
+    NSUInteger index = [Utilities indexOfSelectedFile:*_selectedFilename];
     
     NSMutableArray  *allFiles = [Utilities arrayOfRouletteFiles];
     
-    int max = [allFiles count];
+    NSUInteger max = [allFiles count];
  
     if (max > 0) {
-        int last = max - 1;
+        NSUInteger last = max - 1;
         if (index < last) {
             index++;
         }
@@ -58,7 +58,7 @@
 
 -(IBAction)prevFile:(id)sender
 {
-    int index = [Utilities indexOfSelectedFile:*_selectedFilename];
+    NSUInteger index = [Utilities indexOfSelectedFile:*_selectedFilename];
     
     if (index > 0) {
         index--;
@@ -66,7 +66,7 @@
     
     NSMutableArray  *allFiles = [Utilities arrayOfRouletteFiles];
     
-    int max = [allFiles count];
+    NSUInteger max = [allFiles count];
     
     if (max > 0)
     {
@@ -88,7 +88,7 @@
 {
     NSMutableArray  *allFiles = [Utilities arrayOfRouletteFiles];
     
-    int index = [Utilities indexOfSelectedFile:*_selectedFilename];
+    NSUInteger index = [Utilities indexOfSelectedFile:*_selectedFilename];
     
     NSString *docPath = [Utilities archivePath];
     

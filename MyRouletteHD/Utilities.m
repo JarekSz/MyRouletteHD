@@ -112,11 +112,11 @@
     return allRouletteFiles;
 }
 
-+ (int)indexOfSelectedFile:(NSString *)fileName
++ (NSUInteger)indexOfSelectedFile:(NSString *)fileName
 {
     NSMutableArray  *allFiles = [Utilities arrayOfRouletteFiles];
     
-    int index = [allFiles indexOfObject:fileName];
+    NSUInteger index = [allFiles indexOfObject:fileName];
     
     return index;
 }
@@ -537,6 +537,8 @@
         
         NSLog(@"col1 = %d, col2 = %d, col3 = %d", col1, col2, col3);
         NSLog(@"bet1 = %d, bet2 = %d, bet3 = %d", bet1, bet2, bet3);
+        
+        cash -= (bet1 + bet2 + bet3);
         
     } // allNumbersDrawn
     

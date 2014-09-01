@@ -50,7 +50,7 @@ typedef enum {
 
 @property bool bEditing;
 
-@property int totalDraws;
+@property NSUInteger totalDraws;
 
 @property (nonatomic, retain) MyBets *myBets;
 //@property (nonatomic, assign) NSMutableArray *notDrawnFor;

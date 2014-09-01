@@ -35,6 +35,6 @@
 - (double)nextBet;
 - (double)startBet;
 - (int)currentMode;
-- (void)setMode:(int)mode;
+- (void)setGameMode:(NSInteger)mode;
 
 @end

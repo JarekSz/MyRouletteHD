@@ -48,8 +48,8 @@
 
 - (IBAction)modeChanged:(id)sender
 {
-    int mode = _modeSelect.selectedSegmentIndex;
-    [_myBets setMode:mode];
+    NSInteger mode = _modeSelect.selectedSegmentIndex;
+    [_myBets setGameMode:mode];
     
     [Utilities archiveBets:_myBets];
 }

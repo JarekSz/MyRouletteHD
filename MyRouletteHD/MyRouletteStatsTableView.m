@@ -87,44 +87,80 @@
         betHigh = [NSString stringWithFormat:@"$%d on LOW",[self betNow:lows]];
     }
     
-    NSString *betDozen = nil;
+    NSString *betDozen0 = nil;
+    NSString *betDozen1 = nil;
+    NSString *betDozen2 = nil;
+    
     double first = [[_probabArray objectAtIndex:FIRST12] doubleValue];
     double second = [[_probabArray objectAtIndex:SECOND12] doubleValue];
     double third = [[_probabArray objectAtIndex:THIRD12] doubleValue];
-    if (first >= second && first >= third) {
-        betDozen = [NSString stringWithFormat:@"$%d on DOZ: 1-12",[self betNow:first]];
+    if ([self betNow:first] > 0) {
+        betDozen0 = [NSString stringWithFormat:@"$%d on DOZ: 1-12",[self betNow:first]];
     }
-    if (second >= first && second >= third) {
-        betDozen = [NSString stringWithFormat:@"$%d on DOZ: 13-24",[self betNow:second]];
+    if ([self betNow:second] > 0) {
+        betDozen1 = [NSString stringWithFormat:@"$%d on DOZ: 13-24",[self betNow:second]];
     }
-    if (third >= first && third >= second) {
-        betDozen = [NSString stringWithFormat:@"$%d on DOZ: 25-36",[self betNow:third]];
+    if ([self betNow:third] > 0) {
+        betDozen2 = [NSString stringWithFormat:@"$%d on DOZ: 25-36",[self betNow:third]];
     }
     
-    NSString *betColumn = nil;
+    NSString *betColumn0 = nil;
+    NSString *betColumn1 = nil;
+    NSString *betColumn2 = nil;
+    
     double column0 = [[_probabArray objectAtIndex:COLUMN0] doubleValue];
     double column1 = [[_probabArray objectAtIndex:COLUMN1] doubleValue];
     double column2 = [[_probabArray objectAtIndex:COLUMN2] doubleValue];
-    if (column0 >= column1 && column0 >= column2) {
-        betColumn = [NSString stringWithFormat:@"$%d on COL: 1-34",[self betNow:column0]];
+    if ([self betNow:column0] > 0) {
+        betColumn0 = [NSString stringWithFormat:@"$%d on COL: 1-34",[self betNow:column0]];
     }
-    if (column1 >= column0 && column1 >= column2) {
-        betColumn = [NSString stringWithFormat:@"$%d on COL: 2-35",[self betNow:column1]];
+    if ([self betNow:column1] > 0) {
+        betColumn1 = [NSString stringWithFormat:@"$%d on COL: 2-35",[self betNow:column1]];
     }
-    if (column2 >= column0 && column2 >= column1) {
-        betColumn = [NSString stringWithFormat:@"$%d on COL: 3-36",[self betNow:column2]];
+    if ([self betNow:column2] > 0) {
+        betColumn2 = [NSString stringWithFormat:@"$%d on COL: 3-36",[self betNow:column2]];
     }
     
     NSMutableString *message = [[NSMutableString alloc] init];
+    
+    // colors
     [message appendString:betColors];
     [message appendString:@"\n"];
+    
+    // odds
     [message appendString:betOdd];
     [message appendString:@"\n"];
+    
+    // high
     [message appendString:betHigh];
     [message appendString:@"\n"];
-    [message appendString:betDozen];
-    [message appendString:@"\n"];
-    [message appendString:betColumn];
+    
+    // dozens
+    if (betDozen0) {
+        [message appendString:betDozen0];
+        [message appendString:@"\n"];
+    }
+    if (betDozen1) {
+        [message appendString:betDozen1];
+        [message appendString:@"\n"];
+    }
+    if (betDozen2) {
+        [message appendString:betDozen2];
+        [message appendString:@"\n"];
+    }
+    
+    // columns
+    if (betColumn0) {
+        [message appendString:betColumn0];
+        [message appendString:@"\n"];
+    }
+    if (betColumn1) {
+        [message appendString:betColumn1];
+        [message appendString:@"\n"];
+    }
+    if (betColumn2) {
+        [message appendString:betColumn2];
+    }
     
     UIAlertView *alertView =
     [[UIAlertView alloc] initWithTitle:@"PLAY NOW:"
@@ -238,8 +274,8 @@
     self.cell = [[[NSBundle mainBundle] loadNibNamed:@"Cell" owner:self options:nil] lastObject];
     
     // Configure the cell...
-	int index = indexPath.row;
-    int section = indexPath.section;
+	NSInteger index = indexPath.row;
+    NSInteger section = indexPath.section;
     
     UILabel *text1 = (UILabel *)[_cell viewWithTag:101];
     UILabel *text2 = (UILabel *)[_cell viewWithTag:102];

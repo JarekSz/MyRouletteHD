@@ -19,7 +19,7 @@
 + (MyBets *)unarchiveBets;
 + (void)archiveBets:(MyBets *)myBets;
 + (NSMutableArray *)arrayOfRouletteFiles;
-+ (int)indexOfSelectedFile:(NSString *)fileName;
++ (NSUInteger)indexOfSelectedFile:(NSString *)fileName;
 + (NSString *)lastFileName;
 
 + (MyBets *)myBets;
