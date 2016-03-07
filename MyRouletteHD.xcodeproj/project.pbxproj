@@ -37,6 +37,7 @@
 		CD6C9F4C199AF69200A170FB /* Footer.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD6C9F4B199AF69200A170FB /* Footer.xib */; };
 		CD6C9F4E199AF69800A170FB /* Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD6C9F4D199AF69800A170FB /* Cell.xib */; };
 		CD6C9F50199AF6AE00A170FB /* Header2.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD6C9F4F199AF6AE00A170FB /* Header2.xib */; };
+		DEB927531C8CE9FD007399E7 /* LaunchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = DEB927521C8CE9FD007399E7 /* LaunchImage.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		CD6C9F4B199AF69200A170FB /* Footer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Footer.xib; sourceTree = "<group>"; };
 		CD6C9F4D199AF69800A170FB /* Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Cell.xib; sourceTree = "<group>"; };
 		CD6C9F4F199AF6AE00A170FB /* Header2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Header2.xib; sourceTree = "<group>"; };
+		DEB927521C8CE9FD007399E7 /* LaunchImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +185,7 @@
 		CD6C9EFD199AF23B00A170FB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DEB927521C8CE9FD007399E7 /* LaunchImage.png */,
 				CD6C9F2F199AF49400A170FB /* Green.png */,
 				CD6C9F2D199AF48900A170FB /* Black.png */,
 				CD6C9F2B199AF47C00A170FB /* Red.png */,
@@ -298,6 +301,7 @@
 				CD6C9F01199AF23B00A170FB /* InfoPlist.strings in Resources */,
 				CD6C9F4A199AF68A00A170FB /* Header.xib in Resources */,
 				CD6C9F0A199AF23B00A170FB /* Main.storyboard in Resources */,
+				DEB927531C8CE9FD007399E7 /* LaunchImage.png in Resources */,
 				CD6C9F50199AF6AE00A170FB /* Header2.xib in Resources */,
 				CD6C9F38199AF5C400A170FB /* MyRouletteStatsTableView.xib in Resources */,
 				CD6C9F42199AF5DE00A170FB /* FileViewController.xib in Resources */,
