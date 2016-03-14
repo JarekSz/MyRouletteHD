@@ -74,30 +74,30 @@
     double reds = [[_probabArray objectAtIndex:REDS] doubleValue];
     NSString *betColors = nil;
     if (blacks > reds) {
-        betColors = [NSString stringWithFormat:@"$%d on BLACKS",[self betNow:blacks]];
+        betColors = [NSString stringWithFormat:@"$%d on BLACKS",[Utilities betNow:blacks]];
     }
     else {
-        betColors = [NSString stringWithFormat:@"$%d on REDS",[self betNow:reds]];
+        betColors = [NSString stringWithFormat:@"$%d on REDS",[Utilities betNow:reds]];
     }
     
     NSString *betOdd = nil;
     double odds = [[_probabArray objectAtIndex:ODDS] doubleValue];
     double evens = [[_probabArray objectAtIndex:EVENS] doubleValue];
     if (odds > evens) {
-        betOdd = [NSString stringWithFormat:@"$%d on ODD",[self betNow:odds]];
+        betOdd = [NSString stringWithFormat:@"$%d on ODD",[Utilities betNow:odds]];
     }
     else {
-        betOdd = [NSString stringWithFormat:@"$%d on EVEN",[self betNow:evens]];
+        betOdd = [NSString stringWithFormat:@"$%d on EVEN",[Utilities betNow:evens]];
     }
     
     NSString *betHigh = nil;
     double highs = [[_probabArray objectAtIndex:HIGHS] doubleValue];
     double lows = [[_probabArray objectAtIndex:LOWS] doubleValue];
     if (highs > lows) {
-        betHigh = [NSString stringWithFormat:@"$%d on HIGH",[self betNow:highs]];
+        betHigh = [NSString stringWithFormat:@"$%d on HIGH",[Utilities betNow:highs]];
     }
     else {
-        betHigh = [NSString stringWithFormat:@"$%d on LOW",[self betNow:lows]];
+        betHigh = [NSString stringWithFormat:@"$%d on LOW",[Utilities betNow:lows]];
     }
     
     NSString *betDozen0 = nil;
@@ -107,14 +107,14 @@
     double first = [[_probabArray objectAtIndex:FIRST12] doubleValue];
     double second = [[_probabArray objectAtIndex:SECOND12] doubleValue];
     double third = [[_probabArray objectAtIndex:THIRD12] doubleValue];
-    if ([self betNow:first] > 0) {
-        betDozen0 = [NSString stringWithFormat:@"$%d on DOZ: 1-12",[self betNow:first]];
+    if ([Utilities betNow:first] > 0) {
+        betDozen0 = [NSString stringWithFormat:@"$%d on DOZ: 1-12",[Utilities betNow:first]];
     }
-    if ([self betNow:second] > 0) {
-        betDozen1 = [NSString stringWithFormat:@"$%d on DOZ: 13-24",[self betNow:second]];
+    if ([Utilities betNow:second] > 0) {
+        betDozen1 = [NSString stringWithFormat:@"$%d on DOZ: 13-24",[Utilities betNow:second]];
     }
-    if ([self betNow:third] > 0) {
-        betDozen2 = [NSString stringWithFormat:@"$%d on DOZ: 25-36",[self betNow:third]];
+    if ([Utilities betNow:third] > 0) {
+        betDozen2 = [NSString stringWithFormat:@"$%d on DOZ: 25-36",[Utilities betNow:third]];
     }
     
     NSString *betColumn0 = nil;
@@ -124,14 +124,14 @@
     double column0 = [[_probabArray objectAtIndex:COLUMN0] doubleValue];
     double column1 = [[_probabArray objectAtIndex:COLUMN1] doubleValue];
     double column2 = [[_probabArray objectAtIndex:COLUMN2] doubleValue];
-    if ([self betNow:column0] > 0) {
-        betColumn0 = [NSString stringWithFormat:@"$%d on COL: 1-34",[self betNow:column0]];
+    if ([Utilities betNow:column0] > 0) {
+        betColumn0 = [NSString stringWithFormat:@"$%d on COL: 1-34",[Utilities betNow:column0]];
     }
-    if ([self betNow:column1] > 0) {
-        betColumn1 = [NSString stringWithFormat:@"$%d on COL: 2-35",[self betNow:column1]];
+    if ([Utilities betNow:column1] > 0) {
+        betColumn1 = [NSString stringWithFormat:@"$%d on COL: 2-35",[Utilities betNow:column1]];
     }
-    if ([self betNow:column2] > 0) {
-        betColumn2 = [NSString stringWithFormat:@"$%d on COL: 3-36",[self betNow:column2]];
+    if ([Utilities betNow:column2] > 0) {
+        betColumn2 = [NSString stringWithFormat:@"$%d on COL: 3-36",[Utilities betNow:column2]];
     }
     
     NSMutableString *message = [[NSMutableString alloc] init];
@@ -185,50 +185,48 @@
     [alertView show];
 }
 
-- (int)betNow:(double)prob
-{
-    int min = [_myBets.bet01 intValue];
-    
-    int bet = 0;
-    if (prob > 0.9998) {
-        bet = min*2048;
-    }
-    else if (prob > 0.9997) {
-        bet = min*1024;
-    }
-    else if (prob > 0.9994) {
-        bet = min*512;
-    }
-    else if (prob > 0.998) {
-        bet = min*256;
-    }
-    else if (prob > 0.997) {
-        bet = min*128;
-    }
-    else if (prob > 0.994) {
-        bet = min*64;
-    }
-    else if (prob > 0.98) {
-        bet = min*32;
-    }
-    else if (prob > 0.97) {
-        bet = min*16;
-    }
-    else if (prob > 0.94) {
-        bet = min*8;
-    }
-    else if (prob > 0.89) {
-        bet = min*4;
-    }
-    else if (prob > 0.77) {
-        bet = min*2;
-    }
-    else if (prob > 0.52) {
-        bet = min*1;
-    }
-
-    return bet;
-}
+//- (int)betNow:(double)prob
+//{
+//    int bet = 0;
+//    if (prob > 0.9998) {
+//        bet = [_myBets.bet12 intValue];
+//    }
+//    else if (prob > 0.9997) {
+//        bet = [_myBets.bet11 intValue];
+//    }
+//    else if (prob > 0.9994) {
+//        bet = [_myBets.bet10 intValue];
+//    }
+//    else if (prob > 0.998) {
+//        bet = [_myBets.bet09 intValue];
+//    }
+//    else if (prob > 0.997) {
+//        bet = [_myBets.bet08 intValue];
+//    }
+//    else if (prob > 0.994) {
+//        bet = [_myBets.bet07 intValue];
+//    }
+//    else if (prob > 0.98) {
+//        bet = [_myBets.bet06 intValue];
+//    }
+//    else if (prob > 0.97) {
+//        bet = [_myBets.bet05 intValue];
+//    }
+//    else if (prob > 0.94) {
+//        bet = [_myBets.bet04 intValue];
+//    }
+//    else if (prob > 0.89) {
+//        bet = [_myBets.bet03 intValue];
+//    }
+//    else if (prob > 0.77) {
+//        bet = [_myBets.bet02 intValue];
+//    }
+//    else if (prob > 0.52) {
+//        bet = [_myBets.bet01 intValue];
+//    }
+//
+//    return bet;
+//}
 
 #pragma mark - Table view data source
 

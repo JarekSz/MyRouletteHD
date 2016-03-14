@@ -262,6 +262,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Jaroslaw Szymczyk";
 				TargetAttributes = {
+					CD6C9EF2199AF23B00A170FB = {
+						DevelopmentTeam = UT9NXMR82Q;
+					};
 					CD6C9F13199AF23C00A170FB = {
 						TestTargetID = CD6C9EF2199AF23B00A170FB;
 					};
@@ -456,13 +459,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Jaroslaw Szymczyk (MJ7672XMZB)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jaroslaw Szymczyk (MJ7672XMZB)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyRouletteHD/MyRouletteHD-Prefix.pch";
 				INFOPLIST_FILE = "MyRouletteHD/MyRouletteHD-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b2efd918-c9f4-4084-97c9-84ae910d5052";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -472,12 +475,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Jaroslaw Szymczyk (MJ7672XMZB)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyRouletteHD/MyRouletteHD-Prefix.pch";
 				INFOPLIST_FILE = "MyRouletteHD/MyRouletteHD-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b2efd918-c9f4-4084-97c9-84ae910d5052";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

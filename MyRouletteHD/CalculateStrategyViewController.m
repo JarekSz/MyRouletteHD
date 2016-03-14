@@ -54,7 +54,7 @@
     [Utilities archiveBets:_myBets];
 }
 
--(IBAction)numberChanged:(id)sender
+- (IBAction)numberChanged:(id)sender
 {
     self.needSaving = YES;
     
@@ -65,7 +65,7 @@
     [Utilities archiveBets:_myBets];
 }
 
--(void)setFrequenciesColors:(NSMutableArray *)colors 
+- (void)setFrequenciesColors:(NSMutableArray *)colors
                        Odds:(NSMutableArray *)odds 
                      Halves:(NSMutableArray *)halves
                      Dozens:(NSMutableArray *)dozens
@@ -82,7 +82,7 @@
     [_allNumbersDrawn addObjectsFromArray:allNumbers];
 }
 
--(void)setCashForColors:(double)colors
+- (void)setCashForColors:(double)colors
                    Odds:(double)odds
                  Halves:(double)halves
                  Dozens:(double)dozens
@@ -95,7 +95,7 @@
     self.cashColumns = columns;
 }
 
--(IBAction)goBack 
+- (IBAction)goBack
 {    
     if (_needSaving)
     {
@@ -116,7 +116,7 @@
 	return YES;
 }
 
--(void)showCash
+- (void)showCash
 {
     NSString *col = [NSString stringWithFormat:@"%.2f", _cashColors];
     self.colorText.text = col;
@@ -134,7 +134,7 @@
     self.columnsText.text = columns;
 }
 
--(void)calculate
+- (void)calculate
 {
     self.myBets = [Utilities myBets];
     
@@ -175,7 +175,7 @@
     
 }
 
--(IBAction)update
+- (IBAction)update
 {
     [self readBetNumbers];
     

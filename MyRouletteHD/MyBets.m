@@ -11,6 +11,7 @@
 
 @interface MyBets ()
 
+// COL-ODD-HIGH-DOZ-CLM-ALL
 @property (nonatomic, retain) NSNumber *mode;
 
 @end
@@ -21,8 +22,8 @@
 - (id)init {
 	if (self == [super init]) 
 	{
-        _mode = [[NSNumber alloc] initWithInt:0];
-        
+//        _mode = [[NSNumber alloc] initWithInt:0];
+//        
 		_bet01 = [[NSNumber alloc] initWithInt:5];
 		_bet02 = [[NSNumber alloc] initWithInt:10];
 		_bet03 = [[NSNumber alloc] initWithInt:20];
@@ -43,20 +44,20 @@
 - (id)initWithArray:(NSArray *)array {
 	if (self == [super init])
 	{
-        _mode = [array objectAtIndex:0];
-        
-		_bet01 = [array objectAtIndex:1];
-		_bet02 = [array objectAtIndex:2];
-		_bet03 = [array objectAtIndex:3];
-		_bet04 = [array objectAtIndex:4];
-		_bet05 = [array objectAtIndex:5];
-		_bet06 = [array objectAtIndex:6];
-		_bet07 = [array objectAtIndex:7];
-		_bet08 = [array objectAtIndex:8];
-		_bet09 = [array objectAtIndex:9];
-		_bet10 = [array objectAtIndex:10];
-		_bet11 = [array objectAtIndex:11];
-		_bet12 = [array objectAtIndex:12];
+//        _mode = [array objectAtIndex:0];
+//        
+		_bet01 = [array objectAtIndex:0];
+		_bet02 = [array objectAtIndex:1];
+		_bet03 = [array objectAtIndex:2];
+		_bet04 = [array objectAtIndex:3];
+		_bet05 = [array objectAtIndex:4];
+		_bet06 = [array objectAtIndex:5];
+		_bet07 = [array objectAtIndex:6];
+		_bet08 = [array objectAtIndex:7];
+		_bet09 = [array objectAtIndex:8];
+		_bet10 = [array objectAtIndex:9];
+		_bet11 = [array objectAtIndex:10];
+		_bet12 = [array objectAtIndex:11];
 	}
 	return self;
 }
@@ -116,40 +117,40 @@
     _currBet++;
     
     switch (_currBet) {
-        case 1:
+        case 0:
         value = [_bet01 doubleValue];
         break;
-        case 2:
+        case 1:
         value = [_bet02 doubleValue];
         break;
-        case 3:
+        case 2:
         value = [_bet03 doubleValue];
         break;
-        case 4:
+        case 3:
         value = [_bet04 doubleValue];
         break;
-        case 5:
+        case 4:
         value = [_bet05 doubleValue];
         break;
-        case 6:
+        case 5:
         value = [_bet06 doubleValue];
         break;
-        case 7:
+        case 6:
         value = [_bet07 doubleValue];
         break;
-        case 8:
+        case 7:
         value = [_bet08 doubleValue];
         break;
-        case 9:
+        case 8:
         value = [_bet09 doubleValue];
         break;
-        case 10:
+        case 9:
         value = [_bet10 doubleValue];
         break;
-        case 11:
+        case 10:
         value = [_bet11 doubleValue];
         break;
-        case 12:
+        case 11:
         value = [_bet12 doubleValue];
         break;
         
@@ -170,5 +171,23 @@
 {
     _mode = [[NSNumber alloc] initWithInt:(int)mode];
 }
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"%d - %d - %d - %d - %d - %d - %d - %d - %d - %d - %d - %d",
+            [self.bet01 intValue],
+            [self.bet02 intValue],
+            [self.bet03 intValue],
+            [self.bet04 intValue],
+            [self.bet05 intValue],
+            [self.bet06 intValue],
+            [self.bet07 intValue],
+            [self.bet08 intValue],
+            [self.bet09 intValue],
+            [self.bet10 intValue],
+            [self.bet11 intValue],
+            [self.bet12 intValue]];
+}
+
 
 @end

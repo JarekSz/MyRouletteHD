@@ -105,7 +105,7 @@
 #pragma mark -
 #pragma mark -actions
 
--(IBAction)winner
+- (IBAction)winner
 {
     [self archiveNumbers:_selectedFilename];
     
@@ -140,7 +140,7 @@
     self.strategyView = nil;
 }
 
--(IBAction)removeLast
+- (IBAction)removeLast
 {
     [_allNumbersDrawn removeLastObject];
     
@@ -161,7 +161,7 @@
     [self recalculateAllNumbers];
 }
 
--(IBAction)viewStats
+- (IBAction)viewStats
 {
     [self archiveNumbers:_selectedFilename];
     

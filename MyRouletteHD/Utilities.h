@@ -74,5 +74,13 @@
                               bets:(MyBets *)myBets;
 
 + (void)combineArray:(NSMutableArray *)array;
++ (int)betNow:(double)prob;
+
++ (NSNumber *)isFirstDozenProbability:(NSNumber *)count;
++ (NSNumber *)isSecondDozenProbability:(NSNumber *)count;
++ (NSNumber *)isThirdDozenProbability:(NSNumber *)count;
++ (NSNumber *)isFirstColumnProbability:(NSNumber *)count;
++ (NSNumber *)isSecondColumnProbability:(NSNumber *)count;
++ (NSNumber *)isThirdColumnProbability:(NSNumber *)count;
 
 @end

@@ -12,7 +12,7 @@
 
 @implementation MyRouletteMath
 
-+(int) factorial:(int)num
++ (int)factorial:(int)num
 { 
     
     int res = 1; 
@@ -25,7 +25,7 @@
     return res; 
 } 
 
-+(int) permutationsN:(int)n overR:(int)r 
++ (int)permutationsN:(int)n overR:(int)r
 { 
     
     if( r > n ) 
@@ -45,7 +45,7 @@
     return res; 
 } 
 
-+(int) combinationsN:(int)n overR:(int)r 
++ (int)combinationsN:(int)n overR:(int)r
 { 
     if( r > n ) 
     { 
@@ -58,13 +58,17 @@
     return res; 
 } 
 
-+(float) probability:(float)p trials:(int)n successes:(int)k
+// probability of k or more successes in n trials
++ (float)probability:(float)p trials:(int)n successes:(int)k
 {
     float prob = 0.0;
     
-    prob = pow(p, k) * pow(1 - p, n - k);
-//    prob *= (float)[self combinationsN:n overR:k];
-             
+//    for (int i=k; i<=n; i++) {
+        prob = pow(p, k) * pow(1 - p, n - k);
+        prob *= (float)[self combinationsN:n overR:k];
+//    }
+    
+    
     return prob;
 }
 
