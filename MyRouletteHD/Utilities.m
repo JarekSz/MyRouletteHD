@@ -203,6 +203,12 @@
     return black;
 }
 
++ (NSNumber *)isBlackProbability:(NSNumber *)count
+{
+    return [Utilities doubleProbability:count];
+}
+
+
 + (BOOL)isRed:(NSString *)number
 {
     BOOL red = FALSE;
@@ -212,6 +218,11 @@
     }
     
     return red;
+}
+
++ (NSNumber *)isRedProbability:(NSNumber *)count
+{
+    return [Utilities doubleProbability:count];
 }
 
 + (BOOL)isHigh:(NSString *)number
@@ -225,6 +236,11 @@
     return high;
 }
 
++ (NSNumber *)isHighProbability:(NSNumber *)count
+{
+    return [Utilities doubleProbability:count];
+}
+
 + (BOOL)isLow:(NSString *)number
 {
     BOOL low = FALSE;
@@ -235,6 +251,12 @@
     
     return low;
 }
+
++ (NSNumber *)isLowProbability:(NSNumber *)count
+{
+    return [Utilities doubleProbability:count];
+}
+
 
 + (BOOL)isOdd:(NSString *)number
 {
@@ -247,6 +269,12 @@
     return odd;
 }
 
++ (NSNumber *)isOddProbability:(NSNumber *)count
+{
+    return [Utilities doubleProbability:count];
+}
+
+
 + (BOOL)isEven:(NSString *)number
 {
     BOOL even = FALSE;
@@ -257,6 +285,24 @@
     
     return even;
 }
+
++ (NSNumber *)isEvenProbability:(NSNumber *)count
+{
+    return [Utilities doubleProbability:count];
+}
+
++ (NSNumber *)doubleProbability:(NSNumber *)count
+{
+    double probability = 0.0;
+    
+    // probability of 1..n successes in n trials
+    int n = [count intValue] + 1;
+    
+    probability = 1 - [MyRouletteMath probability:ProbSuccessDouble trials:n successes:0];
+    
+    return [NSNumber numberWithDouble:probability];
+}
+
 
 + (BOOL)isFirstDozen:(NSString *)number
 {
@@ -271,7 +317,7 @@
 
 + (NSNumber *)isFirstDozenProbability:(NSNumber *)count
 {
-    return [Utilities dozenProbability:count];
+    return [Utilities tripleProbability:count];
 }
 
 + (BOOL)isSecondDozen:(NSString *)number
@@ -287,7 +333,7 @@
 
 + (NSNumber *)isSecondDozenProbability:(NSNumber *)count
 {
-    return [Utilities dozenProbability:count];
+    return [Utilities tripleProbability:count];
 }
 
 + (BOOL)isThirdDozen:(NSString *)number
@@ -303,10 +349,10 @@
 
 + (NSNumber *)isThirdDozenProbability:(NSNumber *)count
 {
-    return [Utilities dozenProbability:count];
+    return [Utilities tripleProbability:count];
 }
 
-+ (NSNumber *)dozenProbability:(NSNumber *)count
++ (NSNumber *)tripleProbability:(NSNumber *)count
 {
     double probability = 0.0;
     
@@ -332,7 +378,7 @@
 
 + (NSNumber *)isFirstColumnProbability:(NSNumber *)count
 {
-    return [Utilities dozenProbability:count];
+    return [Utilities tripleProbability:count];
 }
 
 + (BOOL)isSecondColumn:(NSString *)number
@@ -348,7 +394,7 @@
 
 + (NSNumber *)isSecondColumnProbability:(NSNumber *)count
 {
-    return [Utilities dozenProbability:count];
+    return [Utilities tripleProbability:count];
 }
 
 + (BOOL)isThirdColumn:(NSString *)number
@@ -364,7 +410,7 @@
 
 + (NSNumber *)isThirdColumnProbability:(NSNumber *)count
 {
-    return [Utilities dozenProbability:count];
+    return [Utilities tripleProbability:count];
 }
 
 + (double)updateColorFrequencies:(NSMutableArray *)colorsFrequency
@@ -445,74 +491,100 @@
                   function2:(SEL)func2
                        bets:(MyBets *)myBets
 {
-    bool prevOne = false;
-    bool prevTwo = false;
+    NSLog(@"******************************");
+    NSLog(@"%@",NSStringFromSelector(func1));
+    NSLog(@"%@",NSStringFromSelector(func2));
+    NSLog(@"******************************");
     
-//    MyBets *myBets = [Utilities myBets];
+    bool betOne = false;
+    bool betTwo = false;
+    
+    SEL probFunc1 = [Utilities probFuncFromFunc:func1];
+    SEL probFunc2 = [Utilities probFuncFromFunc:func2];
+    
+    int col1 = 0, col2 = 0;
+    int bet1 = 0, bet2 = 0;
     
     [frequency removeAllObjects];
     
     double cash = 0;
     
-    double bet = (double)[[myBets bet01] intValue];
+//    double bet = (double)[[myBets bet01] intValue];
     
-    int count = 0;
     bool firstDraw = true;
-    for (NSString *number in allNumbersDrawn)
+    for (NSString *number in allNumbersDrawn )
     {
-        //
-        // same one drawn = loosing
-        //
-        if ([Utilities performSelector:func1 withObject:number] && prevOne) {
-            count++;
-            cash -= bet;
-            bet = [myBets nextBet];
+        col1++; col2++;
+        
+        if (firstDraw) {
+            firstDraw = false;
         }
-        else if ([Utilities performSelector:func2 withObject:number] && prevTwo) {
-            count++;
-            cash -= bet;
-            bet = [myBets nextBet];
+        
+        /////////////////////////////////////////////////////////////////////////
+        //
+        // W I N N E R
+        //
+        if ([Utilities performSelector:func1 withObject:number])
+        {
+            if (betOne) {
+                cash += (2.0 * bet1);
+            }
+            col1 = 0;
+        }
+        if ([Utilities performSelector:func2 withObject:number])
+        {
+            if (betTwo) {
+                cash += (2.0 * bet2);
+            }
+            col2 = 0;
+        }
+        
+        int maxCount = col1;
+        if (col2 > maxCount) {
+            maxCount = col2;
         }
         //
-        // opposite drawn = winning
+        // what we bet next
         //
-        else {
-            if (count > 0) {
-                [frequency addObject:[NSNumber numberWithInt:count]];
-            }
+        betOne = false;
+        betTwo = false;
+        
+        bet1 = 0; bet2 = 0;
+        
+        if (maxCount == col1 && ![Utilities performSelector:func1 withObject:number])
+        {
+            double prob = [[Utilities performSelector:probFunc1 withObject:[NSNumber numberWithInt:col1]] doubleValue];
             
-            count = 1;
+            bet1 = [Utilities betNow:prob];
             
-            if (firstDraw) {
-                firstDraw = false;
-            }
-            else {
-                cash += bet;
-                bet = [myBets startBet];
-            }
-            
-            if ([Utilities performSelector:func1 withObject:number]) {
-                prevOne = true;
-                prevTwo = false;
-            }
-            else if ([Utilities performSelector:func2 withObject:number]) {
-                prevTwo = true;
-                prevOne = false;
-            }
-            else {
-                prevTwo = false;
-                prevOne = false;
-                count = 0;
-            }
+            betOne = true;
         }
+        if (maxCount == col2 && ![Utilities performSelector:func2 withObject:number])
+        {
+            double prob = [[Utilities performSelector:probFunc2 withObject:[NSNumber numberWithInt:col2]] doubleValue];
+            
+            bet2 = [Utilities betNow:prob];
+            
+            betTwo = true;
+        }
+        
+        NSLog(@"col1 = %d, col2 = %d", col1, col2);
+        NSLog(@"bet1 = %d, bet2 = %d", bet1, bet2);
+        
+        cash -= (bet1 + bet2);
+        
     } // allNumbersDrawn
     
-    // add last count
-    if (count > 0) {
-        [frequency addObject:[NSNumber numberWithInt:count]];
+    if (col1 > 0) {
+        [frequency addObject:[NSNumber numberWithInt:col1]];
+    }
+    if (col2 > 0) {
+        [frequency addObject:[NSNumber numberWithInt:col2]];
     }
     
     [self combineArray:frequency];
+    
+    NSLog(@"cash = %.2f", cash);
     
     return cash;
 }
@@ -536,6 +608,12 @@
                          function3:(SEL)func3
                               bets:(MyBets *)myBets
 {
+    NSLog(@"******************************");
+    NSLog(@"%@",NSStringFromSelector(func1));
+    NSLog(@"%@",NSStringFromSelector(func2));
+    NSLog(@"%@",NSStringFromSelector(func3));
+    NSLog(@"******************************");
+    
     bool betOne = false;
     bool betTwo = false;
     bool betThree = false;
@@ -551,16 +629,8 @@
     
     double cash = 0;
     
-    double bet = (double)[[myBets bet01] intValue];
+//    double bet = (double)[[myBets bet01] intValue];
     
-//    NSArray *numbers = @[@"1",@"5",@"8",@"7",@"10",@"9",@"11",@"14",@"17",@"20",@"0",@"15",@"18",@"1",@"2",@"1",@"2",@"5",@"8",@"3",@"3",@"2"];
-//    NSArray *numbers = @[@"1",@"13",@"25",@"2",@"14",@"26",@"3",@"15",@"27",@"4",@"16",@"28",@"5",@"17",@"29",@"6",@"18",@"30",@"7",@"19",@"31",@"1"];
-    
-//    int count1 = 0;
-//    int count2 = 0;
-//    int count3 = 0;
-    
-//    int count = 0;
     bool firstDraw = true;
     for (NSString *number in allNumbersDrawn )
     {
@@ -610,7 +680,9 @@
         betTwo = false;
         betThree = false;
         
-        if (maxCount == col1 && ![Utilities performSelector:func1 withObject:number])
+        bet1 = 0; bet2 = 0; bet3 = 0;
+
+        if (col1 > 0 && maxCount == col1 && ![Utilities performSelector:func1 withObject:number])
         {
             double prob = [[Utilities performSelector:probFunc1 withObject:[NSNumber numberWithInt:col1]] doubleValue];
             
@@ -618,7 +690,7 @@
             
             betOne = true;
         }
-        if (maxCount == col2 && ![Utilities performSelector:func2 withObject:number])
+        if (col2 > 0 && maxCount == col2 && ![Utilities performSelector:func2 withObject:number])
         {
             double prob = [[Utilities performSelector:probFunc2 withObject:[NSNumber numberWithInt:col2]] doubleValue];
             
@@ -626,7 +698,7 @@
             
             betTwo = true;
         }
-        if (maxCount == col3 && ![Utilities performSelector:func3 withObject:number])
+        if (col3 > 0 && maxCount == col3 && ![Utilities performSelector:func3 withObject:number])
         {
             double prob = [[Utilities performSelector:probFunc3 withObject:[NSNumber numberWithInt:col3]] doubleValue];
             
@@ -653,6 +725,8 @@
     }
     
     [self combineArray:frequency];
+    
+    NSLog(@"cash = %.2f", cash);
     
     return cash;
 }
