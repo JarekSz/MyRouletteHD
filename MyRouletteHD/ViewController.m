@@ -149,44 +149,46 @@
     //
     // redo all numbers
     //
-    NSString *text = [[NSString alloc] init];
+    [self showPastNumbers];
     
-//    for (NSString *number in _allNumbersDrawn) {
-//        [self addNextNumber:number toText:&text];
+//    NSString *text = [[NSString alloc] init];
+//    
+////    for (NSString *number in _allNumbersDrawn) {
+////        [self addNextNumber:number toText:&text];
+////    }
+//    NSMutableAttributedString *numbers = [[NSMutableAttributedString alloc] init];
+//    for (NSString *number in _allNumbersDrawn)
+//    {
+//        NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:number];
+//        
+//        UIFont *font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:18];
+//        
+//        [string addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, string.length)];
+//        
+//        [string addAttribute:NSBackgroundColorAttributeName value:[UIColor clearColor] range:NSMakeRange(0, string.length)];
+//        
+//        
+//        if ([Utilities isBlack:number]) {
+//            [string addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, string.length)];
+//        }
+//        else if ([Utilities isRed:number]) {
+//            [string addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, string.length)];
+//        }
+//        else {
+//            [string addAttribute:NSForegroundColorAttributeName value:[UIColor greenColor] range:NSMakeRange(0, string.length)];
+//        }
+//        
+//        NSMutableAttributedString *space = [[NSMutableAttributedString alloc] initWithString:@"  "];
+//        
+//        [space addAttribute:NSBackgroundColorAttributeName value:[UIColor clearColor] range:NSMakeRange(0, 2)];
+//        
+//        [numbers appendAttributedString:string];
+//        
+//        [numbers appendAttributedString:space];
 //    }
-    NSMutableAttributedString *numbers = [[NSMutableAttributedString alloc] init];
-    for (NSString *number in _allNumbersDrawn)
-    {
-        NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:number];
-        
-        UIFont *font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:18];
-        
-        [string addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, string.length)];
-        
-        [string addAttribute:NSBackgroundColorAttributeName value:[UIColor clearColor] range:NSMakeRange(0, string.length)];
-        
-        
-        if ([Utilities isBlack:number]) {
-            [string addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, string.length)];
-        }
-        else if ([Utilities isRed:number]) {
-            [string addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, string.length)];
-        }
-        else {
-            [string addAttribute:NSForegroundColorAttributeName value:[UIColor greenColor] range:NSMakeRange(0, string.length)];
-        }
-        
-        NSMutableAttributedString *space = [[NSMutableAttributedString alloc] initWithString:@"  "];
-        
-        [space addAttribute:NSBackgroundColorAttributeName value:[UIColor clearColor] range:NSMakeRange(0, 2)];
-        
-        [numbers appendAttributedString:string];
-        
-        [numbers appendAttributedString:space];
-    }
-    
-    self.history.attributedText = numbers;
-    self.history2.attributedText = numbers;
+//    
+//    self.history.attributedText = numbers;
+////    self.history2.attributedText = numbers;
     
     [self recalculateAllNumbers];
 }
@@ -267,7 +269,20 @@
 {
     [_allNumbersDrawn removeAllObjects];
     
+//    [_notDrawnFor removeAllObjects];
+//    [_timesDrawn removeAllObjects];
+//    [_scoresCount removeAllObjects];
+//    [_probabArray removeAllObjects];
+    
+    [_colorsFrequency removeAllObjects];
+    [_oddsFrequency removeAllObjects];
+    [_halvesFrequency removeAllObjects];
+    [_dozenFrequency removeAllObjects];
+    [_columnFrequency removeAllObjects];
+
     [self resetScores];
+    
+    [self showPastNumbers];
 }
 
 #pragma mark -
@@ -518,63 +533,63 @@
                      probab:0.31579];
     
     
-    NSString *text = _history.text;
-    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithAttributedString:_history.attributedText];
-    //    NSLog(@"history.text: %@",text);
-    
-//    if ([text isEqualToString:@""] && red) {
-//        _history.text = [text stringByAppendingFormat:@"%@", number];
-//        _history2.text = [text stringByAppendingFormat:@"%@", number];
+////    NSString *text = _history.text;
+//    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithAttributedString:_history.attributedText];
+//    //    NSLog(@"history.text: %@",text);
+//    
+////    if ([text isEqualToString:@""] && red) {
+////        _history.text = [text stringByAppendingFormat:@"%@", number];
+////        _history2.text = [text stringByAppendingFormat:@"%@", number];
+////    }
+////    else if ([text isEqualToString:@""] && black) {
+////        _history.text = [text stringByAppendingFormat:@"[%@]", number];
+////        _history2.text = [text stringByAppendingFormat:@"[%@]", number];
+////    }
+////    else if ([text isEqualToString:@""]) {
+////        _history.text = [text stringByAppendingFormat:@"*%@*", number];
+////        _history2.text = [text stringByAppendingFormat:@"*%@*", number];
+////    }
+////    else if (red) {
+////        _history.text = [text stringByAppendingFormat:@", %@", number];
+////        _history2.text = [text stringByAppendingFormat:@", %@", number];
+////    }
+////    else if (black) {
+////        _history.text = [text stringByAppendingFormat:@", [%@]", number];
+////        _history2.text = [text stringByAppendingFormat:@", [%@]", number];
+////    }
+////    else {
+////        _history.text = [text stringByAppendingFormat:@", *%@*", number];
+////        _history2.text = [text stringByAppendingFormat:@", *%@*", number];
+////    }
+//    
+//    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:number];
+//    
+//    UIFont *font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:18];
+//    
+//    [string addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, string.length)];
+//    
+//    [string addAttribute:NSBackgroundColorAttributeName value:[UIColor clearColor] range:NSMakeRange(0, string.length)];
+//    
+//    
+//    if ([Utilities isBlack:number]) {
+//        [string addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, string.length)];
 //    }
-//    else if ([text isEqualToString:@""] && black) {
-//        _history.text = [text stringByAppendingFormat:@"[%@]", number];
-//        _history2.text = [text stringByAppendingFormat:@"[%@]", number];
-//    }
-//    else if ([text isEqualToString:@""]) {
-//        _history.text = [text stringByAppendingFormat:@"*%@*", number];
-//        _history2.text = [text stringByAppendingFormat:@"*%@*", number];
-//    }
-//    else if (red) {
-//        _history.text = [text stringByAppendingFormat:@", %@", number];
-//        _history2.text = [text stringByAppendingFormat:@", %@", number];
-//    }
-//    else if (black) {
-//        _history.text = [text stringByAppendingFormat:@", [%@]", number];
-//        _history2.text = [text stringByAppendingFormat:@", [%@]", number];
+//    else if ([Utilities isRed:number]) {
+//        [string addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, string.length)];
 //    }
 //    else {
-//        _history.text = [text stringByAppendingFormat:@", *%@*", number];
-//        _history2.text = [text stringByAppendingFormat:@", *%@*", number];
+//        [string addAttribute:NSForegroundColorAttributeName value:[UIColor greenColor] range:NSMakeRange(0, string.length)];
 //    }
-    
-    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:number];
-    
-    UIFont *font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:18];
-    
-    [string addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, string.length)];
-    
-    [string addAttribute:NSBackgroundColorAttributeName value:[UIColor clearColor] range:NSMakeRange(0, string.length)];
-    
-    
-    if ([Utilities isBlack:number]) {
-        [string addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, string.length)];
-    }
-    else if ([Utilities isRed:number]) {
-        [string addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, string.length)];
-    }
-    else {
-        [string addAttribute:NSForegroundColorAttributeName value:[UIColor greenColor] range:NSMakeRange(0, string.length)];
-    }
-    
-    NSMutableAttributedString *space = [[NSMutableAttributedString alloc] initWithString:@"  "];
-    
-    [space addAttribute:NSBackgroundColorAttributeName value:[UIColor clearColor] range:NSMakeRange(0, 2)];
-    
-    [attributedString appendAttributedString:string];
-    
-    [attributedString appendAttributedString:space];
-    
-    _history.attributedText = attributedString;
+//    
+//    NSMutableAttributedString *space = [[NSMutableAttributedString alloc] initWithString:@"  "];
+//    
+//    [space addAttribute:NSBackgroundColorAttributeName value:[UIColor clearColor] range:NSMakeRange(0, 2)];
+//    
+//    [attributedString appendAttributedString:string];
+//    
+//    [attributedString appendAttributedString:space];
+//    
+//    _history.attributedText = attributedString;
     
     assert(_allNumbersDrawn);
     
@@ -595,6 +610,8 @@
         int index = [number intValue];
         [_notDrawnFor replaceObjectAtIndex:index withObject:[[NSNumber alloc] initWithInt:0]];
     }
+    
+    [self showPastNumbers];
     
     [self makeRangeVisible];
     
@@ -741,24 +758,24 @@
 
 -(void)makeRangeVisible
 {
-    if (_portret) {
-        NSInteger len = [_history.text length];
-        NSRange range = NSMakeRange(len - 1, 1);
-        
-        self.history.selectedRange = range;
-        [_history scrollRangeToVisible:range];
-        
-        self.history.scrollEnabled = YES;
-    }
-    else {
-        NSInteger len = [_history2.text length];
-        NSRange range = NSMakeRange(len - 1, 1);
-        
-        self.history2.selectedRange = range;
-        [_history2 scrollRangeToVisible:range];
-        
-        self.history2.scrollEnabled = YES;
-    }
+//    if (_portret) {
+    NSInteger len = [_history.text length];
+    NSRange range = NSMakeRange(len, 1);
+    
+    self.history.selectedRange = range;
+    [_history scrollRangeToVisible:range];
+    
+    self.history.scrollEnabled = YES;
+//    }
+//    else {
+//        NSInteger len = [_history2.text length];
+//        NSRange range = NSMakeRange(len - 1, 1);
+//        
+//        self.history2.selectedRange = range;
+//        [_history2 scrollRangeToVisible:range];
+//        
+//        self.history2.scrollEnabled = YES;
+//    }
 }
 
 -(void)increaseNotDrawn
@@ -775,6 +792,12 @@
 {
     _counter = 0;
     
+    _cashColors = 0;
+    _cashOdds = 0;
+    _cashHalves = 0;
+    _cashDozens = 0;
+    _cashColumns = 0;
+
     for (int i=0; i<38; i++)
     {
         [_notDrawnFor replaceObjectAtIndex:i withObject:[[NSNumber alloc] initWithInt:0]];
@@ -910,16 +933,55 @@
     }
     
     [self makeRangeVisible];
-	
+    
+    [self showPastNumbers];
+    
+    [self recalculateAllNumbers];
+    
+//    [pool drain];
+    
+    
     //
     // redo all numbers
     //
-    [self resetScores];
+    self.counter = 0;
+    //
+    CGSize size = _history.frame.size;
+    size.height *= 2.0;
+    self.history.contentSize = size;
+    self.history.showsVerticalScrollIndicator = YES;
     
-//    for (NSString *number in _allNumbersDrawn) {
-//        [self addNextNumber:number toText:&text];
-//    }
+//    CGSize size2 = _history2.frame.size;
+//    size2.height *= 2.0;
+//    self.history2.contentSize = size2;
+//    self.history2.showsVerticalScrollIndicator = YES;
+    
+    
+    [self makeRangeVisible];
+    
+//    [self updateFrequencies];
+}
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+//    self.portretView = nil;
+//    self.landscapeView = nil;
+}
+
+//- (void)dealloc
+//{
+//    [portretView release];
+//    [landscapeView release];
+//    
+//    [super dealloc];
+//}
+
+- (void)showPastNumbers
+{
     NSMutableAttributedString *numbers = [[NSMutableAttributedString alloc] init];
+    
     for (NSString *number in _allNumbersDrawn)
     {
         NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:number];
@@ -951,49 +1013,7 @@
     }
     
     self.history.attributedText = numbers;
-    self.history2.attributedText = numbers;
-    
-    [self recalculateAllNumbers];
-    
-//    [pool drain];
-    
-    
-    //
-    // redo all numbers
-    //
-    self.counter = 0;
-    //
-    CGSize size = _history.frame.size;
-    size.height *= 2.0;
-    self.history.contentSize = size;
-    self.history.showsVerticalScrollIndicator = YES;
-    
-    CGSize size2 = _history2.frame.size;
-    size2.height *= 2.0;
-    self.history2.contentSize = size2;
-    self.history2.showsVerticalScrollIndicator = YES;
-    
-    
-    [self makeRangeVisible];
-    
-//    [self updateFrequencies];
 }
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    self.portretView = nil;
-    self.landscapeView = nil;
-}
-
-//- (void)dealloc
-//{
-//    [portretView release];
-//    [landscapeView release];
-//    
-//    [super dealloc];
-//}
 
 #pragma mark -
 #pragma mark -Orientation

@@ -518,69 +518,89 @@
         
         if (firstDraw) {
             firstDraw = false;
-        }
-        
-        /////////////////////////////////////////////////////////////////////////
-        //
-        // W I N N E R
-        //
-        if ([Utilities performSelector:func1 withObject:number])
-        {
-            if (betOne) {
-                cash += (2.0 * bet1);
-                [frequency addObject:[NSNumber numberWithInt:col1-1]];
-            }
-            col1 = 0;
-        }
-        if ([Utilities performSelector:func2 withObject:number])
-        {
-            if (betTwo) {
-                cash += (2.0 * bet2);
-                [frequency addObject:[NSNumber numberWithInt:col2-1]] ;
-            }
-            col2 = 0;
-        }
-        
-        int maxCount = col1;
-        if (col2 > maxCount) {
-            maxCount = col2;
-        }
-        //
-        // what we bet next
-        //
-        betOne = false;
-        betTwo = false;
-        
-        bet1 = 0; bet2 = 0;
-        
-        if (maxCount == col1 && ![Utilities performSelector:func1 withObject:number])
-        {
+            
             double prob = [[Utilities performSelector:probFunc1 withObject:[NSNumber numberWithInt:col1]] doubleValue];
-            
-            bet1 = [Utilities betNow:prob];
-            
-            betOne = true;
+
+            if ([Utilities performSelector:func1 withObject:number]) {
+                betTwo = true;
+                
+                bet2 = [Utilities betNow:prob];
+                cash -= bet2;
+                col1 = 0;
+            }
+            else if ([Utilities performSelector:func2 withObject:number]) {
+                betOne = true;
+                
+                bet1 = [Utilities betNow:prob];
+                cash -= bet1;
+                col2 = 0;
+            }
         }
-        if (maxCount == col2 && ![Utilities performSelector:func2 withObject:number])
+        else
         {
-            double prob = [[Utilities performSelector:probFunc2 withObject:[NSNumber numberWithInt:col2]] doubleValue];
+            ////////////////////////////////////////////////////////////////
+            //
+            // W I N N E R
+            //
+            if ([Utilities performSelector:func1 withObject:number])
+            {
+                if (betOne) {
+                    cash += (2.0 * bet1);
+                    [frequency addObject:[NSNumber numberWithInt:col1-1]];
+                }
+                col1 = 0;
+            }
+            if ([Utilities performSelector:func2 withObject:number])
+            {
+                if (betTwo) {
+                    cash += (2.0 * bet2);
+                    [frequency addObject:[NSNumber numberWithInt:col2-1]] ;
+                }
+                col2 = 0;
+            }
             
-            bet2 = [Utilities betNow:prob];
+            int maxCount = col1;
+            if (col2 > maxCount) {
+                maxCount = col2;
+            }
+            //
+            // what we bet next
+            //
+            betOne = false;
+            betTwo = false;
             
-            betTwo = true;
+            bet1 = 0; bet2 = 0;
+            
+            if (maxCount == col1 && ![Utilities performSelector:func1 withObject:number])
+            {
+                double prob = [[Utilities performSelector:probFunc1 withObject:[NSNumber numberWithInt:col1]] doubleValue];
+                
+                bet1 = [Utilities betNow:prob];
+                
+                betOne = true;
+            }
+            if (maxCount == col2 && ![Utilities performSelector:func2 withObject:number])
+            {
+                double prob = [[Utilities performSelector:probFunc2 withObject:[NSNumber numberWithInt:col2]] doubleValue];
+                
+                bet2 = [Utilities betNow:prob];
+                
+                betTwo = true;
+            }
+            
+            NSLog(@"number = %@", number);
+            NSLog(@"col1 = %d, col2 = %d", col1, col2);
+            NSLog(@"bet1 = %d, bet2 = %d", bet1, bet2);
+            
+            cash -= (bet1 + bet2);
         }
-        
-        NSLog(@"col1 = %d, col2 = %d", col1, col2);
-        NSLog(@"bet1 = %d, bet2 = %d", bet1, bet2);
-        
-        cash -= (bet1 + bet2);
         
     } // allNumbersDrawn
     
-    if (col1 > 0) {
+    if (col1 > 1) {
         [frequency addObject:[NSNumber numberWithInt:col1-1]];
     }
-    if (col2 > 0) {
+    if (col2 > 1) {
         [frequency addObject:[NSNumber numberWithInt:col2-1]];
     }
     
@@ -637,95 +657,114 @@
     for (NSString *number in allNumbersDrawn )
     {
         col1++; col2++; col3++;
-        
+
         if (firstDraw) {
             firstDraw = false;
-        }
-
-        /////////////////////////////////////////////////////////////////////////
-        //
-        // W I N N E R
-        //
-        if ([Utilities performSelector:func1 withObject:number])
-        {
-            if (betOne) {
-                cash += (3.0 * bet1);
-                [frequency addObject:[NSNumber numberWithInt:col1-1]];
+            
+            if ([Utilities performSelector:func1 withObject:number]) {
+                betTwo = true;
+                betThree = true;
+                col1 = 0;
             }
-            col1 = 0;
-        }
-        if ([Utilities performSelector:func2 withObject:number])
-        {
-            if (betTwo) {
-                cash += (3.0 * bet2);
-                [frequency addObject:[NSNumber numberWithInt:col2-1]];
+            else if ([Utilities performSelector:func2 withObject:number]) {
+                betOne = true;
+                betThree = true;
+                col2 = 0;
             }
-            col2 = 0;
-        }
-        if ([Utilities performSelector:func3 withObject:number])
-        {
-            if (betThree) {
-                cash += (3.0 * bet3);
-                [frequency addObject:[NSNumber numberWithInt:col3-1]];
+            else if ([Utilities performSelector:func3 withObject:number]) {
+                betOne = true;
+                betTwo = true;
+                col3 = 0;
             }
-            col3 = 0;
         }
-        
-        int maxCount = col1;
-        if (col2 > maxCount) {
-            maxCount = col2;
-        }
-        if (col3 > maxCount) {
-            maxCount = col3;
-        }
-        //
-        // what we bet next
-        //
-        betOne = false;
-        betTwo = false;
-        betThree = false;
-        
-        bet1 = 0; bet2 = 0; bet3 = 0;
-
-        if (col1 > 0 && maxCount == col1 && ![Utilities performSelector:func1 withObject:number])
+        else
         {
-            double prob = [[Utilities performSelector:probFunc1 withObject:[NSNumber numberWithInt:col1]] doubleValue];
+            ///////////////////////////////////////////////////////////
+            //
+            // W I N N E R
+            //
+            if ([Utilities performSelector:func1 withObject:number])
+            {
+                if (betOne) {
+                    cash += (3.0 * bet1);
+                    [frequency addObject:[NSNumber numberWithInt:col1-1]];
+                }
+                col1 = 0;
+            }
+            if ([Utilities performSelector:func2 withObject:number])
+            {
+                if (betTwo) {
+                    cash += (3.0 * bet2);
+                    [frequency addObject:[NSNumber numberWithInt:col2-1]];
+                }
+                col2 = 0;
+            }
+            if ([Utilities performSelector:func3 withObject:number])
+            {
+                if (betThree) {
+                    cash += (3.0 * bet3);
+                    [frequency addObject:[NSNumber numberWithInt:col3-1]];
+                }
+                col3 = 0;
+            }
             
-            bet1 = [Utilities betNow:prob];
+            int maxCount = col1;
+            if (col2 > maxCount) {
+                maxCount = col2;
+            }
+            if (col3 > maxCount) {
+                maxCount = col3;
+            }
+            //
+            // what we bet next
+            //
+            betOne = false;
+            betTwo = false;
+            betThree = false;
             
-            betOne = true;
+            bet1 = 0; bet2 = 0; bet3 = 0;
+            
+            if (col1 > 0 && maxCount == col1 && ![Utilities performSelector:func1 withObject:number])
+            {
+                double prob = [[Utilities performSelector:probFunc1 withObject:[NSNumber numberWithInt:col1]] doubleValue];
+                
+                bet1 = [Utilities betNow:prob];
+                
+                betOne = true;
+            }
+            if (col2 > 0 && maxCount == col2 && ![Utilities performSelector:func2 withObject:number])
+            {
+                double prob = [[Utilities performSelector:probFunc2 withObject:[NSNumber numberWithInt:col2]] doubleValue];
+                
+                bet2 = [Utilities betNow:prob];
+                
+                betTwo = true;
+            }
+            if (col3 > 0 && maxCount == col3 && ![Utilities performSelector:func3 withObject:number])
+            {
+                double prob = [[Utilities performSelector:probFunc3 withObject:[NSNumber numberWithInt:col3]] doubleValue];
+                
+                bet3 = [Utilities betNow:prob];
+                
+                betThree = true;
+            }
+            
+            NSLog(@"number = %@", number);
+            NSLog(@"col1 = %d, col2 = %d, col3 = %d", col1, col2, col3);
+            NSLog(@"bet1 = %d, bet2 = %d, bet3 = %d", bet1, bet2, bet3);
+            
+            cash -= (bet1 + bet2 + bet3);
         }
-        if (col2 > 0 && maxCount == col2 && ![Utilities performSelector:func2 withObject:number])
-        {
-            double prob = [[Utilities performSelector:probFunc2 withObject:[NSNumber numberWithInt:col2]] doubleValue];
-            
-            bet2 = [Utilities betNow:prob];
-            
-            betTwo = true;
-        }
-        if (col3 > 0 && maxCount == col3 && ![Utilities performSelector:func3 withObject:number])
-        {
-            double prob = [[Utilities performSelector:probFunc3 withObject:[NSNumber numberWithInt:col3]] doubleValue];
-            
-            bet3 = [Utilities betNow:prob];
-            
-            betThree = true;
-        }
-        
-        NSLog(@"col1 = %d, col2 = %d, col3 = %d", col1, col2, col3);
-        NSLog(@"bet1 = %d, bet2 = %d, bet3 = %d", bet1, bet2, bet3);
-        
-        cash -= (bet1 + bet2 + bet3);
         
     } // allNumbersDrawn
     
-    if (col1 > 0) {
+    if (col1 > 1) {
         [frequency addObject:[NSNumber numberWithInt:col1-1]];
     }
-    if (col2 > 0) {
+    if (col2 > 1) {
         [frequency addObject:[NSNumber numberWithInt:col2-1]];
     }
-    if (col3 > 0) {
+    if (col3 > 1) {
         [frequency addObject:[NSNumber numberWithInt:col3-1]];
     }
     

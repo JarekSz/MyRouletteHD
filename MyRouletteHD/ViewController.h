@@ -31,9 +31,9 @@ enum TURNS {
 
 @interface ViewController : UIViewController
 
-@property (nonatomic, retain) UIView *portretView;
-@property (nonatomic, retain) UIView *landscapeView;
-@property bool portret;
+//@property (nonatomic, retain) UIView *portretView;
+//@property (nonatomic, retain) UIView *landscapeView;
+//@property bool portret;
 
 @property (nonatomic, retain) IBOutlet UIButton *btn00, *btn0;
 @property (nonatomic, retain) IBOutlet UIButton *btn01, *btn02, *btn03;
@@ -50,7 +50,7 @@ enum TURNS {
 @property (nonatomic, retain) IBOutlet UIButton *btn34, *btn35, *btn36;
 
 @property (nonatomic, retain) IBOutlet UITextView *history;
-@property (nonatomic, retain) IBOutlet UITextView *history2;
+//@property (nonatomic, retain) IBOutlet UITextView *history2;
 
 @property (nonatomic, retain) NSMutableArray *allNumbersDrawn;
 @property (nonatomic, retain) NSMutableArray *notDrawnFor;

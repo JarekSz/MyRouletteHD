@@ -123,19 +123,19 @@
 
 - (void)showCash
 {
-    NSString *col = [NSString stringWithFormat:@"%.2f", _cashColors];
+    NSString *col = [NSString stringWithFormat:@"%d", (int)_cashColors];
     self.colorText.text = col;
     
-    NSString *odd = [NSString stringWithFormat:@"%.2f", _cashOdds];
+    NSString *odd = [NSString stringWithFormat:@"%d", (int)_cashOdds];
     self.oddsText.text = odd;
     
-    NSString *halves = [NSString stringWithFormat:@"%.2f", _cashHalves];
+    NSString *halves = [NSString stringWithFormat:@"%d", (int)_cashHalves];
     self.halvesText.text = halves;
     
-    NSString *dozens = [NSString stringWithFormat:@"%.2f", _cashDozens];
+    NSString *dozens = [NSString stringWithFormat:@"%d", (int)_cashDozens];
     self.dozenText.text = dozens;
     
-    NSString *columns = [NSString stringWithFormat:@"%.2f", _cashColumns];
+    NSString *columns = [NSString stringWithFormat:@"%d", (int)_cashColumns];
     self.columnsText.text = columns;
 }
 
