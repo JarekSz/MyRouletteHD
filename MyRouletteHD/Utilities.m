@@ -528,6 +528,7 @@
         {
             if (betOne) {
                 cash += (2.0 * bet1);
+                [frequency addObject:[NSNumber numberWithInt:col1-1]];
             }
             col1 = 0;
         }
@@ -535,6 +536,7 @@
         {
             if (betTwo) {
                 cash += (2.0 * bet2);
+                [frequency addObject:[NSNumber numberWithInt:col2-1]] ;
             }
             col2 = 0;
         }
@@ -576,10 +578,10 @@
     } // allNumbersDrawn
     
     if (col1 > 0) {
-        [frequency addObject:[NSNumber numberWithInt:col1]];
+        [frequency addObject:[NSNumber numberWithInt:col1-1]];
     }
     if (col2 > 0) {
-        [frequency addObject:[NSNumber numberWithInt:col2]];
+        [frequency addObject:[NSNumber numberWithInt:col2-1]];
     }
     
     [self combineArray:frequency];
@@ -648,6 +650,7 @@
         {
             if (betOne) {
                 cash += (3.0 * bet1);
+                [frequency addObject:[NSNumber numberWithInt:col1-1]];
             }
             col1 = 0;
         }
@@ -655,6 +658,7 @@
         {
             if (betTwo) {
                 cash += (3.0 * bet2);
+                [frequency addObject:[NSNumber numberWithInt:col2-1]];
             }
             col2 = 0;
         }
@@ -662,6 +666,7 @@
         {
             if (betThree) {
                 cash += (3.0 * bet3);
+                [frequency addObject:[NSNumber numberWithInt:col3-1]];
             }
             col3 = 0;
         }
@@ -715,13 +720,13 @@
     } // allNumbersDrawn
     
     if (col1 > 0) {
-        [frequency addObject:[NSNumber numberWithInt:col1]];
+        [frequency addObject:[NSNumber numberWithInt:col1-1]];
     }
     if (col2 > 0) {
-        [frequency addObject:[NSNumber numberWithInt:col2]];
+        [frequency addObject:[NSNumber numberWithInt:col2-1]];
     }
     if (col3 > 0) {
-        [frequency addObject:[NSNumber numberWithInt:col3]];
+        [frequency addObject:[NSNumber numberWithInt:col3-1]];
     }
     
     [self combineArray:frequency];

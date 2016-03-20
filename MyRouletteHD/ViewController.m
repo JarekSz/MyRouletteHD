@@ -151,12 +151,42 @@
     //
     NSString *text = [[NSString alloc] init];
     
-    for (NSString *number in _allNumbersDrawn) {
-        [self addNextNumber:number toText:&text];
+//    for (NSString *number in _allNumbersDrawn) {
+//        [self addNextNumber:number toText:&text];
+//    }
+    NSMutableAttributedString *numbers = [[NSMutableAttributedString alloc] init];
+    for (NSString *number in _allNumbersDrawn)
+    {
+        NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:number];
+        
+        UIFont *font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:18];
+        
+        [string addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, string.length)];
+        
+        [string addAttribute:NSBackgroundColorAttributeName value:[UIColor clearColor] range:NSMakeRange(0, string.length)];
+        
+        
+        if ([Utilities isBlack:number]) {
+            [string addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, string.length)];
+        }
+        else if ([Utilities isRed:number]) {
+            [string addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, string.length)];
+        }
+        else {
+            [string addAttribute:NSForegroundColorAttributeName value:[UIColor greenColor] range:NSMakeRange(0, string.length)];
+        }
+        
+        NSMutableAttributedString *space = [[NSMutableAttributedString alloc] initWithString:@"  "];
+        
+        [space addAttribute:NSBackgroundColorAttributeName value:[UIColor clearColor] range:NSMakeRange(0, 2)];
+        
+        [numbers appendAttributedString:string];
+        
+        [numbers appendAttributedString:space];
     }
     
-    self.history.text = text;
-    self.history2.text = text;
+    self.history.attributedText = numbers;
+    self.history2.attributedText = numbers;
     
     [self recalculateAllNumbers];
 }
@@ -489,32 +519,62 @@
     
     
     NSString *text = _history.text;
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithAttributedString:_history.attributedText];
     //    NSLog(@"history.text: %@",text);
     
-    if ([text isEqualToString:@""] && red) {
-        _history.text = [text stringByAppendingFormat:@"%@", number];
-        _history2.text = [text stringByAppendingFormat:@"%@", number];
+//    if ([text isEqualToString:@""] && red) {
+//        _history.text = [text stringByAppendingFormat:@"%@", number];
+//        _history2.text = [text stringByAppendingFormat:@"%@", number];
+//    }
+//    else if ([text isEqualToString:@""] && black) {
+//        _history.text = [text stringByAppendingFormat:@"[%@]", number];
+//        _history2.text = [text stringByAppendingFormat:@"[%@]", number];
+//    }
+//    else if ([text isEqualToString:@""]) {
+//        _history.text = [text stringByAppendingFormat:@"*%@*", number];
+//        _history2.text = [text stringByAppendingFormat:@"*%@*", number];
+//    }
+//    else if (red) {
+//        _history.text = [text stringByAppendingFormat:@", %@", number];
+//        _history2.text = [text stringByAppendingFormat:@", %@", number];
+//    }
+//    else if (black) {
+//        _history.text = [text stringByAppendingFormat:@", [%@]", number];
+//        _history2.text = [text stringByAppendingFormat:@", [%@]", number];
+//    }
+//    else {
+//        _history.text = [text stringByAppendingFormat:@", *%@*", number];
+//        _history2.text = [text stringByAppendingFormat:@", *%@*", number];
+//    }
+    
+    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:number];
+    
+    UIFont *font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:18];
+    
+    [string addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, string.length)];
+    
+    [string addAttribute:NSBackgroundColorAttributeName value:[UIColor clearColor] range:NSMakeRange(0, string.length)];
+    
+    
+    if ([Utilities isBlack:number]) {
+        [string addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, string.length)];
     }
-    else if ([text isEqualToString:@""] && black) {
-        _history.text = [text stringByAppendingFormat:@"[%@]", number];
-        _history2.text = [text stringByAppendingFormat:@"[%@]", number];
-    }
-    else if ([text isEqualToString:@""]) {
-        _history.text = [text stringByAppendingFormat:@"*%@*", number];
-        _history2.text = [text stringByAppendingFormat:@"*%@*", number];
-    }
-    else if (red) {
-        _history.text = [text stringByAppendingFormat:@", %@", number];
-        _history2.text = [text stringByAppendingFormat:@", %@", number];
-    }
-    else if (black) {
-        _history.text = [text stringByAppendingFormat:@", [%@]", number];
-        _history2.text = [text stringByAppendingFormat:@", [%@]", number];
+    else if ([Utilities isRed:number]) {
+        [string addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, string.length)];
     }
     else {
-        _history.text = [text stringByAppendingFormat:@", *%@*", number];
-        _history2.text = [text stringByAppendingFormat:@", *%@*", number];
+        [string addAttribute:NSForegroundColorAttributeName value:[UIColor greenColor] range:NSMakeRange(0, string.length)];
     }
+    
+    NSMutableAttributedString *space = [[NSMutableAttributedString alloc] initWithString:@"  "];
+    
+    [space addAttribute:NSBackgroundColorAttributeName value:[UIColor clearColor] range:NSMakeRange(0, 2)];
+    
+    [attributedString appendAttributedString:string];
+    
+    [attributedString appendAttributedString:space];
+    
+    _history.attributedText = attributedString;
     
     assert(_allNumbersDrawn);
     
@@ -856,14 +916,42 @@
     //
     [self resetScores];
     
-    NSString *text = [[NSString alloc] init];
-    
-    for (NSString *number in _allNumbersDrawn) {
-        [self addNextNumber:number toText:&text];
+//    for (NSString *number in _allNumbersDrawn) {
+//        [self addNextNumber:number toText:&text];
+//    }
+    NSMutableAttributedString *numbers = [[NSMutableAttributedString alloc] init];
+    for (NSString *number in _allNumbersDrawn)
+    {
+        NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:number];
+        
+        UIFont *font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:18];
+        
+        [string addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, string.length)];
+        
+        [string addAttribute:NSBackgroundColorAttributeName value:[UIColor clearColor] range:NSMakeRange(0, string.length)];
+        
+        
+        if ([Utilities isBlack:number]) {
+            [string addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, string.length)];
+        }
+        else if ([Utilities isRed:number]) {
+            [string addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, string.length)];
+        }
+        else {
+            [string addAttribute:NSForegroundColorAttributeName value:[UIColor greenColor] range:NSMakeRange(0, string.length)];
+        }
+        
+        NSMutableAttributedString *space = [[NSMutableAttributedString alloc] initWithString:@"  "];
+        
+        [space addAttribute:NSBackgroundColorAttributeName value:[UIColor clearColor] range:NSMakeRange(0, 2)];
+        
+        [numbers appendAttributedString:string];
+        
+        [numbers appendAttributedString:space];
     }
     
-    self.history.text = text;
-    self.history2.text = text;
+    self.history.attributedText = numbers;
+    self.history2.attributedText = numbers;
     
     [self recalculateAllNumbers];
     

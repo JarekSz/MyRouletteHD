@@ -8,7 +8,12 @@
 
 #import "CalculateStrategyViewController.h"
 
+#import "Utilities.h"
+
+
 @interface CalculateStrategyViewController ()
+
+@property (strong, nonatomic) IBOutlet UITextView *pastNumbers;
 
 @end
 
@@ -312,6 +317,40 @@
     self.columnsLbl.text = column;
 
     [self showCash];
+    
+    NSMutableAttributedString *numbers = [[NSMutableAttributedString alloc] init];
+    
+    for (NSString *number in _allNumbersDrawn)
+    {
+        NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:number];
+        
+        UIFont *font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:18];
+
+        [string addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, string.length)];
+
+        [string addAttribute:NSBackgroundColorAttributeName value:[UIColor clearColor] range:NSMakeRange(0, string.length)];
+
+        
+        if ([Utilities isBlack:number]) {
+            [string addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, string.length)];
+        }
+        else if ([Utilities isRed:number]) {
+            [string addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, string.length)];
+        }
+        else {
+            [string addAttribute:NSForegroundColorAttributeName value:[UIColor greenColor] range:NSMakeRange(0, string.length)];
+        }
+        
+        NSMutableAttributedString *space = [[NSMutableAttributedString alloc] initWithString:@"  "];
+        
+        [space addAttribute:NSBackgroundColorAttributeName value:[UIColor clearColor] range:NSMakeRange(0, 2)];
+        
+        [numbers appendAttributedString:string];
+        
+        [numbers appendAttributedString:space];
+    }
+    
+    self.pastNumbers.attributedText = numbers;
 }
 
 - (void)viewDidUnload
