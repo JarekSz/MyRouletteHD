@@ -25,6 +25,79 @@
 	return docDir;
 }
 
++ (NSString *)archiveNumbersPath:(NSString *)fileName {
+    
+    NSString *docDir = [Utilities archivePath];
+    
+    NSString *filePath = [docDir stringByAppendingPathComponent:fileName];
+    
+    return filePath;
+}
+
++ (void)archiveNumbers:(NSArray *)numbers withFileName:fileName
+{
+    NSString *filePath = [Utilities archiveNumbersPath:fileName];
+    
+    NSError *error = nil;
+    BOOL success = YES;
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    //
+    // check if file already exist
+    //
+    BOOL exist = [fileManager fileExistsAtPath:filePath];
+    if (YES == exist) {
+        
+        // UNLOCK THE FILE - if exists
+        NSDictionary *attrib;
+        attrib = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO]
+                                             forKey:NSFileImmutable];
+        
+        success = [fileManager setAttributes:attrib
+                                ofItemAtPath:filePath
+                                       error:&error];
+    }
+    
+    //
+    // new file or unlocked
+    //
+    if (YES == success) {
+        
+        // SAVE THE FILE
+        success = [NSKeyedArchiver archiveRootObject:numbers
+                                              toFile:filePath];
+        if (success)
+        {
+            // LOCK IT BACK
+            NSDictionary *attrib;
+            attrib = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES]
+                                                 forKey:NSFileImmutable];
+            success = [fileManager setAttributes:attrib
+                                    ofItemAtPath:filePath
+                                           error:&error];
+        }
+        else {
+            NSLog(@"Error: %@",[error localizedDescription]);
+        }
+    }
+    else {
+        NSLog(@"Could not UNLOCK the file.");
+    }
+}
+
++ (NSArray *)unarchiveNumbers {
+    
+    NSString *last = [self lastFileName];
+    NSString *name = [self archiveNumbersPath:last];
+    
+    NSArray *myNumbers;
+    
+    myNumbers = [NSKeyedUnarchiver unarchiveObjectWithFile:name];
+    
+    return myNumbers;
+}
+
 + (NSString *)archiveBetsPath {
     
 	NSString *docDir = [Utilities archivePath];
@@ -132,6 +205,10 @@
     NSMutableArray *allFiles = [Utilities arrayOfRouletteFiles];
     
     NSString *lastFile = [allFiles lastObject];
+    
+    if (lastFile == nil) {
+        lastFile = @"Roulette01.dat";
+    }
     
     return lastFile;
 }

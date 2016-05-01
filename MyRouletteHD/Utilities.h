@@ -39,6 +39,9 @@
 + (BOOL)isSecondColumn:(NSString *)number;
 + (BOOL)isThirdColumn:(NSString *)number;
 
++ (void)archiveNumbers:(NSArray *)numbers withFileName:fileName;
++ (NSArray *)unarchiveNumbers;
+
 + (double)updateColorFrequencies:(NSMutableArray *)colorsFrequency
                       allNumbers:(NSMutableArray *)allNumbersDrawn
                             bets:(MyBets *)myBets;

@@ -147,35 +147,35 @@
                                              allNumbers:_allNumbersDrawn
                                                    bets:_myBets];
     
-    NSString *col = [NSString stringWithFormat:@"%.2f", _cashColors];
+    NSString *col = [NSString stringWithFormat:@"%d", (int)_cashColors];
     self.colorText.text = col;
     
     self.cashOdds = [Utilities updateOddFrequencies:_oddsFrequency
                                          allNumbers:_allNumbersDrawn
                                                bets:_myBets];
     
-    NSString *odd = [NSString stringWithFormat:@"%.2f", _cashOdds];
+    NSString *odd = [NSString stringWithFormat:@"%d", (int)_cashOdds];
     self.oddsText.text = odd;
 
     self.cashHalves = [Utilities updateHalvesFrequencies:_halvesFrequency
                                               allNumbers:_allNumbersDrawn
                                                     bets:_myBets];
     
-    NSString *halves = [NSString stringWithFormat:@"%.2f", _cashHalves];
+    NSString *halves = [NSString stringWithFormat:@"%d", (int)_cashHalves];
     self.halvesText.text = halves;
     
     self.cashDozens = [Utilities updateDozenFrequencies:_dozenFrequency
                                              allNumbers:_allNumbersDrawn
                                                    bets:_myBets];
     
-    NSString *dozens = [NSString stringWithFormat:@"%.2f", _cashDozens];
+    NSString *dozens = [NSString stringWithFormat:@"%d", (int)_cashDozens];
     self.dozenText.text = dozens;
     
     self.cashColumns = [Utilities updateColumnFrequencies:_columnFrequency
                                               allNumbers:_allNumbersDrawn
                                                     bets:_myBets];
     
-    NSString *columns = [NSString stringWithFormat:@"%.2f", _cashColumns];
+    NSString *columns = [NSString stringWithFormat:@"%d", (int)_cashColumns];
     self.columnsText.text = columns;
     
 }
@@ -185,6 +185,37 @@
     [self readBetNumbers];
     
     [self calculate];
+}
+
+- (void)displayStats:(NSString *)string forOutlet1:(UILabel *)label1 andOutlet2:(UILabel *)label2
+{
+    NSArray *numbers = [string componentsSeparatedByString:@"-"];
+    
+    NSInteger size = [numbers count];
+    
+    double MED = 0;
+    int count = 0;
+    for (int i=0; i<size; i++) {
+        int number = (int)[numbers[i] integerValue];
+        count += number;
+        MED += ((i + 1) * number);
+    }
+    MED /= count;
+    
+    double VAR = 0;
+    for (int i=0; i<size; i++) {
+        int number = (int)[numbers[i] integerValue];
+        VAR += ((i + 1) * (number - MED) * (number - MED));
+    }
+    VAR /= count;
+    
+    double SD = sqrt(VAR);
+    
+    NSString *text1 = [NSString stringWithFormat:@"MED=%.2f", MED];
+    NSString *text2 = [NSString stringWithFormat:@"VAR=%.2f; SD=%.2f", VAR, SD];
+    
+    label2.text = text1;
+    label1.text = text2;
 }
 
 /*
@@ -279,6 +310,8 @@
                      [[_colorsFrequency objectAtIndex:4] intValue],
                      [[_colorsFrequency objectAtIndex:5] intValue]];
     self.colorsLbl.text = colors;
+    
+    [self displayStats:colors forOutlet1:_colorsStat andOutlet2:_colorsMed];
 
     NSString *odds = [[NSString alloc] initWithFormat:@"%d-%d-%d-%d-%d-%d", 
                         [[_oddsFrequency objectAtIndex:0] intValue],
@@ -288,6 +321,8 @@
                         [[_oddsFrequency objectAtIndex:4] intValue],
                         [[_oddsFrequency objectAtIndex:5] intValue]];
     self.oddsLbl.text = odds;
+    
+    [self displayStats:odds forOutlet1:_oddsStat andOutlet2:_oddsMed];
 
     NSString *half = [[NSString alloc] initWithFormat:@"%d-%d-%d-%d-%d-%d", 
                       [[_halvesFrequency objectAtIndex:0] intValue],
@@ -297,6 +332,8 @@
                       [[_halvesFrequency objectAtIndex:4] intValue],
                       [[_halvesFrequency objectAtIndex:5] intValue]];
     self.halfLbl.text = half;
+    
+    [self displayStats:half forOutlet1:_halfStat andOutlet2:_halfMed];
 
     NSString *dozen = [[NSString alloc] initWithFormat:@"%d-%d-%d-%d-%d-%d",
                       [[_dozenFrequency objectAtIndex:0] intValue],
@@ -306,6 +343,8 @@
                       [[_dozenFrequency objectAtIndex:4] intValue],
                       [[_dozenFrequency objectAtIndex:5] intValue]];
     self.dozensLbl.text = dozen;
+    
+    [self displayStats:dozen forOutlet1:_dozensStat andOutlet2:_dozensMed];
 
     NSString *column = [[NSString alloc] initWithFormat:@"%d-%d-%d-%d-%d-%d",
                        [[_columnFrequency objectAtIndex:0] intValue],
@@ -315,6 +354,8 @@
                        [[_columnFrequency objectAtIndex:4] intValue],
                        [[_columnFrequency objectAtIndex:5] intValue]];
     self.columnsLbl.text = column;
+    
+    [self displayStats:column forOutlet1:_columnsStat andOutlet2:_columnsMed];
 
     [self showCash];
     

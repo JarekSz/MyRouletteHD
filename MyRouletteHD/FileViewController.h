@@ -15,13 +15,15 @@
 @property (retain, nonatomic) IBOutlet UITextView *FileDirectory;
 @property (retain, nonatomic) IBOutlet UITextView *NumbersDrawn;
 @property (retain, nonatomic) IBOutlet UITextField *FileNameText;
-@property (assign, nonatomic) NSString * __autoreleasing *selectedFilename;
+//@property (assign, nonatomic) NSString * __autoreleasing *selectedFilename;
 //@property int fileNumber;
 @property (retain, nonatomic) NSMutableArray *allNumbersDrawn;
+@property (retain, nonatomic) NSString *currentFilename;
 
+//@property (assign, nonatomic) ViewController *parent;
 
--(void)addNextNumber:(NSString *)number toText:(NSString **)text;
--(NSString *)archiveFilePath:(int)number;
+//-(void)addNextNumber:(NSString *)number toText:(NSString **)text;
+-(NSString *)archiveFilePath:(NSInteger)number;
 //-(IBAction)archiveNumbers;
 //-(IBAction)unarchiveNumbers;
 //-(NSMutableArray *)arrayOfRouletteFiles;

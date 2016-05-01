@@ -54,6 +54,18 @@
 @property (strong, nonatomic) IBOutlet UILabel *dozensLbl;
 @property (strong, nonatomic) IBOutlet UILabel *columnsLbl;
 
+@property (strong, nonatomic) IBOutlet UILabel *colorsStat;
+@property (strong, nonatomic) IBOutlet UILabel *oddsStat;
+@property (strong, nonatomic) IBOutlet UILabel *halfStat;
+@property (strong, nonatomic) IBOutlet UILabel *dozensStat;
+@property (strong, nonatomic) IBOutlet UILabel *columnsStat;
+
+@property (strong, nonatomic) IBOutlet UILabel *colorsMed;
+@property (strong, nonatomic) IBOutlet UILabel *oddsMed;
+@property (strong, nonatomic) IBOutlet UILabel *halfMed;
+@property (strong, nonatomic) IBOutlet UILabel *dozensMed;
+@property (strong, nonatomic) IBOutlet UILabel *columnsMed;
+
 @property double cashColors;
 @property double cashOdds;
 @property double cashHalves;

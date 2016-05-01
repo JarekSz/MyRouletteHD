@@ -23,14 +23,41 @@
 {    
 //    int number = [[FileNameText text] intValue];
     
-    *_selectedFilename = [_FileNameText text];
+//    *_selectedFilename = [_FileNameText text];
+    _currentFilename = [_FileNameText text];
+    
+    NSString *lastFile;
+    
+    NSMutableArray  *allFiles = [Utilities arrayOfRouletteFiles];
+    
+    if ([allFiles count]) {
+        lastFile = [allFiles lastObject];
+    }
+
+    if (![lastFile isEqualToString:_currentFilename]) {
+        NSUInteger index = [allFiles count];
+        
+        index++;
+        
+        _currentFilename = [self archiveFilePath:index];
+    }
+    
+    
+    NSString *numbersText = _NumbersDrawn.text;
+    
+    if ([numbersText length] > 0) {
+        NSArray *numbers = [numbersText componentsSeparatedByString:@"  "];
+        
+        [Utilities archiveNumbers:numbers withFileName:_currentFilename];
+    }
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(IBAction)nextFile:(id)sender
 {
-    NSUInteger index = [Utilities indexOfSelectedFile:*_selectedFilename];
+//    NSUInteger index = [Utilities indexOfSelectedFile:*_selectedFilename];
+    NSUInteger index = [Utilities indexOfSelectedFile:_currentFilename];
     
     NSMutableArray  *allFiles = [Utilities arrayOfRouletteFiles];
     
@@ -42,13 +69,16 @@
             index++;
         }
         
-        *_selectedFilename = [allFiles objectAtIndex:index];
+//        *_selectedFilename = [allFiles objectAtIndex:index];
+        _currentFilename = [allFiles objectAtIndex:index];
         
-        _FileNameText.text = *_selectedFilename;
+//        _FileNameText.text = *_selectedFilename;
+        _FileNameText.text = _currentFilename;
         
         NSString *docPath = [Utilities archivePath];
         
-        NSString *filePath = [docPath stringByAppendingPathComponent:*_selectedFilename];
+//        NSString *filePath = [docPath stringByAppendingPathComponent:*_selectedFilename];
+        NSString *filePath = [docPath stringByAppendingPathComponent:_currentFilename];
         
         [self showNumbersFromFile:filePath];
     }
@@ -58,7 +88,8 @@
 
 -(IBAction)prevFile:(id)sender
 {
-    NSUInteger index = [Utilities indexOfSelectedFile:*_selectedFilename];
+//    NSUInteger index = [Utilities indexOfSelectedFile:*_selectedFilename];
+    NSUInteger index = [Utilities indexOfSelectedFile:_currentFilename];
     
     if (index > 0) {
         index--;
@@ -70,13 +101,16 @@
     
     if (max > 0)
     {
-        *_selectedFilename = [allFiles objectAtIndex:index];
+//        *_selectedFilename = [allFiles objectAtIndex:index];
+        _currentFilename = [allFiles objectAtIndex:index];
         
-        _FileNameText.text = *_selectedFilename;
+//        _FileNameText.text = *_selectedFilename;
+        _FileNameText.text = _currentFilename;
         
         NSString *docPath = [Utilities archivePath];
         
-        NSString *filePath = [docPath stringByAppendingPathComponent:*_selectedFilename];
+//        NSString *filePath = [docPath stringByAppendingPathComponent:*_selectedFilename];
+        NSString *filePath = [docPath stringByAppendingPathComponent:_currentFilename];
         
         [self showNumbersFromFile:filePath];
     }
@@ -88,11 +122,13 @@
 {
     NSMutableArray  *allFiles = [Utilities arrayOfRouletteFiles];
     
-    NSUInteger index = [Utilities indexOfSelectedFile:*_selectedFilename];
+//    NSUInteger index = [Utilities indexOfSelectedFile:*_selectedFilename];
+    NSUInteger index = [Utilities indexOfSelectedFile:_currentFilename];
     
     NSString *docPath = [Utilities archivePath];
     
-    NSString *filePath = [docPath stringByAppendingPathComponent:*_selectedFilename];
+//    NSString *filePath = [docPath stringByAppendingPathComponent:*_selectedFilename];
+    NSString *filePath = [docPath stringByAppendingPathComponent:_currentFilename];
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
     
@@ -111,7 +147,8 @@
         success = [fileManager removeItemAtPath:filePath
                                           error:&error];
         
-        [allFiles removeObject:*_selectedFilename];
+//        [allFiles removeObject:*_selectedFilename];
+        [allFiles removeObject:_currentFilename];
     }
     
     [self showAllFiles];
@@ -119,27 +156,31 @@
     if (index > 0) {
         index--;
         
-        *_selectedFilename = [allFiles objectAtIndex:index];
+//        *_selectedFilename = [allFiles objectAtIndex:index];
+        _currentFilename = [allFiles objectAtIndex:index];
     }
     else if (index < [allFiles count]) {
         index++;
         
-        *_selectedFilename = [allFiles objectAtIndex:index];
+//        *_selectedFilename = [allFiles objectAtIndex:index];
+        _currentFilename = [allFiles objectAtIndex:index];
     }
     else {
-        *_selectedFilename = @"";
+//        *_selectedFilename = @"";
+        _currentFilename = @"";
     }
     
     allFiles = nil;
     
-    _FileNameText.text = *_selectedFilename;
+//    _FileNameText.text = *_selectedFilename;
+    _FileNameText.text = _currentFilename;
 }
 
-- (NSString *)archiveFilePath:(int)number
+- (NSString *)archiveFilePath:(NSInteger)number
 {    
 	NSString *docDir = [Utilities archivePath];
     
-    NSString *filename = [NSString stringWithFormat:@"Roulette%02d.dat", number];
+    NSString *filename = [NSString stringWithFormat:@"Roulette%02d.dat", (int)number];
     
     NSString *filePath = [docDir stringByAppendingPathComponent:filename];
     
@@ -162,7 +203,7 @@
     }
 
     
-	return filePath;
+	return filename;
 }
 
 -(void)showAllFiles
@@ -179,9 +220,13 @@
         directory = [directory stringByAppendingString:@"\n"];
     }
     
-    allFiles = nil;
+//    allFiles = nil;
     
     _FileDirectory.text = directory;
+    
+    if ([allFiles count]) {
+        _currentFilename = [allFiles lastObject];
+    }
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -204,13 +249,15 @@
 		self.allNumbersDrawn = [NSKeyedUnarchiver unarchiveObjectWithFile: filePath];
     }
     
-    NSString *text = [[NSString alloc] init];
+//    NSString *text = [[NSString alloc] init];
     
-    for (NSString *number in _allNumbersDrawn) {
-        [self addNextNumber:number toText:&text];
-    }
+//    for (NSString *number in _allNumbersDrawn) {
+//        [self addNextNumber:number toText:&text];
+//    }
     
-    _NumbersDrawn.text = text;
+    [self showPastNumbers];
+    
+//    _NumbersDrawn.text = text;
     
 }
 
@@ -220,44 +267,105 @@
     // Do any additional setup after loading the view from its nib.
     [self showAllFiles];
     
-    _FileNameText.text = *_selectedFilename;
+//    _FileNameText.text = *_selectedFilename;
+    _FileNameText.text = _currentFilename;
     
     _NumbersDrawn.text = @"";
     
     NSString *docPath = [Utilities archivePath];
     
-    NSString *filePath = [docPath stringByAppendingPathComponent:*_selectedFilename];
+//    NSString *filePath = [docPath stringByAppendingPathComponent:*_selectedFilename];
+    NSString *filePath = [docPath stringByAppendingPathComponent:_currentFilename];
     
+//    [self showNumbersFromFile:filePath];
     [self showNumbersFromFile:filePath];
 }
 
--(void)addNextNumber:(NSString *)number toText:(NSString **)text
+- (void)viewDidAppear:(BOOL)animated
 {
-//    counter++;
-//
-    BOOL black = [Utilities isBlack:number];
-//    [self updateCounter:black index:BLACKS];
+    [super viewDidAppear:animated];
     
-    BOOL red = [Utilities isRed:number];
-//    [self updateCounter:red index:REDS];
+    [self showAllFiles];
+
+    _FileNameText.text = _currentFilename;
     
-    if ([*text isEqualToString:@""] && red) {
-        *text = [*text stringByAppendingFormat:@"%@", number];
+    _NumbersDrawn.text = @"";
+
+    NSString *docPath = [Utilities archivePath];
+
+    NSString *filePath = [docPath stringByAppendingPathComponent:_currentFilename];
+
+    [self showNumbersFromFile:filePath];
+}
+
+//-(void)addNextNumber:(NSString *)number toText:(NSString **)text
+//{
+////    counter++;
+////
+//    BOOL black = [Utilities isBlack:number];
+////    [self updateCounter:black index:BLACKS];
+//    
+//    BOOL red = [Utilities isRed:number];
+////    [self updateCounter:red index:REDS];
+//    
+//    if ([*text isEqualToString:@""] && red) {
+//        *text = [*text stringByAppendingFormat:@"%@", number];
+//    }
+//    else if ([*text isEqualToString:@""] && black) {
+//        *text = [*text stringByAppendingFormat:@"[%@]", number];
+//    }
+//    else if ([*text isEqualToString:@""]) {
+//        *text = [*text stringByAppendingFormat:@"*%@*", number];
+//    }
+//    else if (red) {
+//        *text = [*text stringByAppendingFormat:@", %@", number];
+//    }
+//    else if (black) {
+//        *text = [*text stringByAppendingFormat:@", [%@]", number];
+//    }
+//    else {
+//        *text = [*text stringByAppendingFormat:@", *%@*", number];
+//    }
+//}
+
+- (void)showPastNumbers
+{
+    NSMutableAttributedString *numbers = [[NSMutableAttributedString alloc] init];
+    
+    for (NSString *number in _allNumbersDrawn)
+    {
+        NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:number];
+        
+        UIFont *font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:18];
+        
+        [string addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, string.length)];
+        
+        [string addAttribute:NSBackgroundColorAttributeName value:[UIColor clearColor] range:NSMakeRange(0, string.length)];
+        
+        
+        if ([Utilities isBlack:number]) {
+            [string addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, string.length)];
+        }
+        else if ([Utilities isRed:number]) {
+            [string addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, string.length)];
+        }
+        else {
+            [string addAttribute:NSForegroundColorAttributeName value:[UIColor greenColor] range:NSMakeRange(0, string.length)];
+        }
+        
+        NSMutableAttributedString *space = [[NSMutableAttributedString alloc] initWithString:@"  "];
+        
+        [space addAttribute:NSBackgroundColorAttributeName value:[UIColor clearColor] range:NSMakeRange(0, 2)];
+        
+        [numbers appendAttributedString:string];
+        
+        [numbers appendAttributedString:space];
     }
-    else if ([*text isEqualToString:@""] && black) {
-        *text = [*text stringByAppendingFormat:@"[%@]", number];
-    }
-    else if ([*text isEqualToString:@""]) {
-        *text = [*text stringByAppendingFormat:@"*%@*", number];
-    }
-    else if (red) {
-        *text = [*text stringByAppendingFormat:@", %@", number];
-    }
-    else if (black) {
-        *text = [*text stringByAppendingFormat:@", [%@]", number];
-    }
-    else {
-        *text = [*text stringByAppendingFormat:@", *%@*", number];
+    
+    if ([numbers length] > 0) {
+        [numbers deleteCharactersInRange:NSMakeRange([numbers length] - 2, 2)];
+        
+        self.NumbersDrawn.attributedText = numbers;
     }
 }
 

@@ -10,6 +10,10 @@
 
 @interface ViewController ()
 
+@property (nonatomic, assign) BOOL editing;
+
+@property (nonatomic, strong) UIColor *background;
+
 @end
 
 @implementation ViewController
@@ -226,11 +230,19 @@
 {
     NSMutableArray *allFiles = [Utilities arrayOfRouletteFiles];
     
-    NSUInteger last = [allFiles count];
+    NSString *lastFile = [allFiles lastObject];
+    
+    lastFile = [lastFile stringByReplacingOccurrencesOfString:@".dat" withString:@""];
+
+    lastFile = [lastFile substringFromIndex:8];
+    
+    NSUInteger last = [lastFile integerValue];
+    
+    last++;
     
     allFiles = nil;
     
-    NSString *filename = [NSString stringWithFormat:@"Roulette%02d.dat", (int)++last];
+    NSString *filename = [NSString stringWithFormat:@"Roulette%02d.dat", (int)last];
     
     self.selectedFilename = filename;
     
@@ -242,22 +254,24 @@
 
 - (IBAction)loadFile
 {
+    _selectedFilename = [Utilities lastFileName];
+    
     [self archiveNumbers:_selectedFilename];
     
-    if (_selectedFilename == nil) {
-        self.selectedFilename = [Utilities lastFileName];
-    }
-    
+//    if (_selectedFilename == nil) {
+//        self.selectedFilename = [Utilities lastFileName];
+//    }
+//    
     if (nil == _selectFileView) {
         _selectFileView = [[FileViewController alloc]
                           initWithNibName:@"FileViewController"
                           bundle:nil];
     }
     
-    if (nil == _selectedFilename) {
-        _selectedFilename = [Utilities lastFileName];
-    }
-    
+//    if (nil == _selectedFilename) {
+//        _selectedFilename = [Utilities lastFileName];
+//    }
+//    
 //    self.selectFileView.selectedFilename = &(_selectedFilename);
     
     [self presentViewController:_selectFileView animated:YES completion:nil];
@@ -283,6 +297,25 @@
     [self resetScores];
     
     [self showPastNumbers];
+}
+
+- (IBAction)editing:(id)sender
+{
+    if (_editing) {
+        self.editing = NO;
+        self.history.backgroundColor = _background;
+        
+        [self showPastNumbers];
+        
+        [self viewStats];
+    }
+    else {
+        self.editing = YES;
+        self.history.backgroundColor = [UIColor whiteColor];
+    }
+    
+    [_history setEditable:_editing];
+    [_history setUserInteractionEnabled:_editing];
 }
 
 #pragma mark -
@@ -441,6 +474,44 @@
 	return YES;
 }
 
+//- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
+//{
+//    return NO;
+//}
+
+- (BOOL)textView:(UITextView *)textView
+shouldChangeTextInRange:(NSRange)range
+ replacementText:(NSString *)string
+{
+//    BOOL append = NO;
+//    if ([string isEqualToString:@"."])
+//    {
+//        //trigger 'a' operation
+//        textView.text =
+//        [textView.text stringByAppendingString:@" "];
+//    }
+//    else
+//    {
+//        //trigger do it operation
+//        append = YES;
+//    }
+//    //Same conditions go on
+    
+    
+    NSArray *numbers = [string componentsSeparatedByString:@" "];
+    
+    for (NSString *number in numbers) {
+        [_allNumbersDrawn addObject:number];
+    }
+    
+    [textView resignFirstResponder];
+    
+    [self showPastNumbers];
+
+    
+    return NO;
+}
+
 #pragma mark -
 #pragma mark -adding numbers
 
@@ -450,6 +521,15 @@
     
     self.counter++;
     
+    if (_editing)
+    {
+        [_allNumbersDrawn addObject:number];
+        
+        [self showPastNumbers];
+
+        return;
+    }
+
     //
     // Payout 1 : 1
     //
@@ -909,24 +989,27 @@
     
 	// Do any additional setup after loading the view, typically from a nib.
     
+    self.background = _history.backgroundColor;
+    
     [self resetScores];
     
 //    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	
-    if (_selectedFilename == nil) {
-        self.selectedFilename = [Utilities lastFileName];
-    }
-    
-    NSString *docPath = [Utilities archivePath];
-    
-    NSString *filePath = [docPath stringByAppendingPathComponent:_selectedFilename];
-    
-	NSFileManager *fileManager = [NSFileManager defaultManager];
-	
-	if ([fileManager fileExistsAtPath:filePath])
-    {
-		self.allNumbersDrawn = [NSKeyedUnarchiver unarchiveObjectWithFile: filePath];
-    }
+//    if (_selectedFilename == nil) {
+//        self.selectedFilename = [Utilities lastFileName];
+//    }
+//    
+//    NSString *docPath = [Utilities archivePath];
+//    
+//    NSString *filePath = [docPath stringByAppendingPathComponent:_selectedFilename];
+//    
+//	NSFileManager *fileManager = [NSFileManager defaultManager];
+//	
+//	if ([fileManager fileExistsAtPath:filePath])
+//    {
+//		self.allNumbersDrawn = [NSKeyedUnarchiver unarchiveObjectWithFile: filePath];
+//    }
+    self.allNumbersDrawn = [NSMutableArray arrayWithArray:[Utilities unarchiveNumbers]];
     
     if (nil == _allNumbersDrawn) {
         _allNumbersDrawn = [[NSMutableArray alloc] init];
@@ -962,12 +1045,25 @@
 //    [self updateFrequencies];
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    _selectedFilename = [Utilities lastFileName];
+    
+    [Utilities archiveNumbers:_allNumbersDrawn withFileName:_selectedFilename];
+}
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 //    self.portretView = nil;
 //    self.landscapeView = nil;
+    
+    _selectedFilename = [Utilities lastFileName];
+    
+    [Utilities archiveNumbers:_allNumbersDrawn withFileName:_selectedFilename];
 }
 
 //- (void)dealloc

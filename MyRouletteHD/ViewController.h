@@ -29,7 +29,7 @@ enum TURNS {
     ALL_THE_REST
 };
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UITextViewDelegate>
 
 //@property (nonatomic, retain) UIView *portretView;
 //@property (nonatomic, retain) UIView *landscapeView;

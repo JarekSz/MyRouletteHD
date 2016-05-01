@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -20,6 +20,52 @@
                             <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p0o-M1-gdj">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
+                                    <textView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkM-dx-Abf">
+                                        <rect key="frame" x="142" y="31" width="226" height="540"/>
+                                        <color key="backgroundColor" red="0.0" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <attributedString key="attributedText"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="vXZ-lx-hvc" id="LPb-uV-cR6"/>
+                                        </connections>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZPM-lF-0bE">
+                                        <rect key="frame" x="268" y="579" width="100" height="37"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="7wA-fH-Zb0"/>
+                                            <constraint firstAttribute="height" constant="37" id="NSr-TL-VTg"/>
+                                        </constraints>
+                                        <state key="normal" title="CA">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="clearAll:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="qSd-jD-grN"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Past Numbers:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="bcI-NK-gus">
+                                        <rect key="frame" x="194" y="8" width="121" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="121" id="1Rz-zi-5HE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jaD-DU-CLy">
+                                        <rect key="frame" x="142" y="579" width="100" height="37"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="IKz-tc-tg1"/>
+                                            <constraint firstAttribute="height" constant="37" id="vNf-O4-gLS"/>
+                                        </constraints>
+                                        <state key="normal" title="EDIT">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="editing:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="pjj-yf-SAA"/>
+                                        </connections>
+                                    </button>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KWL-L7-cF3">
                                         <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                         <constraints>
@@ -58,42 +104,13 @@
                                         </items>
                                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </toolbar>
-                                    <textView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bkM-dx-Abf">
-                                        <rect key="frame" x="142" y="30" width="226" height="541"/>
-                                        <color key="backgroundColor" red="0.0" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <attributedString key="attributedText"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZPM-lF-0bE">
-                                        <rect key="frame" x="203" y="579" width="103" height="37"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="103" id="7wA-fH-Zb0"/>
-                                            <constraint firstAttribute="height" constant="37" id="NSr-TL-VTg"/>
-                                        </constraints>
-                                        <state key="normal" title="CA">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="clearAll:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="qSd-jD-grN"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Past Numbers:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="bcI-NK-gus">
-                                        <rect key="frame" x="194" y="8" width="121" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="121" id="1Rz-zi-5HE"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="KWL-L7-cF3" secondAttribute="trailing" id="0oL-Wy-Ppo"/>
                                     <constraint firstItem="KWL-L7-cF3" firstAttribute="top" secondItem="ZPM-lF-0bE" secondAttribute="bottom" constant="7" id="Wmh-9c-hyK"/>
+                                    <constraint firstItem="jaD-DU-CLy" firstAttribute="leading" secondItem="bkM-dx-Abf" secondAttribute="leading" id="XUi-aj-xCl"/>
                                     <constraint firstItem="KWL-L7-cF3" firstAttribute="leading" secondItem="p0o-M1-gdj" secondAttribute="leading" id="Y4i-Ca-ntT"/>
-                                    <constraint firstItem="ZPM-lF-0bE" firstAttribute="centerX" secondItem="bkM-dx-Abf" secondAttribute="centerX" id="aAZ-Ud-2ls"/>
                                     <constraint firstItem="bkM-dx-Abf" firstAttribute="top" secondItem="bcI-NK-gus" secondAttribute="bottom" constant="2" id="nUF-ND-IfD"/>
                                     <constraint firstAttribute="trailing" secondItem="bkM-dx-Abf" secondAttribute="trailing" constant="7" id="oC9-i0-f7K"/>
                                     <constraint firstItem="bcI-NK-gus" firstAttribute="top" secondItem="p0o-M1-gdj" secondAttribute="top" constant="8" id="oFC-X9-edg"/>
@@ -101,6 +118,8 @@
                                     <constraint firstAttribute="bottom" secondItem="KWL-L7-cF3" secondAttribute="bottom" id="r28-fM-9YV"/>
                                     <constraint firstAttribute="bottom" secondItem="bkM-dx-Abf" secondAttribute="bottom" constant="96" id="tAk-WS-45v"/>
                                     <constraint firstItem="bkM-dx-Abf" firstAttribute="leading" secondItem="p0o-M1-gdj" secondAttribute="leading" constant="142" id="tRD-90-4Ub"/>
+                                    <constraint firstItem="ZPM-lF-0bE" firstAttribute="trailing" secondItem="bkM-dx-Abf" secondAttribute="trailing" id="vNQ-b0-3ug"/>
+                                    <constraint firstItem="KWL-L7-cF3" firstAttribute="top" secondItem="jaD-DU-CLy" secondAttribute="bottom" constant="7" id="viS-dE-CV2"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6uD-H2-DLB">
@@ -659,7 +678,6 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="history" destination="bkM-dx-Abf" id="pQY-48-zWg"/>
-                        <outlet property="view" destination="kh9-bI-dsS" id="iJn-yA-7oO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
